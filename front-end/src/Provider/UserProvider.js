@@ -13,7 +13,7 @@ function UserProvider({ children }) {
 
   return (
     <MainContext.Provider value={ contextValue }>
-      {children}
+      { children }
     </MainContext.Provider>
   );
 }
