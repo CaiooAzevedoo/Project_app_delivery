@@ -1,6 +1,4 @@
 // new commit...
-console.log('test');
-
 const validateEmail = (email) => {
   const rejex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return rejex.test(email);
