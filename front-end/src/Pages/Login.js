@@ -9,7 +9,7 @@ function Login() {
         Entrar
       </button>
       <button type="submit" data-testid="common_login__button-register">
-        Cadastrar
+        Cadastro
       </button>
     </div>
   );
