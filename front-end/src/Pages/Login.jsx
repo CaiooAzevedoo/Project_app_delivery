@@ -45,7 +45,7 @@ function Login() {
         disabled={ login.submitIsDisable }
         data-testid="common_login__button-register"
       >
-        Cadastrar
+        Cadastro
       </button>
     </form>
   );
