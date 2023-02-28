@@ -288,7 +288,7 @@ $RECYCLE.BIN/
 .vscode
 .coverage
 
-node_modules
+./node_modules
 report-*.log
 .env
 front-end/.env
