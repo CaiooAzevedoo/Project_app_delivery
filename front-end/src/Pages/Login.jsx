@@ -1,10 +1,13 @@
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import getUser from '../Api/User';
 import MainContext from '../Context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
+
+  const navigate = useNavigate();
 
   useEffect(
     () => {
@@ -20,17 +23,22 @@ function Login() {
     setLogin((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = login;
+    let body = {};
     const request = async () => {
-      const { status } = await getUser({ email, password });
+      const { status, data } = await getUser({ email, password });
+      body = data;
       const statusNotFound = 404;
       if (status === statusNotFound) {
         setLogin((prev) => ({ ...prev, notFound: true }));
       }
     };
-    request();
+    await request();
+    if (body.token) {
+      navigate('/customer/products');
+    }
   };
 
   return (
