@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Pages/Login.jsx';
+import Login from './Pages/Login';
 import LoginProvider from './Provider/LoginProvider';
 
 function App() {
