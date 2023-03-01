@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const loginController = require('../controllers/longin.controller');
+const userController = require('../controllers/user.controller');
 const jwtUtil = require('../utils/jwt.util');
 
 router.post('/', loginController.login);
