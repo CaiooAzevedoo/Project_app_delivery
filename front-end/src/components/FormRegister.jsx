@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
+import { submitIsAllowed } from '../pages/Utils/Login.utils';
 
 function FormRegister() {
   const { register, setRegister } = useContext(MainContext);
@@ -15,7 +16,7 @@ function FormRegister() {
   );
 
   const handleChange = ({ target: { value, name } }) => {
-    setLogin((prev) => ({ ...prev, [name]: value }));
+    setRegister((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
