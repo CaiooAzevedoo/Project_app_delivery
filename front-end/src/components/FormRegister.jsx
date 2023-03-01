@@ -29,9 +29,13 @@ function FormRegister() {
       const { email, password, name } = register;
       const { status, date } = await createUser({ email, password, name });
       test = date;
+      const statusNotFound = 409;
       const statusOk = 201;
       if (status === statusOk) {
         navigate('/customer/products');
+      }
+      if (status === statusNotFound) {
+        setRegister((prev) => ({ ...prev, notFound: true }));
       }
     };
     await request();
@@ -86,6 +90,15 @@ function FormRegister() {
         >
           CADASTRAR
         </button>
+        {
+          register.notFound ? (
+            <p
+              data-testid="common_register__element-invalid_register"
+            >
+              user already exists
+            </p>
+          ) : null
+        }
       </div>
     </form>
   );
