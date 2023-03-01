@@ -1,30 +1,23 @@
-// import axios from 'axios';
+import HEADERS_POST from './Utils/User';
 
 const url = `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/login`;
 
-const getUser =  ({ email, password }) => {
+const getUser = async ({ email, password }) => {
   const payLoad = { email, password };
   try {
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+    const response = await fetch(url, {
+      ...HEADERS_POST,
       body: JSON.stringify(payLoad),
-    }).then(resulved => console.log(resulved.json()))
-    
-    return {status: 404};
+    });
+
+    return {
+      status: response.status,
+      data: await response.json(),
+    };
   } catch (error) {
     const status = 404;
     return status;
   }
-  // try {
-  //   const { status, data } = await axios.post(localhost, payLoad);
-  //   return { status, data };
-  // } catch (error) {
-  //   const status = 404;
-  //   return status;
-  // }
 };
 
 export default getUser;
