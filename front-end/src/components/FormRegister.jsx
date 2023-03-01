@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
@@ -6,6 +7,7 @@ import { createUser } from '../Api/User';
 
 function FormRegister() {
   const { register, setRegister } = useContext(MainContext);
+  const navigate = useNavigate();
   useEffect(
     () => {
       const { email, password, name } = register;
@@ -23,7 +25,11 @@ function FormRegister() {
   const handleClick = async (e) => {
     e.preventDefault();
     const { email, password, name } = register;
-    const result = await createUser({ email, password, name });
+    const { status } = await createUser({ email, password, name });
+    const statusOk = 201;
+    if (status === statusOk) {
+      navigate('/customer/products');
+    }
     console.log(result);
   };
 
