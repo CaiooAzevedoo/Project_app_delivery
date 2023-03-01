@@ -34,7 +34,7 @@ export const createUser = async ({ name, email, password }) => {
 
     return {
       status: response.status,
-      data: await response.json(),
+      date: await response.json(),
     };
   } catch (error) {
     const status = 404;
