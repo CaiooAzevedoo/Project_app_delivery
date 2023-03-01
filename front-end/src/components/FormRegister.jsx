@@ -2,7 +2,7 @@ import React from 'react';
 
 function FormRegister() {
   return (
-    <form onSubmit={ handleSubmit } className="form-container">
+    <form className="form-container">
       <h1>Cadastro</h1>
 
       <div className="user-data-container">

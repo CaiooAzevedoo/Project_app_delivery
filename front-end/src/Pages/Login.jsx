@@ -63,11 +63,12 @@ function Login() {
         Entrar
       </button>
       <button
-        type="submit"
+        type="button"
         disabled={ login.submitIsDisable }
         data-testid="common_login__button-register"
+        onClick={ () => navigate('/register') }
       >
-        Cadastro
+        Cadastrar
       </button>
 
       {
