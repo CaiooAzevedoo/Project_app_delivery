@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
+import { submitIsAllowed } from '../pages/Utils/Login.utils';
+import { createUser } from '../Api/User';
 
 function FormRegister() {
   const { register, setRegister } = useContext(MainContext);
@@ -15,7 +17,14 @@ function FormRegister() {
   );
 
   const handleChange = ({ target: { value, name } }) => {
-    setLogin((prev) => ({ ...prev, [name]: value }));
+    setRegister((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    const { email, password, name } = register;
+    const result = await createUser({ email, password, name });
+    console.log(result);
   };
 
   return (
@@ -62,6 +71,7 @@ function FormRegister() {
           type="submit"
           data-testid="common_register__button-register"
           disabled={ register.submitIsDisable }
+          onClick={ handleClick }
         >
           CADASTRAR
         </button>
