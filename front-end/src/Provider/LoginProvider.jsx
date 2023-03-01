@@ -8,6 +8,8 @@ function LoginProvider({ children }) {
     submitIsDisable: true,
     email: '',
     password: '',
+    notFound: false,
+    submit: false,
   });
 
   const contextValue = useMemo(() => ({
