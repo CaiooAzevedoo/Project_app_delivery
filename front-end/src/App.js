@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Pages/Login';
-import LoginProvider from './Provider/LoginProvider';
+import Login from './pages/Login';
+import LoginProvider from './provider/LoginProvider';
 
 function App() {
   return (
