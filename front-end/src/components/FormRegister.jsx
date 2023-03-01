@@ -22,13 +22,19 @@ function FormRegister() {
     setRegister((prev) => ({ ...prev, [name]: value }));
   };
 
+  const changeRouter = (role) => {
+    if (role === 'customer') navigate('/customer/products');
+    if (role === 'seller') navigate('/');
+    if (role === 'administrator') navigate('/admin/manage');
+  };
+
   const handleClick = async (e) => {
     e.preventDefault();
     const { email, password, name } = register;
-    const { status } = await createUser({ email, password, name });
+    const { status, date } = await createUser({ email, password, name });
     const statusOk = 201;
     if (status === statusOk) {
-      navigate('/customer/products');
+      changeRouter(date.role);
     }
     console.log(result);
   };
