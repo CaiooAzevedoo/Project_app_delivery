@@ -33,7 +33,7 @@ module.exports = {
           key: 'id',
         },
       },
-      totalPrice: Sequelize.DECIMAL,
+      totalPrice: Sequelize.DECIMAL(9,2),
       deliveryAddress: Sequelize.STRING,
       deliveryNumber: Sequelize.STRING,
       saleDate: {
