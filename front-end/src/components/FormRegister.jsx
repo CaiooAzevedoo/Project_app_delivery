@@ -42,7 +42,7 @@ function FormRegister() {
           type="submit"
           data-testid="common_register__button-register"
         >
-          CADASTRO
+          CADASTRAR
         </button>
       </div>
     </form>

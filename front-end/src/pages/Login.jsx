@@ -64,7 +64,6 @@ function Login() {
       </button>
       <button
         type="button"
-        disabled={ login.submitIsDisable }
         data-testid="common_login__button-register"
         onClick={ () => navigate('/register') }
       >
