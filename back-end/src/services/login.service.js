@@ -27,6 +27,7 @@ const validaLogin = async ({ email, password }) => {
 
   const userSafe = client.dataValues;
   const { password: _, ...lassPasword } = userSafe;
+  console.log(lassPasword);
   const token = jwtUtil.createToken(lassPasword);
 
   return { id: client.id, name: client.name, email: client.email, role: client.role, token };
