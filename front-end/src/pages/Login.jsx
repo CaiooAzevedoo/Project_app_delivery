@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getUser from '../Api/User';
-import MainContext from '../Context/MainContext';
+import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 
 function Login() {
@@ -63,11 +63,11 @@ function Login() {
         Entrar
       </button>
       <button
-        type="submit"
-        disabled={ login.submitIsDisable }
+        type="button"
         data-testid="common_login__button-register"
+        onClick={ () => navigate('/register') }
       >
-        Cadastro
+        Cadastrar
       </button>
 
       {
