@@ -25,6 +25,7 @@ function Login() {
     const { email, password } = login;
     const request = async () => {
       const { status } = await getUser({ email, password });
+      console.log(status)
       const statusNotFound = 404;
       if (status === statusNotFound) {
         setLogin((prev) => ({ ...prev, notFound: true }));
