@@ -23,11 +23,8 @@ const createUser = async ({ name, email, password }) => {
     email,
     password: safePassword,
   });
-  const retorno = { 
-    name: result.name, 
-    email: result.email, 
-    password: result.password };
-  return { type: 201, retorno };
+
+  return { type: 201, result };
 };
 
 module.exports = {
