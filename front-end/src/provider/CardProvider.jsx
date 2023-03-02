@@ -1,20 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-
 import MainContext from '../context/MainContext';
 
-function ProductProvider({ children }) {
-  const [products, setProducts] = useState({
+function CardProvider({ children }) {
+  const [cardState, setCardState] = useState({
     productsList: [{}],
   });
-  const [cardState, setCardState] = useState([{}]);
 
   const contextValue = useMemo(() => ({
     cardState,
     setCardState,
-    products,
-    setProducts,
-  }), [products, cardState]);
+  }), [products]);
 
   return (
     <MainContext.Provider value={ contextValue }>
@@ -23,8 +19,8 @@ function ProductProvider({ children }) {
   );
 }
 
-ProductProvider.propTypes = {
+CardProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ProductProvider;
+export default CardProvider;
