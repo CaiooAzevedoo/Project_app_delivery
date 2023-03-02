@@ -1,5 +1,5 @@
-const setLocalstorage = (payLoad) => {
-  localStorage.setItem('user', JSON.stringify(payLoad));
+const setLocalstorage = (key, payLoad) => {
+  localStorage.setItem(key, JSON.stringify(payLoad));
 };
 
 const getLocalStorage = (key) => {

@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './styles/CardProducts.css';
 
 function CardProducts({ iten }) {
+  const [cardState, setCardState] = useState({
+    quantity: 0,
+    produtdId: null,
+    userId: null,
+  });
+
+  const handleChange = ({ target: { value, name } }) => {
+    setCardState((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <section className="card-products">
       <section>
@@ -33,9 +43,12 @@ function CardProducts({ iten }) {
             +
           </button>
           <input
+            value={ cardState.quantity }
+            name="quantity"
             className="input-quantity"
             data-testid={ `customer_products__input-card-quantity-${iten.id}` }
             type="number"
+            onChange={ handleChange }
           />
           <button
             className="btn-rm"

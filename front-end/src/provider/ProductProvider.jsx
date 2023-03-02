@@ -6,6 +6,7 @@ import MainContext from '../context/MainContext';
 function ProductProvider({ children }) {
   const [products, setProducts] = useState({
     productsList: [{}],
+    cardState: {},
   });
 
   const contextValue = useMemo(() => ({
