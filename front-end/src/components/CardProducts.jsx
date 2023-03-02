@@ -104,8 +104,7 @@ function CardProducts({ iten }) {
           data-testid={ `customer_products__element-card-price-${iten.id}` }
         >
           {
-            iten.price ? (
-              (iten.price).replace('.', ',')
+            iten.price ? (iten.price.replace('.', ',')
             ) : null
           }
         </p>
