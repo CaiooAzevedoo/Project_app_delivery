@@ -5,4 +5,11 @@ const HEADERS_POST = {
   },
 };
 
+export const HEADERS_GET = {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+
 export default HEADERS_POST;
