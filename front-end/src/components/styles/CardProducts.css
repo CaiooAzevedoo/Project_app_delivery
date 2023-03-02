@@ -1,9 +1,9 @@
 .card-products {
-  width: 20%;
   border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 4px;
   display: flex;
   justify-content: center;
-  border-radius: 4px;
+  width: 20%;
 }
 
 .product-image {
@@ -12,8 +12,8 @@
 
 .quantity-input-area {
   margin: auto;
-  text-align: center;
   margin-bottom: 3%;
+  text-align: center;
 }
 
 .btn-add {
