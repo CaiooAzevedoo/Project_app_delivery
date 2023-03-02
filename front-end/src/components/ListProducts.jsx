@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { getProducts } from '../Api/User';
 import MainContext from '../context/MainContext';
 import CardProducts from './CardProducts';
+import './styles/ListProducts.css';
 
 function ListProducts() {
   const { products: { productsList }, setProducts } = useContext(MainContext);
@@ -15,7 +16,7 @@ function ListProducts() {
   }, []);
 
   return (
-    <div>
+    <section className="main-products">
       {
         productsList[0] ? (
           productsList.map((iten) => (
@@ -23,7 +24,7 @@ function ListProducts() {
           ))
         ) : null
       }
-    </div>
+    </section>
   );
 }
 
