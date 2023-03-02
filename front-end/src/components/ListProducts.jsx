@@ -6,7 +6,6 @@ import './styles/ListProducts.css';
 
 function ListProducts() {
   const { products: { productsList }, setProducts } = useContext(MainContext);
-
   useEffect(() => {
     const request = async () => {
       const { data } = await getProducts();
