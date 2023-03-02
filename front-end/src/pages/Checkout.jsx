@@ -12,7 +12,7 @@ function Checkout() {
           <th>Quantidade</th>
           <th>Valor Unitário</th>
           <th>Sub-total</th>
-          <th>Remover Item</th>
+          <th>Remover Ite</th>
         </tr>
       </thead>
       <tbody>
