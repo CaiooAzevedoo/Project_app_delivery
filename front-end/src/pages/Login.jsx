@@ -39,7 +39,7 @@ function Login() {
     };
     await request();
     if (body.token) {
-      setLocalstorage(body);
+      setLocalstorage('user', body);
       navigate('/customer/products');
     }
   };
