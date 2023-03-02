@@ -7,7 +7,9 @@ function ProductProvider({ children }) {
   const [products, setProducts] = useState({
     productsList: [{}],
   });
-  const [cardState, setCardState] = useState([{}]);
+  const [cardState, setCardState] = useState({
+    orders: [],
+  });
 
   const contextValue = useMemo(() => ({
     cardState,
