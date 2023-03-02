@@ -1,0 +1,7 @@
+.header-products {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(102, 235, 179);
+  padding: 20px;
+  margin: 0 0 16px;
+}

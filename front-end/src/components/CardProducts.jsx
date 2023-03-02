@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles/CardProducts.css';
 
 function CardProducts({ iten }) {
   return (
@@ -7,10 +8,9 @@ function CardProducts({ iten }) {
       <p
         data-testid={ `customer_products__element-card-price-${iten.id}` }
       >
-        {`${JSON.stringify(`R$${iten.price}`)
-          .replace('.', ',')
-          .replace('"', '')
-          .replace('"', '')}`}
+        {
+          iten.price
+        }
       </p>
       <img
         data-testid={ `customer_products__img-card-bg-image-${iten.id}` }

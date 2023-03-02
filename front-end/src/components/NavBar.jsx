@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearLocalStorage, getLocalStorage } from '../localstorage';
+import './styles/NavBar.css';
 
 function NavBar() {
   const [navBarState, setNavBarState] = useState({
@@ -19,7 +20,7 @@ function NavBar() {
   };
 
   return (
-    <menu>
+    <menu className="header-products">
       <div data-testid="customer_products__element-navbar-link-products">
         Produtos
       </div>
