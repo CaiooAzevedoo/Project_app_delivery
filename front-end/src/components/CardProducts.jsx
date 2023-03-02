@@ -7,9 +7,10 @@ function CardProducts({ iten }) {
       <p
         data-testid={ `customer_products__element-card-price-${iten.id}` }
       >
-        {
-          iten.price
-        }
+        {`${JSON.stringify(`R$${iten.price}`)
+          .replace('.', ',')
+          .replace('"', '')
+          .replace('"', '')}`}
       </p>
       <img
         data-testid={ `customer_products__img-card-bg-image-${iten.id}` }
