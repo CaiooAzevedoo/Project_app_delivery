@@ -9,8 +9,8 @@ function ListProducts() {
 
   useEffect(() => {
     const request = async () => {
-      const { date } = await getProducts();
-      setProducts({ productsList: date });
+      const { data } = await getProducts();
+      setProducts((prev) => ({ ...prev, productsList: data }));
     };
     request();
   }, []);
