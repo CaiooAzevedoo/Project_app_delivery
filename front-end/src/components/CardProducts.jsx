@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './styles/CardProducts.css';
+import MainContext from '../context/MainContext';
 
 function CardProducts({ iten }) {
-  const [cardState, setCardState] = useState({
-    quantity: 0,
-    produtdId: null,
-    userId: null,
-  });
+  const { cardState, setCardState } = useContext(MainContext);
 
   const handleChange = ({ target: { value, name } }) => {
-    setCardState((prev) => ({ ...prev, [name]: value }));
+    
   };
 
   return (
@@ -20,7 +17,9 @@ function CardProducts({ iten }) {
           data-testid={ `customer_products__element-card-price-${iten.id}` }
         >
           {
-            iten.price
+            iten.price ? (
+              (iten.price).replace('.', ',')
+            ) : null
           }
         </p>
         <img
