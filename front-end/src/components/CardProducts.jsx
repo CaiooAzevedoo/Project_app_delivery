@@ -7,7 +7,9 @@ function CardProducts({ iten }) {
       <p
         data-testid={ `customer_products__element-card-price-${iten.id}` }
       >
-        {iten.price}
+        {
+          iten.price
+        }
       </p>
       <img
         data-testid={ `customer_products__img-card-bg-image-${iten.id}` }

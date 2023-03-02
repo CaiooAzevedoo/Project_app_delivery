@@ -7,7 +7,6 @@ function ListProducts() {
   const { products: { productsList }, setProducts } = useContext(MainContext);
 
   useEffect(() => {
-    console.log('test');
     const request = async () => {
       const { date } = await getProducts();
       setProducts({ productsList: date });
@@ -18,9 +17,11 @@ function ListProducts() {
   return (
     <div>
       {
-        productsList.map((iten) => (
-          <CardProducts key={ iten.id } iten={ iten } />
-        ))
+        productsList[0] ? (
+          productsList.map((iten) => (
+            <CardProducts key={ iten.id } iten={ iten } />
+          ))
+        ) : null
       }
     </div>
   );
