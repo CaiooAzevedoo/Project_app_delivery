@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/login', routes.loginRouter);
 app.use('/register', routes.userRouter);
 app.use('/products', routes.productRouter);
-app.use('/images', express.static('../../public'));
+app.use('/images', express.static('../../public/images'));
 app.get('/coffee', (_req, res) => res.status(418).end());
 
 module.exports = app;
