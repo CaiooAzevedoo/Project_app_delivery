@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import getUser from '../Api/User';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
+import { setLocalstorage } from '../localstorage';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
@@ -37,6 +38,7 @@ function Login() {
     };
     await request();
     if (body.token) {
+      setLocalstorage(body);
       navigate('/customer/products');
     }
   };
