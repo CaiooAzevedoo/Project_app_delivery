@@ -1,12 +1,33 @@
-import React from 'react';
-import { getLocalStorage } from '../localstorage';
+import React, { useState, useEffect } from 'react';
+import { setLocalstorage, getLocalStorage } from '../localstorage';
 import NavBar from './NavBar';
-import TotalPriceButton from './TotalPriceButton';
-
-// const list = getLocalStorage('carrinho');
+import removeItenLocalStorage from './utils/CheckoutUtils';
 
 function Checkout() {
-  const list = getLocalStorage('carrinho');
+  const [list, setListOrders] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const listLocal = getLocalStorage('carrinho');
+    setListOrders(listLocal);
+  }, []);
+
+  useEffect(() => {
+    setLocalstorage('carrinho', list);
+    const totalByProd = list.map((prod) => prod.price * prod.quantity);
+    const initialValue = 0;
+    const totalPrice = totalByProd.reduce(
+      (accumulator, currentValue) => (accumulator + currentValue),
+      initialValue,
+    );
+    setTotal(totalPrice);
+  }, [list]);
+
+  const handleClick = ({ target: { id } }) => {
+    const newList = removeItenLocalStorage('carrinho', id);
+    setListOrders(newList);
+  };
+
   return (
     <div>
       <NavBar />
@@ -53,7 +74,7 @@ function Checkout() {
                     `customer_checkout__element-order-table-unit-price-${index}`
                   }
                 >
-                  {item.price}
+                  { Number(item.price).toFixed(2).replace('.', ',')}
 
                 </td>
                 <td
@@ -61,15 +82,16 @@ function Checkout() {
                     `customer_checkout__element-order-table-sub-total-${index}`
                   }
                 >
-                  {item.price * item.quantity}
+                  { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
 
                 </td>
                 <button
                   type="button"
+                  id={ item.id }
                   data-testid={ `customer_checkout__element-order-table-remove-${index}` }
+                  onClick={ handleClick }
                 >
                   Remover
-
                 </button>
               </tr>
             ))
@@ -81,7 +103,11 @@ function Checkout() {
           id="total"
           name="total"
         >
-          <TotalPriceButton />
+          Valor Total: R$
+          {' '}
+          {
+            list.length > 0 ? String(total.toFixed(2)).replace('.', ',') : 0
+          }
         </p>
       </table>
 
@@ -114,7 +140,6 @@ function Checkout() {
           // onClick={ handleCheckout }
         >
           FINALIZAR PEDIDO
-
         </button>
       </form>
 
