@@ -1,5 +1,7 @@
 import React from 'react';
 import { getLocalStorage } from '../localstorage';
+import NavBar from './NavBar';
+import TotalPriceButton from './TotalPriceButton';
 
 // const list = getLocalStorage('carrinho');
 
@@ -7,6 +9,7 @@ function Checkout() {
   const list = getLocalStorage('carrinho');
   return (
     <div>
+      <NavBar />
       <table>
         <thead>
           <tr>
@@ -98,6 +101,7 @@ function Checkout() {
           FINALIZAR PEDIDO
 
         </button>
+        <TotalPriceButton />
       </form>
 
     </div>
