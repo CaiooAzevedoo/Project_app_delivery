@@ -17,7 +17,7 @@
 }
 
 .btn-add {
-  background-color: rgb(243, 64, 64);
+  background-color: rgb(10, 187, 10);
   border: none;
 }
 
@@ -26,6 +26,6 @@
 }
 
 .btn-rm {
-  background-color: rgb(10, 187, 10);
+  background-color: rgb(243, 64, 64);
   border: none;
 }
