@@ -1,9 +1,10 @@
 import React from 'react';
 import { getLocalStorage } from '../localstorage';
 
-const list = getLocalStorage('carrinho');
+// const list = getLocalStorage('carrinho');
 
 function Checkout() {
+  const list = getLocalStorage('carrinho');
   return (
     <div>
       <table>
@@ -60,7 +61,13 @@ function Checkout() {
                   {item.price * item.quantity}
 
                 </td>
-                <button type="button">Remover</button>
+                <button
+                  type="button"
+                  data-testid={ `customer_checkout__element-order-table-remove-${index}` }
+                >
+                  Remover
+
+                </button>
               </tr>
             ))
           }
