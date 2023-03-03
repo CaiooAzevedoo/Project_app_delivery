@@ -75,14 +75,24 @@ function Checkout() {
             ))
           }
         </tbody>
+        <p
+          type="button"
+          data-testid="customer_checkout__element-order-total-price"
+          id="total"
+          name="total"
+        >
+          <TotalPriceButton />
+        </p>
       </table>
 
       <form action="">
         P. Vendedora Responsável
-        <input
+        <select
           type="number"
           data-testid="customer_checkout__select-seller"
-        />
+        >
+          Selecione
+        </select>
         Endereço
         <input
           type="text"
@@ -101,7 +111,6 @@ function Checkout() {
           FINALIZAR PEDIDO
 
         </button>
-        <TotalPriceButton />
       </form>
 
     </div>
