@@ -6,6 +6,7 @@ import LoginProvider from './provider/LoginProvider';
 import RegisterProvider from './provider/RegisterProvider';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
+import ProductProvider from './provider/ProductProvider';
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
         path="/register"
         element={ <RegisterProvider><UserRegister /></RegisterProvider> }
       />
-      <Route path="/customer/products" element={ <Products /> } />
+      <Route
+        path="/customer/products"
+        element={
+          <ProductProvider>
+            <Products />
+          </ProductProvider>
+        }
+      />
     </Routes>
   );
 }

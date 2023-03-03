@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import getUser from '../Api/User';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
+import { setLocalstorage } from '../localstorage';
+import './styles/Login.css';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
@@ -37,49 +39,62 @@ function Login() {
     };
     await request();
     if (body.token) {
+      setLocalstorage('user', body);
       navigate('/customer/products');
     }
   };
 
   return (
-    <form onSubmit={ handleSubmit }>
-      <input
-        type="email"
-        name="email"
-        data-testid="common_login__input-email"
-        onChange={ handleChange }
-      />
-      <input
-        type="password"
-        name="password"
-        data-testid="common_login__input-password"
-        onChange={ handleChange }
-      />
-      <button
-        type="submit"
-        disabled={ login.submitIsDisable }
-        data-testid="common_login__button-login"
-      >
-        Entrar
-      </button>
-      <button
-        type="button"
-        data-testid="common_login__button-register"
-        onClick={ () => navigate('/register') }
-      >
-        Cadastro
-      </button>
-
-      {
-        login.notFound ? (
-          <p
-            data-testid="common_login__element-invalid-email"
+    <form
+      className="login-form"
+      onSubmit={ handleSubmit }
+    >
+      <section className="content-login">
+        <input
+          className="user-date-login"
+          type="email"
+          name="email"
+          placeholder="user@email.com"
+          data-testid="common_login__input-email"
+          onChange={ handleChange }
+        />
+        <input
+          className="user-date-login"
+          type="password"
+          name="password"
+          placeholder="senha..."
+          data-testid="common_login__input-password"
+          onChange={ handleChange }
+        />
+        <div className="login-btns">
+          <button
+            className="login-btn-entrar"
+            type="submit"
+            disabled={ login.submitIsDisable }
+            data-testid="common_login__button-login"
           >
-            404 - Not found
-          </p>
-        ) : null
-      }
-
+            Entrar
+          </button>
+          <button
+            className="login-btn-register"
+            type="button"
+            data-testid="common_login__button-register"
+            onClick={ () => navigate('/register') }
+          >
+            Cadastro
+          </button>
+        </div>
+        {
+          login.notFound ? (
+            <p
+              className="user-not-found"
+              data-testid="common_login__element-invalid-email"
+            >
+              404 - User Not found
+            </p>
+          ) : null
+        }
+      </section>
     </form>
   );
 }

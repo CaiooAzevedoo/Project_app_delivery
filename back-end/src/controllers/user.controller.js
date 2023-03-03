@@ -7,8 +7,8 @@ const createUser = async (req, res) => {
     return res.status(409).json({ message: 'Name or email already exist' });
   }
   if (checkUser.type === 200) {
-    const { type, retorno } = await userService.createUser({ name, email, password });
-    return res.status(type).json(retorno);
+    const { type, result } = await userService.createUser({ name, email, password });
+    return res.status(type).json(result);
   }
 };
 

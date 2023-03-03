@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { clearLocalStorage, getLocalStorage } from '../localstorage';
+import './styles/NavBar.css';
 
 function NavBar() {
+  const [navBarState, setNavBarState] = useState({
+    userDate: {},
+  });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const localStorageDate = getLocalStorage('user');
+    setNavBarState((prev) => ({ ...prev, userDate: localStorageDate }));
+  }, []);
+
+  const handleLogout = () => {
+    clearLocalStorage();
+    navigate('/login');
+  };
+
   return (
-    <menu>
+    <menu className="header-products">
       <div data-testid="customer_products__element-navbar-link-products">
         Produtos
       </div>
@@ -10,11 +28,15 @@ function NavBar() {
         Pedidos
       </div>
       <div data-testid="customer_products__element-navbar-user-full-name">
-        Usuário
+        {navBarState.userDate.name}
       </div>
-      <div data-testid="customer_products__element-navbar-link-logout">
+      <button
+        type="button"
+        data-testid="customer_products__element-navbar-link-logout"
+        onClick={ handleLogout }
+      >
         Sair
-      </div>
+      </button>
     </menu>
   );
 }

@@ -1,0 +1,31 @@
+.card-products {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.product-image {
+  height: 150px;
+}
+
+.quantity-input-area {
+  margin: auto;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+.btn-add {
+  background-color: rgb(10, 187, 10);
+  border: none;
+}
+
+.input-quantity {
+  width: 50px;
+}
+
+.btn-rm {
+  background-color: rgb(243, 64, 64);
+  border: none;
+}
