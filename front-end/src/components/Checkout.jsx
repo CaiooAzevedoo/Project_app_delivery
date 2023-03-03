@@ -1,11 +1,15 @@
 import React from 'react';
-import { getLocalStorage } from '../localstorage';
+import { getLocalStorage } from '../localstorage/index';
+import NavBar from './NavBar';
+import TotalPriceButton from './TotalPriceButton';
 
 const list = getLocalStorage('carrinho');
+console.log(list);
 
 function Checkout() {
   return (
     <div>
+      <NavBar />
       <table>
         <thead>
           <tr>
@@ -86,11 +90,11 @@ function Checkout() {
         <button
           type="submit"
           data-testid="customer_checkout__button-submit-order"
-          // onClick={ handleCheckout }
         >
           FINALIZAR PEDIDO
 
         </button>
+        <TotalPriceButton />
       </form>
 
     </div>
