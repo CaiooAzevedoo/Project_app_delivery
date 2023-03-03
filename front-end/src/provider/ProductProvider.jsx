@@ -5,13 +5,18 @@ import MainContext from '../context/MainContext';
 
 function ProductProvider({ children }) {
   const [products, setProducts] = useState({
-    productsList: [],
+    productsList: [{}],
+  });
+  const [cardState, setCardState] = useState({
+    orders: [],
   });
 
   const contextValue = useMemo(() => ({
+    cardState,
+    setCardState,
     products,
     setProducts,
-  }), [products]);
+  }), [products, cardState]);
 
   return (
     <MainContext.Provider value={ contextValue }>

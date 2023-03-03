@@ -1,0 +1,39 @@
+.login-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.content-login {
+  border: 1px solid rgba(7, 14, 8, 0.13);
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.452);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.user-date-login {
+  border: 1px solid rgba(0, 0, 0, 0.205);
+  border-radius: 4px;
+  height: 20px;
+  margin-bottom: 16px;
+  width: 250px;
+}
+
+.login-btns {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.login-btn-entrar {
+  width: 60px;
+}
+
+.user-not-found {
+  color: red;
+  margin: auto;
+}

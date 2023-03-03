@@ -48,7 +48,7 @@ export const getProducts = async () => {
     const response = await fetch(urlProducts, HEADERS_GET);
     return {
       status: response.status,
-      date: await response.json(),
+      data: await response.json(),
     };
   } catch (error) {
     const status = 404;

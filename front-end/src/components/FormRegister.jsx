@@ -4,6 +4,7 @@ import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
 import { createUser } from '../Api/User';
+import './styles/FormRegister.css';
 
 function FormRegister() {
   const { register, setRegister } = useContext(MainContext);
@@ -47,58 +48,64 @@ function FormRegister() {
       <h1>Cadastro</h1>
 
       <div className="user-data-container">
-        <label htmlFor="name">
-          Nome
-          <input
-            type="text"
-            id="name"
-            name="name"
-            data-testid="common_register__input-name"
-            placeholder="nome"
-            onChange={ handleChange }
-          />
-        </label>
+        <div>
+          <label htmlFor="name">
+            Nome:
+            <input
+              className="user-date-register"
+              type="text"
+              id="name"
+              name="name"
+              data-testid="common_register__input-name"
+              placeholder="nome"
+              onChange={ handleChange }
+            />
+          </label>
 
-        <label htmlFor="email">
-          Email
-          <input
-            type="email"
-            id="email"
-            name="email"
-            data-testid="common_register__input-email"
-            placeholder="email@site.com.br"
-            onChange={ handleChange }
-          />
-        </label>
+          <label htmlFor="email">
+            Email:
+            <input
+              className="user-date-register"
+              type="email"
+              id="email"
+              name="email"
+              data-testid="common_register__input-email"
+              placeholder="email@site.com.br"
+              onChange={ handleChange }
+            />
+          </label>
 
-        <label htmlFor="password">
-          Senha
-          <input
-            type="password"
-            id="password"
-            name="password"
-            data-testid="common_register__input-password"
-            onChange={ handleChange }
-          />
-        </label>
+          <label htmlFor="password">
+            Senha:
+            <input
+              className="user-date-register"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="senha"
+              data-testid="common_register__input-password"
+              onChange={ handleChange }
+            />
+          </label>
 
-        <button
-          type="submit"
-          data-testid="common_register__button-register"
-          disabled={ register.submitIsDisable }
-          onClick={ handleClick }
-        >
-          CADASTRAR
-        </button>
-        {
-          register.notFound ? (
-            <p
-              data-testid="common_register__element-invalid_register"
-            >
-              user already exists
-            </p>
-          ) : null
-        }
+          <button
+            type="submit"
+            data-testid="common_register__button-register"
+            disabled={ register.submitIsDisable }
+            onClick={ handleClick }
+          >
+            CADASTRAR
+          </button>
+          {
+            register.notFound ? (
+              <p
+                data-testid="common_register__element-invalid_register"
+              >
+                user already exists
+              </p>
+            ) : null
+          }
+        </div>
       </div>
     </form>
   );
