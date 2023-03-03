@@ -30,16 +30,13 @@ function TotalPriceButton() {
       >
         Ver Carrinho: R$
       </button>
-      <button
+      <p
         data-testid="customer_products__checkout-bottom-value"
         id="total"
-        type="button"
         name="total"
-        onClick={ () => navigate('/customer/checkout') }
-        disabled={ productsOfLocal.length < 1 }
       >
         { productsOfLocal.length > 0 ? String(total.toFixed(2)).replace('.', ',') : 0}
-      </button>
+      </p>
     </div>
 
   );
