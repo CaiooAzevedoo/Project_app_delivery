@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './styles/CardProducts.css';
 import MainContext from '../context/MainContext';
 import { setLocalstorage } from '../localstorage';
-import { updateQuantity } from './utils/RegisterValidation';
+import isAddOrRemove, { updateQuantity, calcButtonValue } from './utils/CardUtils';
 
 function CardProducts({ iten }) {
   const { cardState, setCardState } = useContext(MainContext);
   const [buttonClicked, setButtonClicked] = useState({
-    countEvents: 0,
+    productQuantity: 0,
     id: '0',
     name: '',
     value: '',
@@ -17,22 +17,21 @@ function CardProducts({ iten }) {
   const handleOrders = ({ target: { id, name, value } }) => {
     const decrement = -1;
     let valueQuantity = name === 'add' ? 1 : decrement;
-    const isAddOrRemove = name === 'add' || name === 'rm';
-    const alreadyExists = cardState.orders.some((prod) => prod.id === Number(id));
-    if (!alreadyExists && isAddOrRemove && buttonClicked.countEvents > 0) {
+    const orderAlreadyExists = cardState.orders.some((prod) => prod.id === Number(id));
+    if (!orderAlreadyExists && isAddOrRemove(name) && buttonClicked.productQuantity > 0) {
       setCardState((prev) => (
         {
           orders: [
             ...prev.orders,
             { ...iten, quantity: 1 },
           ] }));
-    } else if (name === 'add' || name === 'rm') {
+    } else if (isAddOrRemove(name)) {
       setCardState((prev) => (
         {
           orders: updateQuantity(prev.orders, Number(id), valueQuantity),
         }
       ));
-    } else if (!alreadyExists && name === 'quantity') {
+    } else if (!orderAlreadyExists && name === 'quantity') {
       valueQuantity = Number(value);
       setCardState((prevs) => (
         {
@@ -62,38 +61,14 @@ function CardProducts({ iten }) {
     handleOrders({ target: { id, name, value } });
   }, [buttonClicked]);
 
-  const calcEvent = (countEvents, name) => {
-    console.log(countEvents, name);
-    let res = 0;
-    if (name === 'rm' && countEvents === 0) {
-      res = 0;
-    } else if (name === 'rm' && countEvents >= 1) {
-      res = (countEvents - 1);
-    } else if (name === 'add') {
-      res += (countEvents + 1);
-    }
-    return res;
-  };
-
   const handleEvent = ({ target: { id, name, value } }) => {
-    setButtonClicked((prev) => ({
-      countEvents: calcEvent(prev.countEvents, name),
-      id,
-      name,
-      value,
-    }));
-  };
-
-  const handleChange = ({ target: { value, name, id } }) => {
-    if (Number(value) >= 0) {
-      setButtonClicked(
-        {
-          id,
-          name,
-          value,
-          countEvents: parseInt(value, 10),
-        },
-      );
+    if (Number(value) >= 0 || (name === 'quantity' && parseInt(value, 10) >= 0)) {
+      setButtonClicked((prev) => ({
+        id,
+        name,
+        value,
+        productQuantity: calcButtonValue(prev.productQuantity, name, value),
+      }));
     }
   };
 
@@ -131,10 +106,10 @@ function CardProducts({ iten }) {
             +
           </button>
           <input
-            value={ buttonClicked.countEvents }
+            value={ buttonClicked.productQuantity }
             name="quantity"
             id={ iten.id }
-            onChange={ handleChange }
+            onChange={ handleEvent }
             className="input-quantity"
             data-testid={ `customer_products__input-card-quantity-${iten.id}` }
             type="number"

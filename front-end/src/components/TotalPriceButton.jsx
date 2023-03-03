@@ -19,7 +19,6 @@ function TotalPriceButton() {
     (accumulator, currentValue) => (accumulator + currentValue),
     initialValue,
   );
-  console.log(total);
 
   return (
     <div>
