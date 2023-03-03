@@ -7,6 +7,7 @@ import TotalPriceButton from './TotalPriceButton';
 
 function Checkout() {
   const list = getLocalStorage('carrinho');
+
   return (
     <div>
       <NavBar />
@@ -53,7 +54,7 @@ function Checkout() {
                     `customer_checkout__element-order-table-unit-price-${index}`
                   }
                 >
-                  {item.price}
+                  { Number(item.price).toFixed(2).replace('.', ',')}
 
                 </td>
                 <td
@@ -61,7 +62,7 @@ function Checkout() {
                     `customer_checkout__element-order-table-sub-total-${index}`
                   }
                 >
-                  {item.price * item.quantity}
+                  { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
 
                 </td>
                 <button
