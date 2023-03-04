@@ -28,7 +28,7 @@ const getSeller = async (_req, res) => {
   const allSellers = await userService.getSeller();
 
   return res.status(200).json(allSellers);
-}
+};
 
 module.exports = { 
   createUser,
