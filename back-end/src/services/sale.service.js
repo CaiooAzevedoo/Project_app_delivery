@@ -1,4 +1,4 @@
-const { sale, saleProduct } = require('../database/models');
+const { sale, saleProduct, product, user } = require('../database/models');
 // const { createSaleProduct } = require('../services/saleProduct.service')
 const { saleStatus } = require('../utils/status.util');
 
@@ -28,16 +28,33 @@ const createSale = async ({
 
   if (!result) throw new Error(404, 'Sale not created');
 
-  const salesProducts = products.map(async (product) => {
-    await createSaleProduct(result.id, product.id, product.quantity);
+  const salesProducts = products.map(async (itens) => {
+    await createSaleProduct(result.id, itens.id, itens.quantity);
   });
   await salesProducts;
   return { type: 201, message: result };
 };
 
-const getAll = async () => sale.findAll();
+const getAll = async () => sale.findAll(
+ { include: [
+    { model: product, as: 'products', through: { attributes: ['quantity'] } },
+    { model: user, as: 'seller', attributes: ['name'] },
+  ] },
+);
+
+const getById = async (id) => {
+  const result = await sale.findOne({
+  where: { id },
+  include: [
+    { model: product, as: 'products', through: { attributes: ['quantity'] } },
+    { model: user, as: 'seller', attributes: ['name'] },
+  ],
+});
+  return { type: 200, message: result };
+};
 
 module.exports = {
   createSale,
   getAll,
+  getById,
 };
