@@ -4,17 +4,19 @@ import postProduct from '../Api/Products';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
 import NavBar from '../components/NavBar';
 import RoleOption from '../components/RoleOption';
-import removeItenLocalStorage from './Utils/CheckoutUtils';
+import removeItenLocalStorage,
+{ calcTotalPrice,
+  getIdAndQuantity,
+} from './Utils/CheckoutUtils';
 import './styles/Checkout.css';
 
 function Checkout() {
   const [list, setListOrders] = useState([]);
   const [sellerid, setSellerId] = useState(0);
-  const [total, setTotal] = useState(0);
   const [payload, setPayload] = useState({
     userId: '',
     sellerId: '',
-    totalPrice: '',
+    totalPrice: 0,
     deliveryAddress: '',
     deliveryNumber: '',
     products: [],
@@ -32,45 +34,32 @@ function Checkout() {
     setPayload((prev) => ({
       ...prev,
       userId: id,
-      totalPrice: total,
+      totalPrice: calcTotalPrice(listLocal),
     }));
     setListOrders(listLocal);
   }, []);
 
   useEffect(() => {
     setLocalstorage('carrinho', list);
-    const totalByProd = list.map((prod) => prod.price * prod.quantity);
-    const initialValue = 0;
-    const totalPrice = totalByProd.reduce(
-      (accumulator, currentValue) => (accumulator + currentValue),
-      initialValue,
-    );
-    setTotal(totalPrice);
-    setPayload((prev) => ({ ...prev, totalPrice }));
-    const productDate = list.map((iten) => (
-      { id: iten.id, quantity: iten.quantity }));
     setPayload((prev) => ({
       ...prev,
-      totalPrice,
-      products: productDate }));
+      totalPrice: calcTotalPrice(list),
+      products: getIdAndQuantity(list) }));
   }, [list]);
 
   const handleRemove = ({ target: { id } }) => {
     const newList = removeItenLocalStorage('carrinho', id);
     setListOrders(newList);
-    const productDate = newList.map((iten) => ({ id: iten.id, quantity: iten.quantity }));
-    setPayload((prev) => ({ ...prev, products: productDate }));
+    setPayload((prev) => ({ ...prev, products: getIdAndQuantity(newList) }));
   };
 
   const handleCheckout = async (e) => {
     e.preventDefault();
     const listLocal = getLocalStorage('carrinho');
-    const productDate = listLocal.map((iten) => (
-      { id: iten.id, quantity: iten.quantity }));
     setPayload((prev) => ({
       ...prev,
-      totalPrice: total,
-      products: productDate }));
+      totalPrice: calcTotalPrice(listLocal),
+      products: getIdAndQuantity(listLocal) }));
     const { data } = await postProduct(payload);
     navigate(`/customer/orders/${data.id}`);
   };
@@ -163,7 +152,7 @@ function Checkout() {
           Valor Total: R$
           {' '}
           {
-            list.length > 0 ? String(total.toFixed(2)).replace('.', ',') : 0
+            list.length > 0 ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
           }
         </p>
       </table>
