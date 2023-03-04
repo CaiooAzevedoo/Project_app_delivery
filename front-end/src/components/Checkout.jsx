@@ -118,7 +118,7 @@ function Checkout() {
           type="number"
           data-testid="customer_checkout__select-seller"
         >
-          <option value="grapefruit">Grapefruit</option>
+          <option value="dafaul">dafault</option>
           <option value="lime">Lime</option>
           <option value="coconut">Coconut</option>
           <option value="mango">Mango</option>
