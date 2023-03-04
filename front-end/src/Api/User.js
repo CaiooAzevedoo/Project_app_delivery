@@ -1,5 +1,5 @@
 import { URL_CREATE_USER, URL_LOGIN, URL_GET_PRODUCTS } from './Utils/Url';
-import HEADERS_POST, { HEADERS_GET } from './Utils/User';
+import HEADERS_POST, { HEADERS_GET } from './Utils/Headers';
 
 const getUser = async ({ email, password }) => {
   const payLoad = { email, password };

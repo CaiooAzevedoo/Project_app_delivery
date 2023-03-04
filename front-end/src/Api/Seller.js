@@ -1,4 +1,4 @@
-import { HEADERS_GET } from './Utils/User';
+import { HEADERS_GET } from './Utils/Headers';
 import { URL_GET_SELLER } from './Utils/Url';
 
 const getSellers = async () => {

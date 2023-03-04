@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import postProduct from '../Api/Products';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
-import NavBar from './NavBar';
-import RoleOption from './RoleOption';
-import removeItenLocalStorage from './utils/CheckoutUtils';
+import NavBar from '../components/NavBar';
+import RoleOption from '../components/RoleOption';
+import removeItenLocalStorage from './Utils/CheckoutUtils';
 import './styles/Checkout.css';
 
 function Checkout() {
@@ -17,6 +17,7 @@ function Checkout() {
     totalPrice: '',
     deliveryAddress: '',
     deliveryNumber: '',
+    products: [],
   });
 
   const navigate = useNavigate();
@@ -33,7 +34,6 @@ function Checkout() {
       userId: id,
       totalPrice: total,
     }));
-    console.log(listLocal, id);
     setListOrders(listLocal);
   }, []);
 
@@ -46,15 +46,31 @@ function Checkout() {
       initialValue,
     );
     setTotal(totalPrice);
+    setPayload((prev) => ({ ...prev, totalPrice }));
+    const productDate = list.map((iten) => (
+      { id: iten.id, quantity: iten.quantity }));
+    setPayload((prev) => ({
+      ...prev,
+      totalPrice,
+      products: productDate }));
   }, [list]);
 
-  const handleClick = ({ target: { id } }) => {
+  const handleRemove = ({ target: { id } }) => {
     const newList = removeItenLocalStorage('carrinho', id);
     setListOrders(newList);
+    const productDate = newList.map((iten) => ({ id: iten.id, quantity: iten.quantity }));
+    setPayload((prev) => ({ ...prev, products: productDate }));
   };
 
   const handleCheckout = async (e) => {
     e.preventDefault();
+    const listLocal = getLocalStorage('carrinho');
+    const productDate = listLocal.map((iten) => (
+      { id: iten.id, quantity: iten.quantity }));
+    setPayload((prev) => ({
+      ...prev,
+      totalPrice: total,
+      products: productDate }));
     const { data } = await postProduct(payload);
     navigate(`/customer/orders/${data.id}`);
   };
@@ -128,7 +144,7 @@ function Checkout() {
                     data-testid={
                       `customer_checkout__element-order-table-remove-${index}`
                     }
-                    onClick={ handleClick }
+                    onClick={ handleRemove }
                   >
                     Remover
                   </button>
