@@ -19,6 +19,9 @@ const createSale = async ({
   return { type: 201, message: result };
 };
 
+const getAll = async () => sale.findAll();
+
 module.exports = {
   createSale,
+  getAll,
 };
