@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Checkout from './components/Checkout';
 import Login from './pages/Login';
+import Orders from './pages/Orders';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
@@ -32,6 +33,7 @@ function App() {
           <Checkout />
         }
       />
+      <Route path="/customer/orders/:id" element={ <Orders /> } />
     </Routes>
   );
 }

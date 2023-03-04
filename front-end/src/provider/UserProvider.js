@@ -4,11 +4,9 @@ import PropTypes from 'prop-types';
 import MainContext from '../context/MainContext';
 
 function UserProvider({ children }) {
-  const [user, setUser, productsOfLocal, setProductsOfLocal] = useState([]);
+  const [user, setUser] = useState([]);
 
   const contextValue = useMemo(() => ({
-    productsOfLocal,
-    setProductsOfLocal,
     user,
     setUser,
   }), [user]);

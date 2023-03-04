@@ -1,14 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import postProduct from '../Api/Products';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
 import NavBar from './NavBar';
+import RoleOption from './RoleOption';
 import removeItenLocalStorage from './utils/CheckoutUtils';
 
 function Checkout() {
   const [list, setListOrders] = useState([]);
   const [total, setTotal] = useState(0);
+  const [payload, setPayload] = useState({
+    userId: '',
+    sellerId: '',
+    totalPrice: '',
+    deliveryAddress: '',
+    deliveryNumber: '',
+  });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
+    const { id } = getLocalStorage('user');
+    setPayload((prev) => ({
+      ...prev,
+      userId: id,
+      sellerId: id,
+      totalPrice: total,
+    }));
+    console.log(listLocal, id);
     setListOrders(listLocal);
   }, []);
 
@@ -26,6 +46,12 @@ function Checkout() {
   const handleClick = ({ target: { id } }) => {
     const newList = removeItenLocalStorage('carrinho', id);
     setListOrders(newList);
+  };
+
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+    const { data } = await postProduct(payload);
+    navigate(`/customer/orders/${data.id}`);
   };
 
   return (
@@ -112,32 +138,28 @@ function Checkout() {
       </table>
 
       <form action="">
-
         P. Vendedora Responsável:
-        <select
-          type="number"
-          data-testid="customer_checkout__select-seller"
-        >
-          <option value="grapefruit">Grapefruit</option>
-          <option value="lime">Lime</option>
-          <option value="coconut">Coconut</option>
-          <option value="mango">Mango</option>
-        </select>
-
+        <RoleOption />
         Endereço
         <input
           type="text"
           data-testid="customer_checkout__input-address"
+          onChange={ ({ target: { value } }) => {
+            setPayload((prev) => ({ ...prev, deliveryAddress: value }));
+          } }
         />
         Número
         <input
           type="text"
           data-testid="customer_checkout__input-address-number"
+          onChange={ ({ target: { value } }) => {
+            setPayload((prev) => ({ ...prev, deliveryNumber: value }));
+          } }
         />
         <button
           type="submit"
           data-testid="customer_checkout__button-submit-order"
-          // onClick={ handleCheckout }
+          onClick={ handleCheckout }
         >
           FINALIZAR PEDIDO
         </button>
