@@ -1,11 +1,10 @@
 import { HEADERS_GET } from './Utils/User';
+import { URL_GET_SELLER } from './Utils/Url';
 
-const getSellers = async (role) => {
-  const payload = { role };
+const getSellers = async () => {
   try {
     const response = await fetch(URL_GET_SELLER, {
       ...HEADERS_GET,
-      body: JSON.stringify(payload),
     });
 
     return {

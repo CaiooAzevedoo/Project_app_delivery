@@ -8,6 +8,7 @@ import removeItenLocalStorage from './utils/CheckoutUtils';
 
 function Checkout() {
   const [list, setListOrders] = useState([]);
+  const [sellerid, setSellerId] = useState(0);
   const [total, setTotal] = useState(0);
   const [payload, setPayload] = useState({
     userId: '',
@@ -20,12 +21,15 @@ function Checkout() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    setPayload((prev) => ({ ...prev, sellerId: sellerid }));
+  }, [sellerid]);
+
+  useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
     const { id } = getLocalStorage('user');
     setPayload((prev) => ({
       ...prev,
       userId: id,
-      sellerId: id,
       totalPrice: total,
     }));
     console.log(listLocal, id);
@@ -139,7 +143,7 @@ function Checkout() {
 
       <form action="">
         P. Vendedora Responsável:
-        <RoleOption />
+        <RoleOption setSellerId={ setSellerId } />
         Endereço
         <input
           type="text"
