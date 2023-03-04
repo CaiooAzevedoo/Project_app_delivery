@@ -20,7 +20,7 @@ const getAllSalesProducts = async (_req, res) => {
   const allSalesProducts = await saleProduct.getAll();
 
   return res.status(200).json(allSalesProducts);
-}
+};
 
 module.exports = {
   createSale,

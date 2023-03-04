@@ -29,9 +29,9 @@ const createSale = async ({
   if (!result) throw new Error(404, 'Sale not created');
 
   const salesProducts = products.map(async (product) => {
-    await createSaleProduct(result.id, product.id, product.quantity)
-  })
-  await salesProducts
+    await createSaleProduct(result.id, product.id, product.quantity);
+  });
+  await salesProducts;
   return { type: 201, message: result };
 };
 
