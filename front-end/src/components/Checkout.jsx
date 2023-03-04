@@ -5,6 +5,7 @@ import { setLocalstorage, getLocalStorage } from '../localstorage';
 import NavBar from './NavBar';
 import RoleOption from './RoleOption';
 import removeItenLocalStorage from './utils/CheckoutUtils';
+import './styles/Checkout.css';
 
 function Checkout() {
   const [list, setListOrders] = useState([]);
@@ -77,6 +78,7 @@ function Checkout() {
             list.map((item, index) => (
               <tr key={ index }>
                 <td
+                  className="index-table-checkout"
                   data-testid={
                     `customer_checkout__element-order-table-item-number-${index}`
                   }
@@ -92,6 +94,7 @@ function Checkout() {
                   {item.name}
                 </td>
                 <td
+                  className="quantity-table-checkout"
                   data-testid={
                     `customer_checkout__element-order-table-quantity-${index}`
                   }
@@ -100,6 +103,7 @@ function Checkout() {
 
                 </td>
                 <td
+                  className="unit-value-table-checkout"
                   data-testid={
                     `customer_checkout__element-order-table-unit-price-${index}`
                   }
@@ -108,6 +112,7 @@ function Checkout() {
 
                 </td>
                 <td
+                  className="sub-total-table-checkout"
                   data-testid={
                     `customer_checkout__element-order-table-sub-total-${index}`
                   }
@@ -115,20 +120,26 @@ function Checkout() {
                   { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
 
                 </td>
-                <button
-                  type="button"
-                  id={ item.id }
-                  data-testid={ `customer_checkout__element-order-table-remove-${index}` }
-                  onClick={ handleClick }
-                >
-                  Remover
-                </button>
+                <td>
+                  <button
+                    className="rm-item-checkout-btn"
+                    type="button"
+                    id={ item.id }
+                    data-testid={
+                      `customer_checkout__element-order-table-remove-${index}`
+                    }
+                    onClick={ handleClick }
+                  >
+                    Remover
+                  </button>
+                </td>
               </tr>
             ))
           }
         </tbody>
         <p
           type="button"
+          className="total-value-checkout"
           data-testid="customer_checkout__element-order-total-price"
           id="total"
           name="total"

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLocalStorage } from '../localstorage';
 import MainContext from '../context/MainContext';
+import './styles/TotalPriceButton.css';
 
 function TotalPriceButton() {
   const navigate = useNavigate();
@@ -21,8 +22,9 @@ function TotalPriceButton() {
   );
 
   return (
-    <div>
+    <div className="total-price-btn">
       <button
+        className="customer_products__button-cart"
         type="button"
         data-testid="customer_products__button-cart"
         disabled={ productsOfLocal.length < 1 }

@@ -1,6 +1,8 @@
 .main-products {
+  background-color: rgba(24, 34, 49, 0.034);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  padding-top: 16px;
 }
