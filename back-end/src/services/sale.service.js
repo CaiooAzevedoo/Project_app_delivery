@@ -1,11 +1,11 @@
-const { sale } = require('../database/models/sales');
+const { sale } = require('../database/models');
 const { saleStatus } = require('../utils/status.util');
 
 const createSale = async ({
-userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, saleDate,
+  userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, saleDate,
 }) => {
   const result = await sale.create({
-  userId, 
+  userId,
   sellerId, 
   totalPrice, 
   deliveryAddress,
@@ -19,7 +19,9 @@ userId, sellerId, totalPrice, deliveryAddress, deliveryNumber, saleDate,
   return { type: 201, message: result };
 };
 
+const getAll = async () => sale.findAll();
+
 module.exports = {
   createSale,
+  getAll,
 };
-

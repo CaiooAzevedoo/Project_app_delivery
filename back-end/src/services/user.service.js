@@ -31,8 +31,8 @@ const getUserId = (id) => user.findOne({
   where: { id },
 });
 
-const getSeller= () => user.findAll({
-  where: { role: "seller" },
+const getSeller = () => user.findAll({
+  where: { role: 'seller' },
 });
 
 const getAll = async () => user.findAll();

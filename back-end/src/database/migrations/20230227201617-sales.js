@@ -29,18 +29,30 @@ module.exports = {
         foreignKey: true,
         field: 'seller_id',
         references: {
-          model: 'sales',
+          model: 'users',
           key: 'id',
         },
       },
-      totalPrice: Sequelize.DECIMAL(9,2),
-      deliveryAddress: Sequelize.STRING,
-      deliveryNumber: Sequelize.STRING,
+      totalPrice: {
+        type: Sequelize.DECIMAL(9,2),
+        field: 'total_price',
+      },
+      deliveryAddress: {
+        type: Sequelize.STRING,
+        field: 'delivery_address'
+      },
+      deliveryNumber: {
+        type: Sequelize.STRING,
+        field: 'delivery_number'
+      },
       saleDate: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+        field: 'sale_date'
       },
-      status: Sequelize.STRING,
+      status: {
+        type: Sequelize.STRING,
+        field: 'status'}
      });
   },
 

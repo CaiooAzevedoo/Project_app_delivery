@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(20),
       defaultValue: "customer",
     },
-
   },
 
   {
@@ -35,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   user.associate = (models) => {
-    user.hasMany(models.sale, { foreignKey: 'userId', as: 'customer' });
+    user.hasMany(models.sale, { foreignKey: 'userId', as: 'user' });
     user.hasMany(models.sale, { foreignKey: 'sellerId', as: 'seller' });
   }
   return user;
