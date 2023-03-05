@@ -9,15 +9,13 @@ function RoleOption({ setSellerId }) {
     const request = async () => {
       const response = await getSellers();
       setSeller(response.data);
-      // setLocalstorage('seller', response);
     };
 
     request();
-    setSellerId();
   }, []);
 
   useEffect(() => {
-    console.log(seller);
+    if (seller[0]) setSellerId(seller[0].id);
   }, [seller]);
 
   return (

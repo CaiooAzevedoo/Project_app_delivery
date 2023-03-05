@@ -15,7 +15,7 @@ function Checkout() {
   const [sellerid, setSellerId] = useState(0);
   const [payload, setPayload] = useState({
     userId: '',
-    sellerId: '',
+    sellerId: 0,
     totalPrice: 0,
     deliveryAddress: '',
     deliveryNumber: '',

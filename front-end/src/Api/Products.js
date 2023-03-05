@@ -1,12 +1,12 @@
 import { URL_POST_PRODUCTS } from './Utils/Url';
-import HEADERS_POST from './Utils/Headers';
+import { HEADERS_POST_PRODUCTS } from './Utils/Headers';
 
 const postProduct = async (payLoad) => {
   try {
-    const response = fetch(
+    const response = await fetch(
       URL_POST_PRODUCTS,
       {
-        ...HEADERS_POST,
+        ...HEADERS_POST_PRODUCTS,
         body: JSON.stringify(payLoad),
       },
     );
