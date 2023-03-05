@@ -1,8 +1,7 @@
-// import { getLocalStorage } from '../../localstorage';
-// const { token } = getLocalStorage('user');
+import { getLocalStorage } from '../../localstorage';
+
 const CONTENT_TYPE = 'application/json';
 const { token } = getLocalStorage('user');
-// const AUTHORIZATION = `Bearer ${token}`;
 
 const HEADERS_POST = {
   method: 'POST',
@@ -15,7 +14,7 @@ export const HEADERS_POST_PRODUCTS = {
   method: 'POST',
   headers: {
     'Content-Type': CONTENT_TYPE,
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer${token}`,
   },
   credentials: 'include',
 };
