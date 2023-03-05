@@ -4,6 +4,7 @@ const setLocalstorage = (key, payLoad) => {
 
 const getLocalStorage = (key) => {
   const date = localStorage.getItem(key);
+  console.log(JSON.parse(date.token));
   return JSON.parse(date);
 };
 

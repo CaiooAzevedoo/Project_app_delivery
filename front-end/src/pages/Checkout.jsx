@@ -54,14 +54,18 @@ function Checkout() {
   };
 
   const handleCheckout = async (e) => {
-    e.preventDefault();
-    const listLocal = getLocalStorage('carrinho');
-    setPayload((prev) => ({
-      ...prev,
-      totalPrice: calcTotalPrice(listLocal),
-      products: getIdAndQuantity(listLocal) }));
-    const { data } = await postProduct(payload);
-    navigate(`/customer/orders/${data.id}`);
+    try {
+      e.preventDefault();
+      const listLocal = getLocalStorage('carrinho');
+      setPayload((prev) => ({
+        ...prev,
+        totalPrice: calcTotalPrice(listLocal),
+        products: getIdAndQuantity(listLocal) }));
+      const { data } = await postProduct(payload);
+      navigate(`/customer/orders/${data.id}`);
+    } catch (err) {
+      navigate('/login');
+    }
   };
 
   return (
