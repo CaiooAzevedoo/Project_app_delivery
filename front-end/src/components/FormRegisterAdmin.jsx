@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
-// import { createUser } from '../Api/User';
+import { createUserAdm } from '../Api/User';
 import './styles/FormRegister.css';
 
 function FormRegisterAdmin() {
@@ -21,22 +21,22 @@ function FormRegisterAdmin() {
     setRegister((prev) => ({ ...prev, [name]: value }));
   };
 
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   let test = {};
-  //   const request = async () => {
-  //     const { email, password, name } = register;
-  //     const { status, date } = await createUser({ email, password, name });
-  //     test = date;
-  //     const statusNotFound = 409;
-  //     console.log(date);
-  //     if (status === statusNotFound) {
-  //       setRegister((prev) => ({ ...prev, notFound: true }));
-  //     }
-  //   };
-  //   await request();
-  //   console.log(test);
-  // };
+  const handleClick = async (e) => {
+    e.preventDefault();
+    let test = {};
+    const request = async () => {
+      const { email, password, name, role } = register;
+      const { status, date } = await createUserAdm({ email, password, name, role });
+      test = date;
+      const statusNotFound = 409;
+      console.log(date);
+      if (status === statusNotFound) {
+        setRegister((prev) => ({ ...prev, notFound: true }));
+      }
+    };
+    await request();
+    console.log(test);
+  };
   return (
     <form className="form-container">
       <h1>Cadastro</h1>
@@ -84,6 +84,8 @@ function FormRegisterAdmin() {
           <select
             type="select"
             data-testid="admin_manage__select-role"
+            id="role"
+            name="role"
             onChange={ handleChange }
           >
             <option value="" selected disabled hidden> </option>
@@ -96,7 +98,7 @@ function FormRegisterAdmin() {
           type="submit"
           data-testid="admin_manage__button-register"
           disabled={ register.submitIsDisable }
-          // onClick={ handleClick }
+          onClick={ handleClick }
         >
           CADASTRAR
         </button>
