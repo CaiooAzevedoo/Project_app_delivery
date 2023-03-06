@@ -7,6 +7,7 @@ import RegisterProvider from './provider/RegisterProvider';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
 import ProductProvider from './provider/ProductProvider';
+import AdmManage from './pages/AdmManage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           </ProductProvider>
         }
       />
+      <Route path="/admin/manage" element={ <AdmManage /> } />
     </Routes>
   );
 }
