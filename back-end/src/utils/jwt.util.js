@@ -20,7 +20,7 @@ const validateToken = (token) => {
         return validToken;
     } catch (error) {
         return false;
-    }
+    };
 };
 
 const authenticateToken = (token) => {
@@ -28,7 +28,7 @@ const authenticateToken = (token) => {
     const validToken = jwt.verify(token, jwtKey);
     return validToken;
   } catch (err) {
-    return false
+    return false;
   };
 };
 
