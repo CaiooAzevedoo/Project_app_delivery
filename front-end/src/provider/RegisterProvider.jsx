@@ -10,6 +10,7 @@ function RegisterProvider({ children }) {
     password: '',
     name: false,
     notFound: false,
+    role: '',
   });
 
   const contextValue = useMemo(() => ({
