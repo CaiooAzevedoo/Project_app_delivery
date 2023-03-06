@@ -7,7 +7,7 @@ const secret = require('fs')
 
 const createToken = (data) => {
     const token = jwt.sign({ data }, secret, {
-        expiresIn: '15m',
+        expiresIn: '7d',
         algorithm: 'HS256',
     });
     return token;
