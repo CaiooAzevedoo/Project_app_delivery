@@ -54,8 +54,8 @@ function Checkout() {
   };
 
   const handleCheckout = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
       const listLocal = getLocalStorage('carrinho');
       setPayload((prev) => ({
         ...prev,
@@ -64,7 +64,8 @@ function Checkout() {
       const { data } = await postProduct(payload);
       navigate(`/customer/orders/${data.id}`);
     } catch (err) {
-      navigate('/login');
+      // navigate('/login');
+      console.log(err);
     }
   };
 
