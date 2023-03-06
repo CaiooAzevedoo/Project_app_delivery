@@ -1,12 +1,12 @@
-const jwt = require('../utils/jwt.util');
+const jwtUtil = require('../utils/jwt.util');
 
-const validateToken = (req, res, next) => {
+const validateToken = async (req, res, next) => {
   const token = req.header('Authorization');
+  const verifyToken = jwtUtil.authenticateToken(token);
   if (!token) {
     return res.status(401).json({ message: 'Token not found' });
   }
   
-  const verifyToken = jwt.validateToken(token);
   if (!verifyToken) { 
       return res.status(401).json({ message: 'Expired or invalid token' }); 
   }
