@@ -28,12 +28,7 @@ function FormRegisterAdmin() {
       const { email, password, name } = register;
       const { status, date } = await createUser({ email, password, name });
       test = date;
-      // const { Authorization } = request.headers;
       const statusNotFound = 409;
-      // const statusOk = 201;
-      // if (status === statusOk) {
-      //   navigate('/customer/products');
-      // }
       console.log(date);
       if (status === statusNotFound) {
         setRegister((prev) => ({ ...prev, notFound: true }));
