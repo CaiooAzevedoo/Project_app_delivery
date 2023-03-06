@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
+import { createUser } from '../Api/User';
 import './styles/FormRegister.css';
 
 function FormRegisterAdmin() {
@@ -18,6 +19,28 @@ function FormRegisterAdmin() {
 
   const handleChange = ({ target: { value, name } }) => {
     setRegister((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    let test = {};
+    const request = async () => {
+      const { email, password, name } = register;
+      const { status, date } = await createUser({ email, password, name });
+      test = date;
+      // const { Authorization } = request.headers;
+      const statusNotFound = 409;
+      // const statusOk = 201;
+      // if (status === statusOk) {
+      //   navigate('/customer/products');
+      // }
+      console.log(date);
+      if (status === statusNotFound) {
+        setRegister((prev) => ({ ...prev, notFound: true }));
+      }
+    };
+    await request();
+    console.log(test);
   };
   return (
     <form className="form-container">
@@ -68,7 +91,7 @@ function FormRegisterAdmin() {
             data-testid="admin_manage__select-role"
             onChange={ handleChange }
           >
-            <option value=""> </option>
+            <option disabled selected value> -- selecione uma opção --</option>
             <option value="seller">Vendedor</option>
             <option value="customer">Cliente</option>
             <option value="administrator">Administrador</option>
@@ -78,9 +101,19 @@ function FormRegisterAdmin() {
           type="submit"
           data-testid="admin_manage__button-register"
           disabled={ register.submitIsDisable }
+          onClick={ handleClick }
         >
           CADASTRAR
         </button>
+        {
+          register.notFound ? (
+            <p
+              data-testid="common_register__element-invalid_register"
+            >
+              user already exists
+            </p>
+          ) : null
+        }
       </div>
     </form>
   );
