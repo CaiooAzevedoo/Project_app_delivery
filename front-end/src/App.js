@@ -25,6 +25,12 @@ function App() {
           </ProductProvider>
         }
       />
+      <Route
+        path="/admin/manage"
+        element={
+          <RegisterProvider><AdmManage /></RegisterProvider>
+        }
+      />
     </Routes>
   );
 }
