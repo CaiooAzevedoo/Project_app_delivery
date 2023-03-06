@@ -5,7 +5,6 @@ const path = require('path');
 const jwtKey = require('fs')
 .readFileSync(path.resolve(__dirname, '../../jwt.evaluation.key'), { encoding: 'utf-8' });
 
-
 const createToken = (data) => {
     const token = jwt.sign({ data }, jwtKey, {
         expiresIn: '1d',
@@ -30,7 +29,7 @@ const authenticateToken = (token) => {
     return validToken;
   } catch (err) {
     return false
-  }
+  };
 };
 
 module.exports = {
