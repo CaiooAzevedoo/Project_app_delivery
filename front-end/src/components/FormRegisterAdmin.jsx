@@ -86,7 +86,7 @@ function FormRegisterAdmin() {
             data-testid="admin_manage__select-role"
             onChange={ handleChange }
           >
-            <option disabled selected value> -- selecione uma opção --</option>
+            <option value="" selected disabled hidden> </option>
             <option value="seller">Vendedor</option>
             <option value="customer">Cliente</option>
             <option value="administrator">Administrador</option>
