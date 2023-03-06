@@ -39,8 +39,14 @@ function Login() {
     };
     await request();
     if (body.token) {
-      setLocalstorage('user', body);
-      navigate('/customer/products');
+      if (body.role === 'customer') {
+        setLocalstorage('user', body);
+        navigate('/customer/products');
+      }
+      if (body.role === 'administrator') {
+        setLocalstorage('user', body);
+        navigate('/admin/manage');
+      }
     }
   };
 
