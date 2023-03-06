@@ -4,6 +4,7 @@ const path = require('path');
 
 const secret = require('fs')
 .readFileSync('jwt.evaluation.key');
+console.log(secret);
 
 const createToken = (data) => {
     const token = jwt.sign({ data }, secret, {

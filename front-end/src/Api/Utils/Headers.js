@@ -1,7 +1,9 @@
 import { getLocalStorage } from '../../localstorage';
 
 const CONTENT_TYPE = 'application/json';
-const { token } = getLocalStorage('user');
+const user = getLocalStorage('user');
+const token = user ? user.token : null;
+console.log(token);
 
 const HEADERS_POST = {
   method: 'POST',
