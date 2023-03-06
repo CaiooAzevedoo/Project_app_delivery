@@ -14,9 +14,8 @@ export const HEADERS_POST_PRODUCTS = {
   method: 'POST',
   headers: {
     'Content-Type': CONTENT_TYPE,
-    Authorization: `Bearer${token}`,
+    Authorization: token,
   },
-  credentials: 'include',
 };
 
 export const HEADERS_GET = {
