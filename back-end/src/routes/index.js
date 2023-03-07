@@ -4,6 +4,7 @@ const productRouter = require('./products.routes');
 const saleRouter = require('./sale.route');
 const sellerRouter = require('./role.route');
 const saleProducts = require('./saleProducts.route');
+const admRouter = require('./adm.routes');
 
 module.exports = {
   loginRouter,
@@ -12,4 +13,5 @@ module.exports = {
   saleRouter,
   sellerRouter,
   saleProducts,
+  admRouter,
 };

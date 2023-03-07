@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { clearLocalStorage, getLocalStorage } from '../localstorage';
 import './styles/NavBar.css';
 
@@ -8,6 +8,8 @@ function NavBar() {
     userDate: {},
   });
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     const localStorageDate = getLocalStorage('user');
@@ -22,13 +24,13 @@ function NavBar() {
   return (
     <menu className="header-products">
       <div data-testid="customer_products__element-navbar-link-products">
-        Produtos
+        { path === '/admin/manage' ? 'Gerenciar usuários' : 'Produtos' }
       </div>
       <div data-testid="customer_products__element-navbar-link-orders">
         Pedidos
       </div>
       <div data-testid="customer_products__element-navbar-user-full-name">
-        {navBarState.userDate.name}
+        { navBarState.userDate.name }
       </div>
       <button
         type="button"
