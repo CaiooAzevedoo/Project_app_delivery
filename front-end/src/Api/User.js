@@ -76,12 +76,4 @@ export const createUserAdm = async ({ name, email, password, role }) => {
   }
 };
 
-// const postProduct = async (payLoad) => {
-//   try {
-//     const response = await fetch(URL_POST_PRODUCTS, { ...headersPostProducts(),
-//       body: JSON.stringify(payLoad) });
-//     return { status: response.status, data: await response.json() };
-//   } catch (error) { const status = 404; return status; }
-// };
-
 export default getUser;

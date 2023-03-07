@@ -22,8 +22,8 @@ function FormRegisterAdmin() {
   };
 
   const handleClick = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
       let test = {};
       const request = async () => {
         const { email, password, name, role } = register;
@@ -42,21 +42,6 @@ function FormRegisterAdmin() {
       console.log(err);
     }
   };
-
-  // const handleCheckout = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const listLocal = getLocalStorage('carrinho');
-  //     setPayload((prev) => ({
-  //       ...prev,
-  //       totalPrice: calcTotalPrice(listLocal),
-  //       products: getIdAndQuantity(listLocal) }));
-  //     const { data } = await postProduct(payload);
-  //     navigate(`/customer/orders/${data.id}`);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   return (
     <form className="form-container">
