@@ -4,7 +4,7 @@ function OrderDetails() {
   return (
     <div>
       <NavBar />
-      Página Provisória
+      Página provisória
     </div>
   );
 }
