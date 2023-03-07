@@ -1,28 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function CardSales() {
+function CardSales({ item }) {
   return (
     <section>
       <p
-        data-testid={ `customer_orders__element-order-id-${null}` }
+        data-testid={ `customer_orders__element-order-id-${item.id}` }
       >
-        sale number
+        {item.id}
       </p>
       <p
-        data-testid={ `customer_orders__element-delivery-status-${null}` }
+        data-testid={ `customer_orders__element-delivery-status-${item.id}` }
       >
-        sale status
+        {item.status}
       </p>
       <div>
-        <p data-testid={ `customer_orders__element-order-date-${null}` }>
-          sale date
+        <p data-testid={ `customer_orders__element-order-date-${item.id}` }>
+          {item.date}
         </p>
-        <p data-testid={ `customer_orders__element-card-price-${null}` }>
-          sale price
+        <p data-testid={ `customer_orders__element-card-price-${item.id}` }>
+          {item.date}
         </p>
       </div>
     </section>
   );
 }
+
+CardSales.propTypes = {
+  item: PropTypes.objectOf.isRequired,
+};
 
 export default CardSales;

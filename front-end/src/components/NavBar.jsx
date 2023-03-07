@@ -9,7 +9,17 @@ function NavBar() {
   });
   const location = useLocation();
   const navigate = useNavigate();
-  const rotaOrders = /^\/customer\/orders\/(\w+)?$/i;
+
+  const currectRoute = () => {
+    const rota = location.pathname;
+    const rotaOrders = /^\/customer\/orders\/(\w+)?$/i;
+    const customerProducts = /^\/customer\/products/i;
+    const productCheckout = /^\/customer\/checkout/i;
+    return (rotaOrders.test(rota)
+    || customerProducts.test(rota)
+    || productCheckout.test(rota)
+    );
+  };
 
   useEffect(() => {
     const localStorageDate = getLocalStorage('user');
@@ -27,7 +37,7 @@ function NavBar() {
         Produtos
       </div>
       {
-        (rotaOrders.test(location.pathname)) && (
+        (currectRoute()) && (
           <div
             className="maus-pedidos-nav-bar"
             data-testid="customer_products__element-navbar-link-orders"
@@ -36,9 +46,6 @@ function NavBar() {
           </div>
         )
       }
-      <div data-testid="customer_products__element-navbar-link-orders">
-        Pedidos
-      </div>
       <div data-testid="customer_products__element-navbar-user-full-name">
         {navBarState.userDate.name}
       </div>
