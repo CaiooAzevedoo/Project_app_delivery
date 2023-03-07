@@ -9,6 +9,8 @@ function NavBar() {
   });
   const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
 
   const currectRoute = () => {
     const rota = location.pathname;
@@ -34,7 +36,7 @@ function NavBar() {
   return (
     <menu className="header-products">
       <div data-testid="customer_products__element-navbar-link-products">
-        Produtos
+        { path === '/admin/manage' ? 'Gerenciar usuários' : 'Produtos' }
       </div>
       {
         (currectRoute()) && (
@@ -47,7 +49,7 @@ function NavBar() {
         )
       }
       <div data-testid="customer_products__element-navbar-user-full-name">
-        {navBarState.userDate.name}
+        { navBarState.userDate.name }
       </div>
       <button
         type="button"

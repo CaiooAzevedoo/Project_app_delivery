@@ -1,9 +1,9 @@
-const { sale, saleProduct, product, user } = require('../database/models');
-// const { createSaleProduct } = require('../services/saleProduct.service')
+const { sale, salesProduct, product, user } = require('../database/models');
+
 const { saleStatus } = require('../utils/status.util');
 
 const createSaleProduct = async (saleId, productId, quantity) => {
-  const response = await saleProduct.create({
+  const response = await salesProduct.create({
     saleId,
     productId,
     quantity,
@@ -50,6 +50,9 @@ const getById = async (id) => {
     { model: user, as: 'seller', attributes: ['name'] },
   ],
 });
+  if (!result) {
+    return { type: 404, message: 'Unregistered sale' };
+  }
   return { type: 200, message: result };
 };
 
