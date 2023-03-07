@@ -34,7 +34,8 @@ function App() {
           <Checkout />
         }
       />
-      <Route path="/customer/orders/:id" element={ <Orders /> } />
+      <Route path="/customer/orders" element={ <Orders /> } />
+      {/* <Route path="/customer/orders/:id" element={ <Details /> } /> */}
       <Route
         path="/admin/manage"
         element={
