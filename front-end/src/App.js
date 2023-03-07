@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
-import Orders from './pages/Orders';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
@@ -36,7 +35,6 @@ function App() {
           <Checkout />
         }
       />
-      <Route path="/customer/orders" element={ <Orders /> } />
       <Route
         path="/admin/manage"
         element={
