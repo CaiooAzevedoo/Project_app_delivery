@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { clearLocalStorage, getLocalStorage } from '../localstorage';
 import './styles/NavBar.css';
 
@@ -7,7 +7,9 @@ function NavBar() {
   const [navBarState, setNavBarState] = useState({
     userDate: {},
   });
+  const location = useLocation();
   const navigate = useNavigate();
+  const rotaOrders = /^\/customer\/orders\/(\w+)?$/i;
 
   useEffect(() => {
     const localStorageDate = getLocalStorage('user');
@@ -24,6 +26,16 @@ function NavBar() {
       <div data-testid="customer_products__element-navbar-link-products">
         Produtos
       </div>
+      {
+        (rotaOrders.test(location.pathname)) && (
+          <div
+            className="maus-pedidos-nav-bar"
+            data-testid="customer_products__element-navbar-link-orders"
+          >
+            MEUS PEDIDOS
+          </div>
+        )
+      }
       <div data-testid="customer_products__element-navbar-link-orders">
         Pedidos
       </div>
