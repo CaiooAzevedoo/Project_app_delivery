@@ -5,6 +5,9 @@ function Orders() {
   return (
     <main>
       <NavBar />
+      <section>
+        test
+      </section>
     </main>
   );
 }
