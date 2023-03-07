@@ -10,6 +10,7 @@ import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
 import AdmManage from './pages/AdmManage';
+import SellerOrders from './pages/SellerOrders';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <RegisterProvider><AdmManage /></RegisterProvider>
         }
       />
+      <Route path="/seller/orders" element={ <SellerOrders /> } />
     </Routes>
   );
 }
