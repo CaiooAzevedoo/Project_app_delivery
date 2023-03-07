@@ -3,13 +3,14 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
-import Orders from './pages/Orders';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
 import AdmManage from './pages/AdmManage';
+import SellerOrders from './pages/SellerOrders';
+import OrderDetails from './pages/OrderDetails';
 
 function App() {
   return (
@@ -34,13 +35,14 @@ function App() {
           <Checkout />
         }
       />
-      <Route path="/customer/orders/:id" element={ <Orders /> } />
       <Route
         path="/admin/manage"
         element={
           <RegisterProvider><AdmManage /></RegisterProvider>
         }
       />
+      <Route path="/seller/orders" element={ <SellerOrders /> } />
+      <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
     </Routes>
   );
 }
