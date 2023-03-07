@@ -28,8 +28,8 @@ const authenticateToken = (token) => {
     const validToken = jwt.verify(token, jwtKey);
     return validToken;
   } catch (err) {
-    return false
-  };
+    return false;
+  }
 };
 
 module.exports = {
