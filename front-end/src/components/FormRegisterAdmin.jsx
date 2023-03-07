@@ -106,7 +106,7 @@ function FormRegisterAdmin() {
           disabled={ register.submitIsDisable }
           onClick={ handleClick }
         >
-          cadastrar
+          Cadastrar
         </button>
         {
           register.notFound ? (
