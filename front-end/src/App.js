@@ -9,6 +9,7 @@ import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
+import OrderDetails from './pages/OrderDetails';
 import AdmManage from './pages/AdmManage';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         }
       />
       <Route path="/customer/orders" element={ <Orders /> } />
+      <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
       {/* <Route path="/customer/orders/:id" element={ <Details /> } /> */}
       <Route
         path="/admin/manage"

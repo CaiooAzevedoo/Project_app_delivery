@@ -9,9 +9,10 @@ const getSalesByUserId = async () => {
         ...HEADERS_GET,
       },
     );
+    const result = await response.json();
     return {
       status: response.status,
-      data: await response.json(),
+      data: result,
     };
   } catch (error) {
     const status = 404;

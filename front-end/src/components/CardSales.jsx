@@ -16,10 +16,10 @@ function CardSales({ sale }) {
       </p>
       <div>
         <p data-testid={ `customer_orders__element-order-date-${sale.id}` }>
-          {sale.date}
+          {sale.saleDate}
         </p>
         <p data-testid={ `customer_orders__element-card-price-${sale.id}` }>
-          {sale.date}
+          {(sale.totalPrice).replace('.', ',')}
         </p>
       </div>
     </section>

@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import getSalesByUserId from '../Api/Sales';
 import CardSales from '../components/CardSales';
 import NavBar from '../components/NavBar';
 
 function Orders() {
-  const [allSales, setAllSales] = useState(initialState);
+  const [allSales, setAllSales] = useState([]);
 
   useEffect(() => {
     const requestSeles = async () => {
-      const result = await getSalesByUserId();
-      setAllSales(result.data);
+      const { data } = await getSalesByUserId();
+      console.log(data);
+      setAllSales((data) || []);
     };
 
     requestSeles();

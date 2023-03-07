@@ -3,13 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import getUser from '../Api/User';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
-import { setLocalstorage } from '../localstorage';
+import { setLocalstorage, getLocalStorage } from '../localstorage';
 import './styles/Login.css';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const data = getLocalStorage('user');
+    console.log(data || 'nada');
+    if (data && data.role) {
+      navigate('/customer/orders');
+    }
+  }, []);
 
   useEffect(
     () => {

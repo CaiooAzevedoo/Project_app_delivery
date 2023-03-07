@@ -9,6 +9,6 @@ export const URL_GET_SELLER = `http://localhost:${process.env.REACT_APP_BACKEND_
 export const URL_GET_SALES = () => {
   const { id } = getLocalStorage('user');
   return (
-    `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/seles/user/${id}`
+    `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/sales/user/${id}`
   );
 };
