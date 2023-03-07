@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
+import { createUserAdm } from '../Api/User';
 import './styles/FormRegister.css';
 
 function FormRegisterAdmin() {
@@ -19,9 +20,27 @@ function FormRegisterAdmin() {
   const handleChange = ({ target: { value, name } }) => {
     setRegister((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    let test = {};
+    const request = async () => {
+      const { email, password, name, role } = register;
+      const { status, date } = await createUserAdm({ email, password, name, role });
+      test = date;
+      const statusNotFound = 409;
+      console.log(date);
+      if (status === statusNotFound) {
+        setRegister((prev) => ({ ...prev, notFound: true }));
+      }
+    };
+    await request();
+    console.log(test);
+  };
   return (
     <form className="form-container">
       <h1>Cadastro</h1>
+
       <div className="user-data-container">
         <label htmlFor="name">
           Nome:
@@ -65,9 +84,11 @@ function FormRegisterAdmin() {
           <select
             type="select"
             data-testid="admin_manage__select-role"
+            id="role"
+            name="role"
             onChange={ handleChange }
           >
-            <option value=""> </option>
+            <option value="" selected disabled hidden> </option>
             <option value="seller">Vendedor</option>
             <option value="customer">Cliente</option>
             <option value="administrator">Administrador</option>
@@ -77,11 +98,22 @@ function FormRegisterAdmin() {
           type="submit"
           data-testid="admin_manage__button-register"
           disabled={ register.submitIsDisable }
+          onClick={ handleClick }
         >
           CADASTRAR
         </button>
+        {
+          register.notFound ? (
+            <p
+              data-testid="common_register__element-invalid_register"
+            >
+              user already exists
+            </p>
+          ) : null
+        }
       </div>
     </form>
   );
 }
+
 export default FormRegisterAdmin;

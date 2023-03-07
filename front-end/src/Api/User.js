@@ -1,6 +1,8 @@
 import { URL_CREATE_USER, URL_LOGIN, URL_GET_PRODUCTS } from './Utils/Url';
 import HEADERS_POST, { HEADERS_GET } from './Utils/Headers';
 
+const urlCreateAdm = `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/adm`;
+
 const getUser = async ({ email, password }) => {
   const payLoad = { email, password };
   try {
@@ -46,6 +48,27 @@ export const getProducts = async () => {
     return {
       status: response.status,
       data: await response.json(),
+    };
+  } catch (error) {
+    const status = 404;
+    return status;
+  }
+};
+
+export const createUserAdm = async ({ name, email, password, role }) => {
+  const payLoad = { name, email, password, role };
+  try {
+    const response = await fetch(
+      urlCreateAdm,
+      {
+        ...HEADERS_POST,
+        body: JSON.stringify(payLoad),
+      },
+    );
+
+    return {
+      status: response.status,
+      date: await response.json(),
     };
   } catch (error) {
     const status = 404;
