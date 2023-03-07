@@ -22,21 +22,42 @@ function FormRegisterAdmin() {
   };
 
   const handleClick = async (e) => {
-    e.preventDefault();
-    let test = {};
-    const request = async () => {
-      const { email, password, name, role } = register;
-      const { status, date } = await createUserAdm({ email, password, name, role });
-      test = date;
-      const statusNotFound = 409;
-      console.log(date);
-      if (status === statusNotFound) {
-        setRegister((prev) => ({ ...prev, notFound: true }));
-      }
-    };
-    await request();
-    console.log(test);
+    try {
+      e.preventDefault();
+      let test = {};
+      const request = async () => {
+        const { email, password, name, role } = register;
+        const { status, date } = await createUserAdm({
+          email, password, name, role });
+        test = date;
+        const statusNotFound = 409;
+        console.log(date);
+        if (status === statusNotFound) {
+          setRegister((prev) => ({ ...prev, notFound: true }));
+        }
+      };
+      await request();
+      console.log(test);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+  // const handleCheckout = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const listLocal = getLocalStorage('carrinho');
+  //     setPayload((prev) => ({
+  //       ...prev,
+  //       totalPrice: calcTotalPrice(listLocal),
+  //       products: getIdAndQuantity(listLocal) }));
+  //     const { data } = await postProduct(payload);
+  //     navigate(`/customer/orders/${data.id}`);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
   return (
     <form className="form-container">
       <h1>Cadastro</h1>

@@ -64,7 +64,6 @@ function Checkout() {
       const { data } = await postProduct(payload);
       navigate(`/customer/orders/${data.id}`);
     } catch (err) {
-      // navigate('/login');
       console.log(err);
     }
   };
