@@ -111,9 +111,9 @@ function FormRegisterAdmin() {
         {
           register.notFound ? (
             <p
-              data-testid="common_register__element-invalid_register"
+              data-testid="admin_manage__element-invalid-register"
             >
-              User already exists
+              Usuário já existe
             </p>
           ) : null
         }
