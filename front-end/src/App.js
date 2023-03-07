@@ -9,6 +9,7 @@ import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
+import AdmManage from './pages/AdmManage';
 
 function App() {
   return (
@@ -34,6 +35,12 @@ function App() {
         }
       />
       <Route path="/customer/orders/:id" element={ <Orders /> } />
+      <Route
+        path="/admin/manage"
+        element={
+          <RegisterProvider><AdmManage /></RegisterProvider>
+        }
+      />
     </Routes>
   );
 }
