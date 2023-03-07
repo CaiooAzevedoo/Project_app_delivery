@@ -75,14 +75,19 @@ function CardProducts({ iten }) {
   return (
     <section className="card-products">
       <section>
-        <p
-          data-testid={ `customer_products__element-card-price-${iten.id}` }
-        >
-          {
-            iten.price ? (iten.price.replace('.', ',')
-            ) : null
-          }
-        </p>
+        <div className="card-products-price">
+          <p>
+            R$
+          </p>
+          <p
+            data-testid={ `customer_products__element-card-price-${iten.id}` }
+          >
+            {
+              iten.price ? (iten.price.replace('.', ',')
+              ) : null
+            }
+          </p>
+        </div>
         <img
           className="product-image"
           data-testid={ `customer_products__img-card-bg-image-${iten.id}` }

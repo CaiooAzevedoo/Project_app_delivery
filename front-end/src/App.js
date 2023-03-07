@@ -1,12 +1,14 @@
 import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import Checkout from './pages/Checkout';
 import Login from './pages/Login';
-import LoginProvider from './provider/LoginProvider';
-import RegisterProvider from './provider/RegisterProvider';
+import Orders from './pages/Orders';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
+import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
+import RegisterProvider from './provider/RegisterProvider';
 
 function App() {
   return (
@@ -25,6 +27,13 @@ function App() {
           </ProductProvider>
         }
       />
+      <Route
+        path="/customer/checkout"
+        element={
+          <Checkout />
+        }
+      />
+      <Route path="/customer/orders/:id" element={ <Orders /> } />
     </Routes>
   );
 }

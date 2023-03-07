@@ -46,7 +46,6 @@ function FormRegister() {
   return (
     <form className="form-container">
       <h1>Cadastro</h1>
-
       <div className="user-data-container">
         <div>
           <label htmlFor="name">

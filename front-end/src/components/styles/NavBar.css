@@ -2,6 +2,6 @@
   background-color: rgb(102, 235, 179);
   display: flex;
   justify-content: space-around;
-  margin: 0 0 16px;
+  margin: 0.01px;
   padding: 20px;
 }

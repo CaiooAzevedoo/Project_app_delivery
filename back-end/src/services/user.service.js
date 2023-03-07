@@ -27,7 +27,20 @@ const createUser = async ({ name, email, password }) => {
   return { type: 201, result };
 };
 
+const getUserId = (id) => user.findOne({
+  where: { id },
+});
+
+const getSeller = () => user.findAll({
+  where: { role: 'seller' },
+});
+
+const getAll = async () => user.findAll();
+
 module.exports = {
  checkUser,
  createUser,
+ getUserId,
+ getAll,
+ getSeller,
 };
