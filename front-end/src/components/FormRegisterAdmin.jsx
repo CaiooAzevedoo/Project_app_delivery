@@ -113,7 +113,7 @@ function FormRegisterAdmin() {
             <p
               data-testid="common_register__element-invalid_register"
             >
-              user already exists
+              User already exists
             </p>
           ) : null
         }
