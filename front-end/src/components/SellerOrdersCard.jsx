@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import getSales from '../Api/Sales';
 
-function SellerOrderList() {
+function SellerOrderCard() {
   const [sales, setSales] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const request = async () => {
@@ -11,7 +13,6 @@ function SellerOrderList() {
     };
     request();
   }, []);
-  // console.log(sales[0].id);
 
   return (
     <section>
@@ -19,6 +20,9 @@ function SellerOrderList() {
         <button
           key={ sale.id }
           type="button"
+          onClick={ () => {
+            navigate(`/seller/orders/${sale.id}`);
+          } }
         >
           <div
             data-testid={ `seller_orders__element-order-id-${sale.id}` }
@@ -50,4 +54,4 @@ function SellerOrderList() {
   );
 }
 
-export default SellerOrderList;
+export default SellerOrderCard;
