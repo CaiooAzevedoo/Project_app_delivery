@@ -15,7 +15,7 @@ function Login() {
     const data = getLocalStorage('user');
     console.log(data || 'nada');
     if (data && data.role) {
-      navigate('/customer/orders');
+      navigate('/customer/products');
     }
   }, []);
 
