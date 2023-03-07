@@ -2,9 +2,9 @@ const { sale, salesProduct, product, user } = require('../database/models');
 
 const { saleStatus } = require('../utils/status.util');
 
-const createSaleProduct = async (sale_id, productId, quantity) => {
+const createSaleProduct = async (saleId, productId, quantity) => {
   const response = await salesProduct.create({
-    sale_id,
+    saleId,
     productId,
     quantity,
   });
@@ -50,6 +50,9 @@ const getById = async (id) => {
     { model: user, as: 'seller', attributes: ['name'] },
   ],
 });
+  if (!result) {
+    return { type: 404, message: 'Unregistered sale' };
+  }
   return { type: 200, message: result };
 };
 
