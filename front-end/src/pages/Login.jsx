@@ -55,6 +55,10 @@ function Login() {
         setLocalstorage('user', body);
         navigate('/admin/manage');
       }
+      if (body.role === 'seller') {
+        setLocalstorage('user', body);
+        navigate('/seller/orders');
+      }
     }
   };
 

@@ -8,8 +8,20 @@ function NavBar() {
     userDate: {},
   });
   const location = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
+
+  const currectRoute = () => {
+    const rota = location.pathname;
+    const rotaOrders = /^\/customer\/orders\/(\w+)?$/i;
+    const customerProducts = /^\/customer\/products/i;
+    const productCheckout = /^\/customer\/checkout/i;
+    return (rotaOrders.test(rota)
+    || customerProducts.test(rota)
+    || productCheckout.test(rota)
+    );
+  };
 
   const currectRoute = () => {
     const rota = location.pathname;
@@ -39,6 +51,16 @@ function NavBar() {
           ? ('Gerenciar usuários')
           : (<Link to="/customer/products">Produtos</Link>) }
       </div>
+      {
+        (currectRoute()) && (
+          <div
+            className="maus-pedidos-nav-bar"
+            data-testid="customer_products__element-navbar-link-orders"
+          >
+            <Link to="/customer/orders">MEUS PEDIDOS</Link>
+          </div>
+        )
+      }
       {
         (currectRoute()) && (
           <div
