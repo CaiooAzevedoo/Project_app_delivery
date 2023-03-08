@@ -11,7 +11,6 @@ import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
 import OrderDetails from './pages/OrderDetails';
-import AdmManage from './pages/AdmManage';
 import SellerOrders from './pages/SellerOrders';
 import Orders from './pages/Orders';
 
