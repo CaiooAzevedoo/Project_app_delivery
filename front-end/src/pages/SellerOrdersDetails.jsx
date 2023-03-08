@@ -28,7 +28,7 @@ function SellerOrdersDetails() {
           <p
             data-testid="seller_order_details__element-order-details-label-order-date"
           >
-            { order.date }
+            { order.saleDate }
           </p>
           <p
             data-testid="seller_order_details__element
@@ -60,8 +60,8 @@ function SellerOrdersDetails() {
             </tr>
           </thead>
           <tbody>
-            {
-              [].map((item, index) => (
+            { (order.id) && (
+              order.map((item, index) => (
                 <tr key={ index }>
                   <td
                     className="index-table-checkout"
@@ -85,7 +85,7 @@ function SellerOrdersDetails() {
                       `customer_checkout__element-order-table-quantity-${index}`
                     }
                   >
-                    {item.quantity}
+                    {item.saleProduct.quantity}
 
                   </td>
                   <td
@@ -103,19 +103,22 @@ function SellerOrdersDetails() {
                       `customer_checkout__element-order-table-sub-total-${index}`
                     }
                   >
-                    { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
+                    {
+                      Number(item.price * item.saleProduct.quantity)
+                        .toFixed(2).replace('.', ',')
+                    }
 
                   </td>
                 </tr>
               ))
-            }
+            )}
           </tbody>
         </table>
       </section>
       <div
         data-testid="seller_order_details__element-order-total-price"
       >
-        { order.totalprice }
+        { (order.totalprice).replace('.', ',') }
       </div>
     </main>
   );

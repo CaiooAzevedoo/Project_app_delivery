@@ -4,7 +4,7 @@ import { URL_GET_ORDERS } from './Utils/Url';
 const getOrderBySellerId = async () => {
   try {
     const response = await fetch(
-      URL_GET_ORDERS,
+      URL_GET_ORDERS(),
       {
         ...HEADERS_GET,
       },
