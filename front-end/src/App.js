@@ -11,6 +11,7 @@ import RegisterProvider from './provider/RegisterProvider';
 import AdmManage from './pages/AdmManage';
 import SellerOrders from './pages/SellerOrders';
 import OrderDetails from './pages/OrderDetails';
+import SellerOrdersDetails from './pages/SellerOrdersDetails';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         }
       />
       <Route path="/seller/orders" element={ <SellerOrders /> } />
+      <Route path="/seller/orders/:id" element={ <SellerOrdersDetails /> } />
       <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
     </Routes>
   );
