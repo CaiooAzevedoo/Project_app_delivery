@@ -24,14 +24,13 @@ function DetailsTable({ sale }) {
           {sale.saleDate}
 
         </p>
-        <p
+        <select
           data-testId="customer_order_details__element
           -order-details-label-delivery-status"
-
         >
           {sale.status}
 
-        </p>
+        </select>
         <button
           type="button"
           data-testId="customer_order_details__button-delivery-check"
