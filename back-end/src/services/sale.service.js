@@ -56,8 +56,38 @@ const getById = async (id) => {
   return { type: 200, message: result };
 };
 
+const getAllByUserId = async (id) => {
+  const result = await sale.findAll({   
+      where: { userId: id },
+      include: [
+       { model: product, as: 'products', through: { attributes: ['quantity'] } },
+       { model: user, as: 'seller', attributes: ['name'] },
+     ], 
+    });
+    if (!result) {
+      return { type: 404, message: 'User dont have a sale registred' };
+    }
+    return { type: 200, message: result };
+};
+
+const getAllBySellerId = async (id) => {
+  const result = await sale.findAll({
+  where: { sellerId: id },
+  include: [
+    { model: product, as: 'products', through: { attributes: ['quantity'] } },
+    { model: user, as: 'seller', attributes: ['name'] },
+  ],
+});
+  if (!result) {
+    return { type: 404, message: 'Unregistered sale' };
+  }
+  return { type: 200, message: result };
+};
+
 module.exports = {
   createSale,
   getAll,
   getById,
+  getAllBySellerId,
+  getAllByUserId,
 };
