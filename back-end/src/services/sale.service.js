@@ -84,10 +84,22 @@ const getAllBySellerId = async (id) => {
   return { type: 200, message: result };
 };
 
+const updateStatus = async (id, status) => {
+  const result = await sale.update(
+    { status },
+    { where: { id } },
+  );
+  if (!result) {
+    return { type: 404, message: 'Unchanged status' };
+  }
+  return { type: 200, message: 'Sale status updated' };
+};
+
 module.exports = {
   createSale,
   getAll,
   getById,
   getAllBySellerId,
   getAllByUserId,
+  updateStatus,
 };
