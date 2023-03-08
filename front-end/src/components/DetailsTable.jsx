@@ -12,27 +12,27 @@ function DetailsTable({ sale }) {
             `customer_order_details__element-order-details-label-order-${sale.id}`
           }
         >
-          Numero do pedido
+          {sale.id}
 
         </p>
         <p
           data-testId={ `customer_order_details__element
-          -order-details-label-seller-${sale.name}` }
+          -order-details-label-seller-${sale.id}` }
         >
-          P. Vendedora
+          {sale.seller.name}
         </p>
         <p
           data-testId={ `Group customer_order_details__element
           -order-details-label-order-${sale.date}` }
         >
-          Date
+          {sale.saleDate}
 
         </p>
         <p
           data-testId={ `customer_order_details__element
         -order-details-label-delivery-status${sale.status}` }
         >
-          Status
+          {sale.status}
 
         </p>
         <button
