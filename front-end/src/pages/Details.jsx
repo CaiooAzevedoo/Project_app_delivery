@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getSalesByUserId } from '../Api/Sales';
 import DetailsTable from '../components/DetailsTable';
 import NavBar from '../components/NavBar';
+import TableProducts from '../components/TableProducts';
 import { getLocalStorage } from '../localstorage';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
 
@@ -45,10 +46,11 @@ function Details() {
       <NavBar />
       <section>
         {(sales.length > 0) && (sales.map(
-          (sale) => (<DetailsTable key={ sale.id } sale={ sale } />),
+          (sale, index) => (
+            <DetailsTable key={ sale.id } sale={ sale } index={ index } />
+          ),
         ))}
       </section>
-
       <table>
         <thead>
           <tr>
@@ -59,63 +61,21 @@ function Details() {
             <th>Sub-total</th>
           </tr>
         </thead>
-
         <tbody>
           {
             list.map((item, index) => (
-              <tr key={ index }>
-                <td
-                  className="index-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-item-number-${index}`
-                  }
-                >
-                  {`${index + 1}`}
-
-                </td>
-                <td
-                  data-testid={
-                    `customer_checkout__element-order-table-name-${index}`
-                  }
-                >
-                  {item.name}
-                </td>
-                <td
-                  className="quantity-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-quantity-${index}`
-                  }
-                >
-                  {item.quantity}
-
-                </td>
-                <td
-                  className="unit-value-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-unit-price-${index}`
-                  }
-                >
-                  { Number(item.price).toFixed(2).replace('.', ',')}
-
-                </td>
-                <td
-                  className="sub-total-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-sub-total-${index}`
-                  }
-                >
-                  { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
-
-                </td>
-              </tr>
+              <TableProducts
+                key={ index }
+                item={ item }
+                index={ index }
+              />
             ))
           }
         </tbody>
-
         <p
           type="button"
           className="total-value-checkout"
-          data-testid="customer_checkout__element-order-total-price"
+          data-testid="customer_order_details__element-order-total-price"
           id="total"
           name="total"
         >
