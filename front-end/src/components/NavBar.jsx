@@ -49,6 +49,16 @@ function NavBar() {
           </div>
         )
       }
+      {
+        (currectRoute()) && (
+          <div
+            className="maus-pedidos-nav-bar"
+            data-testid="customer_products__element-navbar-link-orders"
+          >
+            <Link to="/customer/orders">MEUS PEDIDOS</Link>
+          </div>
+        )
+      }
       <div data-testid="customer_products__element-navbar-user-full-name">
         { navBarState.userDate.name }
       </div>

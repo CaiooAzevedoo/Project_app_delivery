@@ -106,14 +106,14 @@ function FormRegisterAdmin() {
           disabled={ register.submitIsDisable }
           onClick={ handleClick }
         >
-          CADASTRAR
+          Cadastrar
         </button>
         {
           register.notFound ? (
             <p
-              data-testid="common_register__element-invalid_register"
+              data-testid="admin_manage__element-invalid-register"
             >
-              user already exists
+              Usuário já existe
             </p>
           ) : null
         }

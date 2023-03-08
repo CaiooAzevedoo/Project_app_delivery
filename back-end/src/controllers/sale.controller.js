@@ -22,7 +22,7 @@ const getAll = async (_req, res) => {
 
 const getAllByUserId = async (req, res) => {
   const { id } = req.params;
-  const {type, message} = await saleService.getAllByUserId(id);
+  const { type, message } = await saleService.getAllByUserId(id);
 
   return res.status(type).json(message);
 };
