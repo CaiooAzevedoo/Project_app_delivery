@@ -1,3 +1,5 @@
+const moment = require("moment/moment");
+
 module.exports = (sequelize, DataTypes) => {
   const sale = sequelize.define('sale', {
     id: {
@@ -29,7 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     saleDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATE,	
+      get() {
+        return moment(this.getDataValue('saleDate')).format('DD/MM/YYYY');
+      },
+      // https://stackoverflow.com/questions/16847672/is-there-a-simple-way-to-make-sequelize-return-its-date-time-fields-in-a-partic
       defaultValue: DataTypes.NOW,
       allowNull: false,
     },

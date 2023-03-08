@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import './styles/CardProducts.css';
 import MainContext from '../context/MainContext';
 import { setLocalstorage } from '../localstorage';
-import isAddOrRemove, { updateQuantity, calcButtonValue } from './utils/CardUtils';
+import
+isAddOrRemove,
+{ updateQuantity,
+  calcButtonValue,
+} from './utils/CardProductsUtils';
 
 function CardProducts({ iten }) {
   const { cardState, setCardState } = useContext(MainContext);
