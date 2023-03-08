@@ -99,7 +99,7 @@ function Login() {
             data-testid="common_login__button-register"
             onClick={ () => navigate('/register') }
           >
-            Cadastro
+            Cadastrar
           </button>
         </div>
         {
