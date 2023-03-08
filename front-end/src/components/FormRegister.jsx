@@ -5,6 +5,7 @@ import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
 import { createUser } from '../Api/User';
 import './styles/FormRegister.css';
+import { setLocalstorage } from '../localstorage';
 
 function FormRegister() {
   const { register, setRegister } = useContext(MainContext);
@@ -29,6 +30,7 @@ function FormRegister() {
     const request = async () => {
       const { email, password, name } = register;
       const { status, date } = await createUser({ email, password, name });
+      setLocalstorage('user', date);
       test = date;
       const statusNotFound = 409;
       const statusOk = 201;
