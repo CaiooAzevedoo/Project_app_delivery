@@ -1,11 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import { getSales } from '../Api/Sales';
 
 function SellerOrderCard({ sale }) {
   const navigate = useNavigate();
-
   return (
     <section>
 

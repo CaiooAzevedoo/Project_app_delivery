@@ -38,6 +38,7 @@ function Login() {
     let body = {};
     const request = async () => {
       const { status, data } = await getUser({ email, password });
+      setLocalstorage('user', data);
       body = data;
       const statusNotFound = 404;
       if (status === statusNotFound) {
@@ -98,7 +99,7 @@ function Login() {
             data-testid="common_login__button-register"
             onClick={ () => navigate('/register') }
           >
-            Cadastro
+            Cadastrar
           </button>
         </div>
         {

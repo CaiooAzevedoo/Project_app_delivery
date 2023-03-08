@@ -30,7 +30,7 @@ export const getSales = async () => {
     );
     return {
       status: response.status,
-      data: result,
+      data: await response.json(),
     };
   } catch (error) {
     const status = 404;
