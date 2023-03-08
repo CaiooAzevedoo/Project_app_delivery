@@ -9,7 +9,7 @@ function Orders() {
   useEffect(() => {
     const requestSeles = async () => {
       const { data } = await getSalesByUserId();
-      console.log(data);
+      console.log(data, 'ORDERS PAGINA');
       setAllSales((data) || []);
     };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import getOrderBySellerId from '../Api/Orders';
 import NavBar from '../components/NavBar';
 import HeadersTableSellerDetails from './Utils/variables';
@@ -31,8 +31,8 @@ function SellerOrdersDetails() {
             { order.saleDate }
           </p>
           <p
-            data-testid="seller_order_details__element
-            -order-details-label-delivery-status"
+            data-testid="seller_order_details__element-
+            order-details-label-delivery-status"
           >
             {order.status}
           </p>

@@ -71,7 +71,7 @@ const getAllByUserId = async (id) => {
 };
 
 const getAllBySellerId = async (id) => {
-  const result = await sale.findOne({
+  const result = await sale.findAll({
   where: { sellerId: id },
   include: [
     { model: product, as: 'products', through: { attributes: ['quantity'] } },

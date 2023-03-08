@@ -7,8 +7,10 @@ export const URL_POST_PRODUCTS = `http://localhost:${process.env.REACT_APP_BACKE
 export const URL_GET_SELLER = `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/seller`;
 
 export const URL_GET_ORDERS = () => {
-  const { id } = getLocalstorage('user');
-  return `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}sales/seller/${id}`;
+  const { id } = getLocalStorage('user');
+  return (
+    `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/sales/seller/${id}`
+  );
 };
 
 export const URL_GET_SALES = () => {

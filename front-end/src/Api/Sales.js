@@ -1,4 +1,4 @@
-import { URL_GET_SALES } from './Utils/Url';
+import { URL_GET_SALES, URL_GET_ORDERS } from './Utils/Url';
 import { HEADERS_GET } from './Utils/Headers';
 
 export const getSalesByUserId = async () => {
@@ -20,11 +20,14 @@ export const getSalesByUserId = async () => {
   }
 };
 
-const getSales = async () => {
+export const getSales = async () => {
   try {
-    const response = await fetch(URL_GET_SALES, {
-      ...HEADERS_GET,
-    });
+    const response = await fetch(
+      URL_GET_ORDERS(),
+      {
+        ...HEADERS_GET,
+      },
+    );
 
     return {
       status: response.status,
@@ -35,5 +38,3 @@ const getSales = async () => {
     return status;
   }
 };
-
-export default getSales;

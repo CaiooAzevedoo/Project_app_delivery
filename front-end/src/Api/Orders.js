@@ -9,13 +9,13 @@ const getOrderBySellerId = async () => {
         ...HEADERS_GET,
       },
     );
-
+    console.log(await response.json(), 'TAMO AQUI');
     return {
       status: response.status,
       data: await response.json(),
     };
   } catch (error) {
-    const status = 404;
+    const status = 'ERRO TA AQUI';
     return status;
   }
 };
