@@ -56,8 +56,23 @@ const getById = async (id) => {
   return { type: 200, message: result };
 };
 
+const getBySellerId = async (id) => {
+  const result = await sale.findOne({
+  where: { sellerId: id },
+  include: [
+    { model: product, as: 'products', through: { attributes: ['quantity'] } },
+    { model: user, as: 'seller', attributes: ['name'] },
+  ],
+});
+  if (!result) {
+    return { type: 404, message: 'Unregistered sale' };
+  }
+  return { type: 200, message: result };
+};
+
 module.exports = {
   createSale,
   getAll,
   getById,
+  getBySellerId,
 };

@@ -7,5 +7,5 @@ const validateMiddleware = require('../middlewares/validaToken.middleware');
 router.post('/', validateMiddleware.validateToken, saleController.createSale);
 router.get('/', saleController.getAll);
 router.get('/:id', saleController.getById);
-
+router.get('/seller/:id', saleController.getBySellerId);
 module.exports = router;
