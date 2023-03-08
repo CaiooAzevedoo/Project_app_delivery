@@ -1,11 +1,14 @@
 import { URL_GET_SALES } from './Utils/Url';
 import { HEADERS_GET } from './Utils/Headers';
 
-const getSalesByUserId = async () => {
+export const getSalesByUserId = async () => {
   try {
-    const response = await fetch(URL_GET_SALES(), {
-      ...HEADERS_GET,
-    });
+    const response = await fetch(
+      URL_GET_SALES(),
+      {
+        ...HEADERS_GET,
+      },
+    );
     const result = await response.json();
     return {
       status: response.status,
@@ -16,4 +19,22 @@ const getSalesByUserId = async () => {
     return status;
   }
 };
-export default getSalesByUserId;
+
+export const getSales = async () => {
+  try {
+    const response = await fetch(
+      URL_GET_ORDERS(),
+      {
+        ...HEADERS_GET,
+      },
+    );
+
+    return {
+      status: response.status,
+      data: await response.json(),
+    };
+  } catch (error) {
+    const status = 404;
+    return status;
+  }
+};

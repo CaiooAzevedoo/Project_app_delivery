@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getSalesByUserId from '../Api/Sales';
+import { getSalesByUserId } from '../Api/Sales';
 import DetailsTable from '../components/DetailsTable';
 import NavBar from '../components/NavBar';
 import { getLocalStorage } from '../localstorage';
