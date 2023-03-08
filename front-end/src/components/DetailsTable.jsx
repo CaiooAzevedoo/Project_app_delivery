@@ -8,35 +8,33 @@ function DetailsTable({ sale }) {
 
       <div>
         <p
-          data-testid={
-            `customer_order_details__element-order-details-label-order-${sale.id}`
-          }
+          data-testid="customer_order_details__element-order-details-label-order-id"
         >
           {sale.id}
 
         </p>
         <p
-          data-testId={ `customer_order_details__element
-          -order-details-label-seller-${sale.id}` }
+          data-testId="customer_order_details__element-order-details-label-seller-name"
         >
           {sale.seller.name}
         </p>
         <p
-          data-testId={ `Group customer_order_details__element
-          -order-details-label-order-${sale.date}` }
+          data-testId="customer_order_details__element-order-details-label-order-date"
         >
           {sale.saleDate}
 
         </p>
         <p
-          data-testId={ `customer_order_details__element
-        -order-details-label-delivery-status${sale.status}` }
+          data-testId="customer_order_details__element
+          -order-details-label-delivery-status"
+
         >
           {sale.status}
 
         </p>
         <button
           type="button"
+          data-testId="customer_order_details__button-delivery-check"
         >
           Botão de entrega
 
