@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getSalesByUserId from '../Api/Sales';
+import DetailsTable from '../components/DetailsTable';
 import NavBar from '../components/NavBar';
 import { getLocalStorage } from '../localstorage';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
@@ -14,7 +15,7 @@ function Details() {
     deliveryNumber: '',
     products: [],
   });
-  // const [sales, setSales] = useState([]);
+  const [sales, setSales] = useState([]);
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,35 +34,20 @@ function Details() {
     const request = async () => {
       const { data } = await getSalesByUserId();
       console.log(data, 'retorno da api');
-      setSales(data);
+      setSales((data) || []);
     };
     request();
   }, []);
 
   return (
+
     <div>
       <NavBar />
-
-      <div>
-        {/* {
-          (sales.length > 0) && (sales.map((sale) => (
-
-          )))
-
-        } */}
-        <p
-          data-testid={
-            `customer_order_details__element-order-details-label-order-${id}`
-          }
-        >
-          Numero do pedido
-
-        </p>
-        <p>P. Vendedora </p>
-        <p>Date</p>
-        <p>Status</p>
-        <p>Botão de entrega</p>
-      </div>
+      <section>
+        {(sales.length > 0) && (sales.map(
+          (sale) => (<DetailsTable key={ sale.id } sale={ sale } />),
+        ))}
+      </section>
 
       <table>
         <thead>
@@ -136,11 +122,13 @@ function Details() {
           Valor Total: R$
           {' '}
           {
-            list.length > 0 ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
+            list.length > 0
+              ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
           }
         </p>
       </table>
     </div>
+
   );
 }
 
