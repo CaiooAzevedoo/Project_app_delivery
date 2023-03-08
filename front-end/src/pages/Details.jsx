@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import postProduct from '../Api/Products';
 import NavBar from '../components/NavBar';
-import RoleOption from '../components/RoleOption';
-import { getLocalStorage, setLocalstorage } from '../localstorage';
-import './styles/Checkout.css';
-import { calcTotalPrice, getIdAndQuantity } from './Utils/CheckoutUtils';
+import { getLocalStorage } from '../localstorage';
+import { calcTotalPrice } from './Utils/CheckoutUtils';
 
-function Checkout() {
+function Details() {
   const [list, setListOrders] = useState([]);
-  const [sellerid, setSellerId] = useState(0);
   const [payload, setPayload] = useState({
     userId: '',
     sellerId: 0,
@@ -19,15 +14,10 @@ function Checkout() {
     products: [],
   });
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setPayload((prev) => ({ ...prev, sellerId: sellerid }));
-  }, [sellerid]);
-
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
     const { id } = getLocalStorage('user');
+
     setPayload((prev) => ({
       ...prev,
       userId: id,
@@ -36,40 +26,12 @@ function Checkout() {
     setListOrders(listLocal);
   }, []);
 
-  useEffect(() => {
-    setLocalstorage('carrinho', list);
-    setPayload((prev) => ({
-      ...prev,
-      totalPrice: calcTotalPrice(list),
-      products: getIdAndQuantity(list) }));
-  }, [list]);
-
-  const handleRemove = ({ target: { id } }) => {
-    const newList = removeItenLocalStorage('carrinho', id);
-    setListOrders(newList);
-    setPayload((prev) => ({ ...prev, products: getIdAndQuantity(newList) }));
-  };
-  console.log(payload);
-
-  const handleCheckout = async (e) => {
-    e.preventDefault();
-    try {
-      const listLocal = getLocalStorage('carrinho');
-      setPayload((prev) => ({
-        ...prev,
-        totalPrice: calcTotalPrice(listLocal),
-        products: getIdAndQuantity(listLocal) }));
-      const { data } = await postProduct(payload);
-      navigate(`/customer/orders/${data.id}`);
-    } catch (err) {
-      // navigate('/login');
-      console.log(err);
-    }
-  };
-
   return (
     <div>
       <NavBar />
+
+      Detalhe do Pedido
+
       <table>
         <thead>
           <tr>
@@ -78,9 +40,9 @@ function Checkout() {
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
-            <th>Remover Item</th>
           </tr>
         </thead>
+
         <tbody>
           {
             list.map((item, index) => (
@@ -128,23 +90,11 @@ function Checkout() {
                   { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
 
                 </td>
-                <td>
-                  <button
-                    className="rm-item-checkout-btn"
-                    type="button"
-                    id={ item.id }
-                    data-testid={
-                      `customer_checkout__element-order-table-remove-${index}`
-                    }
-                    onClick={ handleRemove }
-                  >
-                    Remover
-                  </button>
-                </td>
               </tr>
             ))
           }
         </tbody>
+
         <p
           type="button"
           className="total-value-checkout"
@@ -159,37 +109,8 @@ function Checkout() {
           }
         </p>
       </table>
-
-      <form action="">
-        P. Vendedora Responsável:
-        <RoleOption setSellerId={ setSellerId } />
-        Endereço
-        <input
-          type="text"
-          data-testid="customer_checkout__input-address"
-          onChange={ ({ target: { value } }) => {
-            setPayload((prev) => ({ ...prev, deliveryAddress: value }));
-          } }
-        />
-        Número
-        <input
-          type="text"
-          data-testid="customer_checkout__input-address-number"
-          onChange={ ({ target: { value } }) => {
-            setPayload((prev) => ({ ...prev, deliveryNumber: value }));
-          } }
-        />
-        <button
-          type="submit"
-          data-testid="customer_checkout__button-submit-order"
-          onClick={ handleCheckout }
-        >
-          FINALIZAR PEDIDO
-        </button>
-      </form>
-
     </div>
   );
 }
 
-export default Checkout;
+export default Details;

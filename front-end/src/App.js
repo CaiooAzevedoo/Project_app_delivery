@@ -1,15 +1,15 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AdmManage from './pages/AdmManage';
 import Checkout from './pages/Checkout';
+import Details from './pages/Details';
 import Login from './pages/Login';
-import Orders from './pages/Orders';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
-import AdmManage from './pages/AdmManage';
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
           <Checkout />
         }
       />
-      <Route path="/customer/orders/:id" element={ <Orders /> } />
+      <Route path="/customer/orders/:id" element={ <Details /> } />
       <Route
         path="/admin/manage"
         element={
