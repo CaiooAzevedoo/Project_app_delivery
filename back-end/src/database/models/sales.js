@@ -31,10 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     saleDate: {
-      type: DataTypes.DATEONLY,	
+      type: DataTypes.DATE,	
       get() {
-        return moment(this.getDataValue('saleDate')).format('DD/MM/YY');
+        return moment(this.getDataValue('saleDate')).format('DD/MM/YYYY');
       },
+      // https://stackoverflow.com/questions/16847672/is-there-a-simple-way-to-make-sequelize-return-its-date-time-fields-in-a-partic
       defaultValue: DataTypes.NOW,
       allowNull: false,
     },
