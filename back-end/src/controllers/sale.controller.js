@@ -20,6 +20,13 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allSales);
 };
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const { type, message } = await saleService.getById(id);
+
+  return res.status(type).json(message);
+};
+
 const getAllByUserId = async (req, res) => {
   const { id } = req.params;
   const { type, message } = await saleService.getAllByUserId(id);
@@ -27,9 +34,9 @@ const getAllByUserId = async (req, res) => {
   return res.status(type).json(message);
 };
 
-const getById = async (req, res) => {
+const getAllBySellerId = async (req, res) => {
   const { id } = req.params;
-  const { type, message } = await saleService.getById(id);
+  const { type, message } = await saleService.getAllBySellerId(id);
 
   return res.status(type).json(message);
 };
@@ -45,5 +52,6 @@ module.exports = {
   getAll,
   getAllSalesProducts,
   getById,
+  getAllBySellerId,
   getAllByUserId,
 };

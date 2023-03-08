@@ -11,7 +11,7 @@ const HEADERS_POST = {
 
 export const headersPostProducts = () => {
   const { token } = getLocalStorage('user');
-  console.log(token);
+  console.log(token, 'HEADER POST');
   return { method: 'POST',
     headers: { 'Content-Type': CONTENT_TYPE, Authorization: token },
   };

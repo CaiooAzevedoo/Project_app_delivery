@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getSalesByUserId from '../Api/Sales';
+import { getSalesByUserId } from '../Api/Sales';
 import CardSales from '../components/CardSales';
 import NavBar from '../components/NavBar';
 

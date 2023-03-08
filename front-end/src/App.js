@@ -1,7 +1,9 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AdmManage from './pages/AdmManage';
 import Checkout from './pages/Checkout';
+import Details from './pages/Details';
 import Login from './pages/Login';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
@@ -9,7 +11,6 @@ import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
 import OrderDetails from './pages/OrderDetails';
-import AdmManage from './pages/AdmManage';
 import SellerOrders from './pages/SellerOrders';
 import Orders from './pages/Orders';
 
@@ -36,6 +37,7 @@ function App() {
           <Checkout />
         }
       />
+      <Route path="/customer/orders/:id" element={ <Details /> } />
       <Route path="/customer/orders" element={ <Orders /> } />
       <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
       {/* <Route path="/customer/orders/:id" element={ <Details /> } /> */}

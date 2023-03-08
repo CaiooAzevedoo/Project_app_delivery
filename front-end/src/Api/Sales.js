@@ -1,7 +1,7 @@
-import { URL_GET_SALES } from './Utils/Url';
+import { URL_GET_SALES, URL_GET_ORDERS } from './Utils/Url';
 import { HEADERS_GET } from './Utils/Headers';
 
-const getSalesByUserId = async () => {
+export const getSalesByUserId = async () => {
   try {
     const response = await fetch(
       URL_GET_SALES(),
@@ -20,4 +20,20 @@ const getSalesByUserId = async () => {
   }
 };
 
-export default getSalesByUserId;
+export const getSales = async () => {
+  try {
+    const response = await fetch(
+      URL_GET_ORDERS(),
+      {
+        ...HEADERS_GET,
+      },
+    );
+    return {
+      status: response.status,
+      data: result,
+    };
+  } catch (error) {
+    const status = 404;
+    return status;
+  }
+};

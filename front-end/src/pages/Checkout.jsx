@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import postProduct from '../Api/Products';
-import { setLocalstorage, getLocalStorage } from '../localstorage';
 import NavBar from '../components/NavBar';
 import RoleOption from '../components/RoleOption';
-import removeItenLocalStorage,
-{ calcTotalPrice,
+import TableProducts from '../components/TableProducts';
+import { getLocalStorage, setLocalstorage } from '../localstorage';
+import removeItenLocalStorage, {
+  calcTotalPrice,
   getIdAndQuantity,
 } from './Utils/CheckoutUtils';
 import './styles/Checkout.css';
@@ -52,6 +53,7 @@ function Checkout() {
     setListOrders(newList);
     setPayload((prev) => ({ ...prev, products: getIdAndQuantity(newList) }));
   };
+  console.log(payload);
 
   const handleCheckout = async (e) => {
     e.preventDefault();
@@ -64,6 +66,7 @@ function Checkout() {
       const { data } = await postProduct(payload);
       navigate(`/customer/orders/${data.id}`);
     } catch (err) {
+      // navigate('/login');
       console.log(err);
     }
   };
@@ -85,64 +88,12 @@ function Checkout() {
         <tbody>
           {
             list.map((item, index) => (
-              <tr key={ index }>
-                <td
-                  className="index-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-item-number-${index}`
-                  }
-                >
-                  {`${index + 1}`}
-
-                </td>
-                <td
-                  data-testid={
-                    `customer_checkout__element-order-table-name-${index}`
-                  }
-                >
-                  {item.name}
-                </td>
-                <td
-                  className="quantity-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-quantity-${index}`
-                  }
-                >
-                  {item.quantity}
-
-                </td>
-                <td
-                  className="unit-value-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-unit-price-${index}`
-                  }
-                >
-                  { Number(item.price).toFixed(2).replace('.', ',')}
-
-                </td>
-                <td
-                  className="sub-total-table-checkout"
-                  data-testid={
-                    `customer_checkout__element-order-table-sub-total-${index}`
-                  }
-                >
-                  { Number(item.price * item.quantity).toFixed(2).replace('.', ',') }
-
-                </td>
-                <td>
-                  <button
-                    className="rm-item-checkout-btn"
-                    type="button"
-                    id={ item.id }
-                    data-testid={
-                      `customer_checkout__element-order-table-remove-${index}`
-                    }
-                    onClick={ handleRemove }
-                  >
-                    Remover
-                  </button>
-                </td>
-              </tr>
+              <TableProducts
+                key={ index }
+                item={ item }
+                index={ index }
+                handleRemove={ handleRemove }
+              />
             ))
           }
         </tbody>
