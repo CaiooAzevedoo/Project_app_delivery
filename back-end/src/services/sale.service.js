@@ -42,20 +42,6 @@ const getAll = async () => sale.findAll(
   ] },
 );
 
-const getAllByUserId = async (id) => {
-  const result = await sale.findAll({   
-      where: { userId: id },
-      include: [
-       { model: product, as: 'products', through: { attributes: ['quantity'] } },
-       { model: user, as: 'seller', attributes: ['name'] },
-     ], 
-    });
-    if (!result) {
-      return { type: 404, message: 'User dont have a sale registred' };
-    }
-    return { type: 200, message: result };
-};
-
 const getById = async (id) => {
   const result = await sale.findOne({
   where: { id },
@@ -70,7 +56,21 @@ const getById = async (id) => {
   return { type: 200, message: result };
 };
 
-const getBySellerId = async (id) => {
+const getAllByUserId = async (id) => {
+  const result = await sale.findAll({   
+      where: { userId: id },
+      include: [
+       { model: product, as: 'products', through: { attributes: ['quantity'] } },
+       { model: user, as: 'seller', attributes: ['name'] },
+     ], 
+    });
+    if (!result) {
+      return { type: 404, message: 'User dont have a sale registred' };
+    }
+    return { type: 200, message: result };
+};
+
+const getAllBySellerId = async (id) => {
   const result = await sale.findOne({
   where: { sellerId: id },
   include: [
@@ -88,6 +88,6 @@ module.exports = {
   createSale,
   getAll,
   getById,
-  getBySellerId,
+  getAllBySellerId,
   getAllByUserId,
 };
