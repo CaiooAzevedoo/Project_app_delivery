@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import getSalesByUserId from '../Api/Sales';
 import NavBar from '../components/NavBar';
 import { getLocalStorage } from '../localstorage';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
@@ -13,6 +14,7 @@ function Details() {
     deliveryNumber: '',
     products: [],
   });
+  const [sales, setSales] = useState([]);
 
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
@@ -26,11 +28,39 @@ function Details() {
     setListOrders(listLocal);
   }, []);
 
+  useEffect(() => {
+    const request = async () => {
+      const { data } = await getSalesByUserId();
+      console.log(data, 'retorno da api');
+      setSales(data);
+    };
+    request();
+  }, []);
+
   return (
     <div>
       <NavBar />
 
-      Detalhe do Pedido
+      <div>
+        {
+          (sales.length > 0) && (sales.map((sale) => (
+            
+          )))
+
+        }
+        <p
+          data-testid={
+            `customer_order_details__element-order-details-label-order-${id}`
+          }
+        >
+          Numero do pedido
+
+        </p>
+        <p>P. Vendedora </p>
+        <p>Date</p>
+        <p>Status</p>
+        <p>Botão de entrega</p>
+      </div>
 
       <table>
         <thead>
