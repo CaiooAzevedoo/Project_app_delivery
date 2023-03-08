@@ -5,3 +5,8 @@
   margin: 0.01px;
   padding: 20px;
 }
+
+.maus-pedidos-nav-bar {
+  align-items: start;
+  display: flex;
+}

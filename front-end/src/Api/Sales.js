@@ -1,15 +1,18 @@
-import { HEADERS_GET } from './Utils/Headers';
 import { URL_GET_SALES } from './Utils/Url';
+import { HEADERS_GET } from './Utils/Headers';
 
-const getSales = async () => {
+const getSalesByUserId = async () => {
   try {
-    const response = await fetch(URL_GET_SALES, {
-      ...HEADERS_GET,
-    });
-
+    const response = await fetch(
+      URL_GET_SALES(),
+      {
+        ...HEADERS_GET,
+      },
+    );
+    const result = await response.json();
     return {
       status: response.status,
-      data: await response.json(),
+      data: result,
     };
   } catch (error) {
     const status = 404;
@@ -17,4 +20,4 @@ const getSales = async () => {
   }
 };
 
-export default getSales;
+export default getSalesByUserId;
