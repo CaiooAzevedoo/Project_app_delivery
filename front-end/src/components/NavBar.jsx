@@ -35,8 +35,20 @@ function NavBar() {
   return (
     <menu className="header-products">
       <div data-testid="customer_products__element-navbar-link-products">
-        { path === '/admin/manage' ? 'Gerenciar usuários' : 'Produtos' }
+        { path === '/admin/manage'
+          ? ('Gerenciar usuários')
+          : (<Link to="/customer/products">Produtos</Link>) }
       </div>
+      {
+        (currectRoute()) && (
+          <div
+            className="maus-pedidos-nav-bar"
+            data-testid="customer_products__element-navbar-link-orders"
+          >
+            <Link to="/customer/orders">MEUS PEDIDOS</Link>
+          </div>
+        )
+      }
       {
         (currectRoute()) && (
           <div

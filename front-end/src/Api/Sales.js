@@ -28,10 +28,9 @@ export const getSales = async () => {
         ...HEADERS_GET,
       },
     );
-
     return {
       status: response.status,
-      data: await response.json(),
+      data: result,
     };
   } catch (error) {
     const status = 404;

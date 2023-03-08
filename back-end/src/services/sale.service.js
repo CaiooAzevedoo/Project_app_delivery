@@ -42,6 +42,20 @@ const getAll = async () => sale.findAll(
   ] },
 );
 
+const getAllByUserId = async (id) => {
+  const result = await sale.findAll({   
+      where: { userId: id },
+      include: [
+       { model: product, as: 'products', through: { attributes: ['quantity'] } },
+       { model: user, as: 'seller', attributes: ['name'] },
+     ], 
+    });
+    if (!result) {
+      return { type: 404, message: 'User dont have a sale registred' };
+    }
+    return { type: 200, message: result };
+};
+
 const getById = async (id) => {
   const result = await sale.findOne({
   where: { id },
