@@ -38,6 +38,7 @@ function Login() {
     let body = {};
     const request = async () => {
       const { status, data } = await getUser({ email, password });
+      setLocalstorage('user', data);
       body = data;
       const statusNotFound = 404;
       if (status === statusNotFound) {
