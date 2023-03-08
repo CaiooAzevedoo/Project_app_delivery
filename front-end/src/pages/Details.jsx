@@ -14,7 +14,8 @@ function Details() {
     deliveryNumber: '',
     products: [],
   });
-  const [sales, setSales] = useState([]);
+  // const [sales, setSales] = useState([]);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
@@ -42,12 +43,12 @@ function Details() {
       <NavBar />
 
       <div>
-        {
+        {/* {
           (sales.length > 0) && (sales.map((sale) => (
-            
+
           )))
 
-        }
+        } */}
         <p
           data-testid={
             `customer_order_details__element-order-details-label-order-${id}`
