@@ -1,4 +1,4 @@
-import { URL_GET_SALES } from './Utils/Url';
+import { URL_GET_SALES, URL_GET_ORDERS } from './Utils/Url';
 import { HEADERS_GET } from './Utils/Headers';
 
 export const getSalesByUserId = async () => {
