@@ -11,7 +11,7 @@ function SellerOrdersDetails() {
     Preparando: false,
     [emTransito]: false,
   });
-  const [updated, setUpdated] = useState(false);
+  // const [updated, setUpdated] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function SellerOrdersDetails() {
       || order.status === 'Pendente'
       || order.status === 'Entregue',
     }));
-  }, [order, updated]);
+  }, [order]);
 
   useEffect(() => {
     const request = async () => {
@@ -36,8 +36,10 @@ function SellerOrdersDetails() {
 
   const handleClick = async ({ target: { name } }) => {
     await updateSales(name, order.id);
-    setButtonState((prev) => ({ ...prev, [name]: !prev[name] }));
-    setUpdated((prev) => !prev);
+    const { data } = await getOrderBySellerId();
+    setOrder(data[parseInt(id, 10) - 1]);
+    // setButtonState((prev) => ({ ...prev, [name]: !prev[name] }));
+    // setUpdated((prev) => !prev);
   };
 
   return (

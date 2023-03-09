@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { updateSales } from '../Api/Sales';
-// import { getSales } from '../Api/Sales';
 
 function DetailsTable({ sale, index }) {
   const [saleStatus, setSaleStatus] = useState(sale.status);
@@ -40,7 +39,11 @@ function DetailsTable({ sale, index }) {
         <button
           type="button"
           data-testid="customer_order_details__button-delivery-check"
-          disabled={ saleStatus === 'Entregue' }
+          disabled={
+            saleStatus === 'Entregue'
+            || saleStatus === 'Preparando'
+            || saleStatus === 'Pendente'
+          }
           onClick={ handleClick }
         >
           MARCAR COMO ENTREGUE
