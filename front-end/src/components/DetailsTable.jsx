@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { updateSales } from '../Api/Sales';
 // import { getSales } from '../Api/Sales';
 
 function DetailsTable({ sale, index }) {
+  const [saleStatus, setSaleStatus] = useState(sale.status);
   const handleClick = async () => {
     await updateSales('Entregue', sale.id);
-    window.location.reload();
+    setSaleStatus('Entregue');
   };
 
   return (
@@ -34,12 +35,12 @@ function DetailsTable({ sale, index }) {
             `customer_order_details__element-order-details-label-delivery-status${index}`
           }
         >
-          {sale.status}
+          {saleStatus}
         </p>
         <button
           type="button"
           data-testid="customer_order_details__button-delivery-check"
-          disabled={ sale.status === 'Entregue' }
+          disabled={ saleStatus === 'Entregue' }
           onClick={ handleClick }
         >
           MARCAR COMO ENTREGUE
