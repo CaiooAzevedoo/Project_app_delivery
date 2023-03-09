@@ -1,4 +1,4 @@
-import { URL_CREATE_USER, URL_LOGIN, URL_GET_PRODUCTS } from './Utils/Url';
+import { URL_CREATE_USER, URL_LOGIN, URL_GET_PRODUCTS, URL_GET_USERS } from './Utils/Url';
 import HEADERS_POST, { HEADERS_GET, headersPostAdm } from './Utils/Headers';
 
 const urlCreateAdm = `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/adm`;
@@ -74,6 +74,17 @@ export const createUserAdm = async ({ name, email, password, role }) => {
     const status = 404;
     return status;
   }
+};
+
+export const getUserAdm = async (payLoad) => {
+  try {
+    const response = await fetch(
+      URL_GET_USERS,
+      { ...HEADERS_GET,
+        body: JSON.stringify(payLoad) },
+    );
+    return { status: response.status, data: await response.json() };
+  } catch (error) { const status = 404; return status; }
 };
 
 export default getUser;
