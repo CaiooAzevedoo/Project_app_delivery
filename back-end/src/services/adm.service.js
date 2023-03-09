@@ -1,4 +1,5 @@
 const md5 = require('md5');
+const { Op } = require('sequelize');
 const { user } = require('../database/models');
 
 const checkUserAdm = async ({ name, email }) => {
@@ -28,7 +29,13 @@ const createUserAdm = async ({ name, email, password, role }) => {
   return { type: 201, result };
 };
 
+const getUsers = async () => user.findAll({
+  where: { role: {
+    [Op.or]: ['seller', 'customer'] },
+} });
+
 module.exports = {
  checkUserAdm,
  createUserAdm,
+ getUsers,
 };

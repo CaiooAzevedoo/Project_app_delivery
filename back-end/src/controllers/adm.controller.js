@@ -13,4 +13,13 @@ const createUserAdm = async (req, res) => {
   return res.status(404);
 };
 
-module.exports = { createUserAdm };
+const getUsers = async (_req, res) => {
+  const result = await admService.getUsers();
+
+  return res.status(200).json(result);
+};
+
+module.exports = { 
+  createUserAdm,
+  getUsers,
+ };
