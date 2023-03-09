@@ -1,21 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import { getSales } from '../Api/Sales';
 
 function SellerOrderCard({ sale }) {
-  // const [sales, setSales] = useState([]);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const request = async () => {
-  //     const response = await getSales();
-  //     console.log(response, 'AQUI');
-  //     setSales(response.data);
-  //   };
-
-  //   request();
-  // }, []);
 
   return (
     <section>
