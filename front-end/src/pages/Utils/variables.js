@@ -6,4 +6,6 @@ const HeadersTableSellerDetails = [
   'Sub-total',
 ];
 
+export const emTransito = 'Em Trânsito';
+
 export default HeadersTableSellerDetails;

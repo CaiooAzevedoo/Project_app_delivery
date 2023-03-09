@@ -24,6 +24,13 @@ export const headersPostAdm = () => {
   };
 };
 
+export const HEADERS_PATCH = {
+  method: 'PATCH',
+  headers: {
+    'Content-Type': CONTENT_TYPE,
+  },
+};
+
 export const HEADERS_GET = {
   method: 'GET',
   headers: {

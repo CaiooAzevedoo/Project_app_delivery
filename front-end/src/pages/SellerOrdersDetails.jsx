@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import getOrderBySellerId from '../Api/Orders';
+import { updateSales } from '../Api/Sales';
 import NavBar from '../components/NavBar';
-import HeadersTableSellerDetails from './Utils/variables';
+import HeadersTableSellerDetails, { emTransito } from './Utils/variables';
 
 function SellerOrdersDetails() {
   const [order, setOrder] = useState({});
   const [buttonState, setButtonState] = useState({
-    'preparar-pedido': false,
-    'saiu-para-entrega': false,
+    Preparando: false,
+    [emTransito]: false,
   });
+  const { id } = useParams();
+
+  useEffect(() => {
+    setButtonState(() => ({
+      Preparando: order.status === 'Preparando'
+      || order.status === emTransito
+      || order.status === 'Entregue',
+      [emTransito]: order.status === emTransito
+      || order.status === 'Pendente'
+      || order.status === 'Entregue',
+    }));
+  }, [order]);
 
   useEffect(() => {
     const request = async () => {
       const { data } = await getOrderBySellerId();
-      setOrder(data[0]);
+      setOrder(data[parseInt(id, 10) - 1]);
     };
 
     request();
   }, []);
 
-  const handleClick = ({ target: { name } }) => {
+  const handleClick = async ({ target: { name } }) => {
+    await updateSales(name, order.id);
     setButtonState((prev) => ({ ...prev, [name]: !prev[name] }));
+    window.location.reload();
   };
 
   return (
@@ -47,18 +63,18 @@ function SellerOrdersDetails() {
           </p>
           <button
             type="button"
-            name="preparar-pedido"
+            name="Preparando"
             data-testid="seller_order_details__button-preparing-check"
-            disabled={ buttonState['preparar-pedido'] }
+            disabled={ buttonState.Preparando }
             onClick={ handleClick }
           >
             preparar pedido
           </button>
           <button
             type="button"
-            name="saiu-para-entrega"
+            name="Em Trânsito"
             data-testid="seller_order_details__button-dispatch-check"
-            disabled={ buttonState['saiu-para-entrega'] }
+            disabled={ buttonState['Em Trânsito'] }
             onClick={ handleClick }
           >
             saiu para entrega

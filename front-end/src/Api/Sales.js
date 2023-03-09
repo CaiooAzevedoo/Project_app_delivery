@@ -1,5 +1,5 @@
-import { URL_GET_SALES, URL_GET_ORDERS } from './Utils/Url';
-import { HEADERS_GET } from './Utils/Headers';
+import { URL_GET_SALES, URL_GET_ORDERS, URL_UPDATE_STATUS } from './Utils/Url';
+import { HEADERS_GET, HEADERS_PATCH } from './Utils/Headers';
 
 export const getSalesByUserId = async () => {
   try {
@@ -26,6 +26,25 @@ export const getSales = async () => {
       URL_GET_ORDERS(),
       {
         ...HEADERS_GET,
+      },
+    );
+    return {
+      status: response.status,
+      data: await response.json(),
+    };
+  } catch (error) {
+    const status = 404;
+    return status;
+  }
+};
+
+export const updateSales = async (payload, id) => {
+  try {
+    const response = await fetch(
+      URL_UPDATE_STATUS(id),
+      {
+        ...HEADERS_PATCH,
+        body: JSON.stringify({ status: payload }),
       },
     );
     return {

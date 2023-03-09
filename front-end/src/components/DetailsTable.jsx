@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { updateSales } from '../Api/Sales';
 // import { getSales } from '../Api/Sales';
 
 function DetailsTable({ sale, index }) {
+  const handleClick = async () => {
+    await updateSales('Entregue', sale.id);
+    window.location.reload();
+  };
+
   return (
     <section>
       <div>
@@ -34,6 +40,7 @@ function DetailsTable({ sale, index }) {
           type="button"
           data-testid="customer_order_details__button-delivery-check"
           disabled={ sale.status === 'Entregue' }
+          onClick={ handleClick }
         >
           MARCAR COMO ENTREGUE
         </button>
