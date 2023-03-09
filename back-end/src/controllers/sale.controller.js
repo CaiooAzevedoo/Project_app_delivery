@@ -48,10 +48,13 @@ const getAllSalesProducts = async (_req, res) => {
 };
 
 const updateStatus = async (req, res) => {
-  const {id} = req.params;
-  const {status} = req.body; 
-  const {type, message} = await saleService.updateStatus(id, status);
-
+  const { id } = req.params;
+  const { status } = req.body; 
+  const checkSale = await saleService.getById(id);
+  if (checkSale.type === 404) {
+    return res.status(404).json('Unaltered satus');
+  }
+  const { type, message } = await saleService.updateStatus(id, status);
   return res.status(type).json(message);
 };
 
