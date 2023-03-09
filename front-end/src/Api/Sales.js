@@ -28,7 +28,6 @@ export const getSales = async () => {
         ...HEADERS_GET,
       },
     );
-
     return {
       status: response.status,
       data: await response.json(),

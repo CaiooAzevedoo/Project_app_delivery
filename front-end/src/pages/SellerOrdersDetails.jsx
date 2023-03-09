@@ -5,15 +5,23 @@ import HeadersTableSellerDetails from './Utils/variables';
 
 function SellerOrdersDetails() {
   const [order, setOrder] = useState({});
+  const [buttonState, setButtonState] = useState({
+    'preparar-pedido': false,
+    'saiu-para-entrega': false,
+  });
 
   useEffect(() => {
     const request = async () => {
-      const result = await getOrderBySellerId();
-      setOrder(result.data);
+      const { data } = await getOrderBySellerId();
+      setOrder(data[0]);
     };
 
     request();
   }, []);
+
+  const handleClick = ({ target: { name } }) => {
+    setButtonState((prev) => ({ ...prev, [name]: !prev[name] }));
+  };
 
   return (
     <main>
@@ -31,20 +39,27 @@ function SellerOrdersDetails() {
             { order.saleDate }
           </p>
           <p
-            data-testid="seller_order_details__element-
-            order-details-label-delivery-status"
+            data-testid={
+              `seller_order_details__element-order-details-label-delivery-${'status'}`
+            }
           >
             {order.status}
           </p>
           <button
             type="button"
+            name="preparar-pedido"
             data-testid="seller_order_details__button-preparing-check"
+            disabled={ buttonState['preparar-pedido'] }
+            onClick={ handleClick }
           >
             preparar pedido
           </button>
           <button
             type="button"
+            name="saiu-para-entrega"
             data-testid="seller_order_details__button-dispatch-check"
+            disabled={ buttonState['saiu-para-entrega'] }
+            onClick={ handleClick }
           >
             saiu para entrega
           </button>
@@ -60,8 +75,8 @@ function SellerOrdersDetails() {
             </tr>
           </thead>
           <tbody>
-            { (order.id) && (
-              order.map((item, index) => (
+            { (order.products) && (
+              order.products.map((item, index) => (
                 <tr key={ index }>
                   <td
                     className="index-table-checkout"
@@ -85,7 +100,7 @@ function SellerOrdersDetails() {
                       `customer_checkout__element-order-table-quantity-${index}`
                     }
                   >
-                    {item.saleProduct.quantity}
+                    {item.salesProduct.quantity}
 
                   </td>
                   <td
@@ -104,7 +119,7 @@ function SellerOrdersDetails() {
                     }
                   >
                     {
-                      Number(item.price * item.saleProduct.quantity)
+                      Number(item.price * item.salesProduct.quantity)
                         .toFixed(2).replace('.', ',')
                     }
 
@@ -115,11 +130,13 @@ function SellerOrdersDetails() {
           </tbody>
         </table>
       </section>
-      <div
-        data-testid="seller_order_details__element-order-total-price"
-      >
-        { (order.totalprice).replace('.', ',') }
-      </div>
+      {(order.totalPrice) && (
+        <div
+          data-testid="seller_order_details__element-order-total-price"
+        >
+          { (order.totalPrice).replace('.', ',') }
+        </div>
+      )}
     </main>
   );
 }

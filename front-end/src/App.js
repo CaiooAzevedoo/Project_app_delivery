@@ -1,15 +1,15 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AdmManage from './pages/AdmManage';
 import Checkout from './pages/Checkout';
+import Details from './pages/Details';
 import Login from './pages/Login';
 import Products from './pages/Products';
 import UserRegister from './pages/UserRegister';
 import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
-import OrderDetails from './pages/OrderDetails';
-import AdmManage from './pages/AdmManage';
 import SellerOrders from './pages/SellerOrders';
 import SellerOrdersDetails from './pages/SellerOrdersDetails';
 import Orders from './pages/Orders';
@@ -37,9 +37,8 @@ function App() {
           <Checkout />
         }
       />
+      <Route path="/customer/orders/:id" element={ <Details /> } />
       <Route path="/customer/orders" element={ <Orders /> } />
-      <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
-      {/* <Route path="/customer/orders/:id" element={ <Details /> } /> */}
       <Route
         path="/admin/manage"
         element={
@@ -48,7 +47,6 @@ function App() {
       />
       <Route path="/seller/orders" element={ <SellerOrders /> } />
       <Route path="/seller/orders/:id" element={ <SellerOrdersDetails /> } />
-      <Route path="/customer/orders/:id" element={ <OrderDetails /> } />
     </Routes>
   );
 }
