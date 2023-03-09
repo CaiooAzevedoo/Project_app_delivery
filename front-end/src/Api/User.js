@@ -76,12 +76,12 @@ export const createUserAdm = async ({ name, email, password, role }) => {
   }
 };
 
-export const getUserAdm = async (payLoad) => {
+export const getUserAdm = async () => {
   try {
     const response = await fetch(
       URL_GET_USERS,
-      { ...HEADERS_GET,
-        body: JSON.stringify(payLoad) },
+      HEADERS_GET,
+
     );
     return { status: response.status, data: await response.json() };
   } catch (error) { const status = 404; return status; }

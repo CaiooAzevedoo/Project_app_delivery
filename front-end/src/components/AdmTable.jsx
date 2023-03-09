@@ -1,7 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { getUserAdm } from '../Api/User';
 
-function AdmTable({ users }) {
+function AdmTable() {
+  const [users, setUsersAdm] = useState([]);
+  useEffect(() => {
+    const request = async () => {
+      const { data } = await getUserAdm();
+      console.log(data);
+      setUsersAdm(data);
+    };
+    request();
+  }, []);
+
   return (
     <section>
       <table>
@@ -52,9 +62,5 @@ function AdmTable({ users }) {
     </section>
   );
 }
-
-AdmTable.propTypes = {
-  users: PropTypes.objectOf.isRequired,
-};
 
 export default AdmTable;
