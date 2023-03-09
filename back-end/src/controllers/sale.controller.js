@@ -47,6 +47,17 @@ const getAllSalesProducts = async (_req, res) => {
   return res.status(200).json(allSalesProducts);
 };
 
+const updateStatus = async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body; 
+  const checkSale = await saleService.getById(id);
+  if (checkSale.type === 404) {
+    return res.status(404).json('Unaltered satus');
+  }
+  const { type, message } = await saleService.updateStatus(id, status);
+  return res.status(type).json(message);
+};
+
 module.exports = {
   createSale,
   getAll,
@@ -54,4 +65,5 @@ module.exports = {
   getById,
   getAllBySellerId,
   getAllByUserId,
+  updateStatus,
 };

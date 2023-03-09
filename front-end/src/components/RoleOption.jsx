@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import getSellers from '../Api/Seller';
-// import { setLocalstorage } from '../localstorage';
 
 function RoleOption({ setSellerId }) {
   const [seller, setSeller] = useState([]);

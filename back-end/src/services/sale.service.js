@@ -84,10 +84,20 @@ const getAllBySellerId = async (id) => {
   return { type: 200, message: result };
 };
 
+const updateStatus = async (id, status) => {
+  await sale.update(
+    { status },
+    { where: { id } },
+  );
+ 
+  return { type: 200, message: 'Sale status updated' };
+};
+
 module.exports = {
   createSale,
   getAll,
   getById,
   getAllBySellerId,
   getAllByUserId,
+  updateStatus,
 };

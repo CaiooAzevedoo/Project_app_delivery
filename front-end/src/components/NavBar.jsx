@@ -11,6 +11,7 @@ function NavBar() {
   const navigate = useNavigate();
   const path = location.pathname;
 
+  const rotaSelerDetails = /^\/seller\/orders\/(\w+)?$/i;
   const currectRoute = () => {
     const rota = location.pathname;
     const rotaOrders = /^\/customer\/orders\/(\w+)?$/i;
@@ -19,6 +20,7 @@ function NavBar() {
     return (rotaOrders.test(rota)
     || customerProducts.test(rota)
     || productCheckout.test(rota)
+    || rotaSelerDetails.test(rota)
     );
   };
 
@@ -45,7 +47,11 @@ function NavBar() {
             className="maus-pedidos-nav-bar"
             data-testid="customer_products__element-navbar-link-orders"
           >
-            <Link to="/customer/orders">MEUS PEDIDOS</Link>
+            { rotaSelerDetails.test(path) ? (
+              <Link to="/seller/orders">Meus Pedidos</Link>
+            ) : (
+              <Link to="/customer/orders">Meus Pedidos</Link>
+            )}
           </div>
         )
       }

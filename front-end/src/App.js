@@ -11,6 +11,7 @@ import LoginProvider from './provider/LoginProvider';
 import ProductProvider from './provider/ProductProvider';
 import RegisterProvider from './provider/RegisterProvider';
 import SellerOrders from './pages/SellerOrders';
+import SellerOrdersDetails from './pages/SellerOrdersDetails';
 import Orders from './pages/Orders';
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         }
       />
       <Route path="/seller/orders" element={ <SellerOrders /> } />
+      <Route path="/seller/orders/:id" element={ <SellerOrdersDetails /> } />
     </Routes>
   );
 }

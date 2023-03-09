@@ -9,5 +9,6 @@ router.get('/', saleController.getAll);
 router.get('/:id', saleController.getById);
 router.get('/seller/:id', saleController.getAllBySellerId);
 router.get('/user/:id', saleController.getAllByUserId);
+router.patch('/:id/status', saleController.updateStatus);
 
 module.exports = router;

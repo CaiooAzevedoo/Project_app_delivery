@@ -17,7 +17,6 @@ function Details() {
     products: [],
   });
   const [sales, setSales] = useState([]);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
@@ -47,7 +46,11 @@ function Details() {
       <section>
         {(sales.length > 0) && (sales.map(
           (sale, index) => (
-            <DetailsTable key={ sale.id } sale={ sale } index={ index } />
+            <DetailsTable
+              key={ sale.id }
+              sale={ sale }
+              index={ index }
+            />
           ),
         ))}
       </section>
