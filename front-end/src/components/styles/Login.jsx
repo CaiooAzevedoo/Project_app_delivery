@@ -10,12 +10,13 @@ export const Main = styled.main`
   height: 100vh;
   background-color: rgb(255, 131, 3);
   flex-wrap: wrap;
+  column-gap: 8%;
 
   img {
   width: 50%;
   height: 40%;
   margin-top: 18%;
-  margin-left: 15%;
+  margin-left: 8%;
   position: relative;
 }
 

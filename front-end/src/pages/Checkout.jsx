@@ -112,7 +112,7 @@ function Checkout() {
         </p>
       </table>
 
-      <form action="">
+      <form>
         Vendedor(a) responsável:
         <RoleOption setSellerId={ setSellerId } />
         Endereço
