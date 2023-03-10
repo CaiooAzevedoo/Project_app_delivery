@@ -14,6 +14,10 @@ function AdmTable({ count }) {
     request();
   }, [count]);
 
+  const handleClick = async ({ target: { id } }) => {
+    await deletUser(id);
+  };
+
   return (
     <section>
       <table>
@@ -51,8 +55,10 @@ function AdmTable({ count }) {
               </td>
               <td>
                 <button
+                  id={ user.id }
                   data-testid={ `admin_manage__element-user-table-remove-${index}` }
                   type="button"
+                  onClick={ handleClick }
                 >
                   Excluir
                 </button>
