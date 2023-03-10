@@ -4,7 +4,7 @@ import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
 import { createUserAdm } from '../Api/User';
-import './styles/FormRegister.css';
+import Form from './styles/FormRegisterAdminSyled';
 
 function FormRegisterAdmin({ setCount }) {
   const { register, setRegister } = useContext(MainContext);
@@ -46,13 +46,22 @@ function FormRegisterAdmin({ setCount }) {
   };
 
   return (
-    <form className="form-container">
-      <h1>Cadastro</h1>
+    <Form className="form-container">
+      <h1
+        className="adm-title"
+      >
+        Cadastrar novo usuário
+
+      </h1>
 
       <div className="user-data-container">
-        <label htmlFor="name">
+        <label
+          className="user-data-name"
+          htmlFor="name"
+        >
           Nome:
           <input
+            className="user-data-name-input"
             data-testid="admin_manage__input-name"
             placeholder="nome"
             type="text"
@@ -62,9 +71,13 @@ function FormRegisterAdmin({ setCount }) {
           />
         </label>
 
-        <label htmlFor="email">
+        <label
+          className="user-data-email"
+          htmlFor="email"
+        >
           Email:
           <input
+            className="user-data-email-input"
             data-testid="admin_manage__input-email"
             placeholder="email@site.com.br"
             type="email"
@@ -74,9 +87,13 @@ function FormRegisterAdmin({ setCount }) {
           />
         </label>
 
-        <label htmlFor="password">
+        <label
+          className="user-data-password"
+          htmlFor="password"
+        >
           Senha:
           <input
+            className="user-data-password-input"
             data-testid="admin_manage__input-password"
             placeholder="senha"
             type="password"
@@ -86,10 +103,14 @@ function FormRegisterAdmin({ setCount }) {
           />
         </label>
 
-        <label htmlFor="role">
+        <label
+          className="user-data-role"
+          htmlFor="role"
+        >
           {' '}
           Tipo
           <select
+            className="user-data-role-select"
             type="select"
             data-testid="admin_manage__select-role"
             id="role"
@@ -103,6 +124,7 @@ function FormRegisterAdmin({ setCount }) {
           </select>
         </label>
         <button
+          className="adm-btn-cadastrar"
           type="submit"
           data-testid="admin_manage__button-register"
           disabled={ register.submitIsDisable }
@@ -120,7 +142,7 @@ function FormRegisterAdmin({ setCount }) {
           ) : null
         }
       </div>
-    </form>
+    </Form>
   );
 }
 
