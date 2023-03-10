@@ -5,7 +5,7 @@ margin-top: auto;
 display: flex;
 flex-direction: column;
 /* margin-left: 20vh; */
-max-width: 100vh;
+max-width: 100%;
 padding-inline: 20px;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
 background-color: #f5f2f2;
@@ -13,7 +13,7 @@ align-items: center;
 .user-data-container{
   margin-top: 0px;
     display: flex;
-    width: 100vh;
+    width: 100%;
     height: 60px;
     text-align: center;
     /* -webkit-box-align: stretch;

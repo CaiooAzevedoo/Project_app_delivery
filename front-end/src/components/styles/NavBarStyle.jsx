@@ -6,10 +6,11 @@ const NavBarStyles = styled.main`
   justify-content: space-between;
   margin: 0.01px;
   font-size: 25px;
+  max-width: 100%;
 
   section {
     display: flex;
-    width: 50%;
+    width: 60%;
   }
 
   .secund-section {
@@ -25,13 +26,14 @@ const NavBarStyles = styled.main`
     background-color: #2FC18C;
     box-sizing: border-box;
     padding: 20px;
+    max-width: 35%;
     font-family: 'Roboto';
     font-style: normal;
     /* font-weight: 700; */
     /* font-size: 25px; */
     line-height: 33px;
     text-align: start;
-    width: 300px;
+    /* width: 300px; */
     a {
       color: #F2FFFC;
       text-decoration: none;
@@ -50,7 +52,7 @@ const NavBarStyles = styled.main`
     align-items: center;
     text-align: center;
     background-color: #036B52;
-    /* width: 35%; */
+    max-width: 35%;
     a {
       color: #F2FFFC;
       text-decoration: none;
@@ -66,7 +68,7 @@ const NavBarStyles = styled.main`
     text-align: center;
     background-color: #421981;
     color: #F2FFFC;
-    max-width: 50vh;
+    max-width: 50%;
   }
 
   .button-exit {
