@@ -4,7 +4,7 @@ import getUser from '../Api/User';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
-import './styles/Login.css';
+import Form, { Title, Main, Rotate } from '../components/styles/Login';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
@@ -63,57 +63,71 @@ function Login() {
   };
 
   return (
-    <form
-      className="login-form"
-      onSubmit={ handleSubmit }
-    >
-      <section className="content-login">
-        <input
-          className="user-date-login"
-          type="email"
-          name="email"
-          placeholder="user@email.com"
-          data-testid="common_login__input-email"
-          onChange={ handleChange }
-        />
-        <input
-          className="user-date-login"
-          type="password"
-          name="password"
-          placeholder="senha..."
-          data-testid="common_login__input-password"
-          onChange={ handleChange }
-        />
-        <div className="login-btns">
-          <button
-            className="login-btn-entrar"
-            type="submit"
-            disabled={ login.submitIsDisable }
-            data-testid="common_login__button-login"
-          >
-            Entrar
-          </button>
-          <button
-            className="login-btn-register"
-            type="button"
-            data-testid="common_login__button-register"
-            onClick={ () => navigate('/register') }
-          >
-            Cadastrar
-          </button>
-        </div>
-        {
-          login.notFound ? (
-            <p
-              className="user-not-found"
-              data-testid="common_login__element-invalid-email"
+    <Main>
+
+      <Title
+        className="Icon"
+      >
+        <Rotate>
+
+          🍻
+        </Rotate>
+      </Title>
+      <Form
+        className="login-form"
+        onSubmit={ handleSubmit }
+      >
+        <section className="content-login">
+          Email
+          <input
+            className="user-date-login"
+            type="email"
+            name="email"
+            placeholder="user@email.com"
+            data-testid="common_login__input-email"
+            onChange={ handleChange }
+          />
+          Senha
+          <input
+            className="user-date-login"
+            type="password"
+            name="password"
+            placeholder="senha..."
+            data-testid="common_login__input-password"
+            onChange={ handleChange }
+          />
+          <div className="login-btns">
+            <button
+              className="login-btn-entrar"
+              type="submit"
+              disabled={ login.submitIsDisable }
+              data-testid="common_login__button-login"
             >
-              404 - User Not found
-            </p>
-          ) : null
-        }
-      </section>
-    </form>
+              Login
+            </button>
+            <button
+              className="login-btn-register"
+              type="button"
+              data-testid="common_login__button-register"
+              onClick={ () => navigate('/register') }
+            >
+              Ainda não tenho conta
+            </button>
+          </div>
+          {
+            login.notFound ? (
+              <p
+                className="user-not-found"
+                data-testid="common_login__element-invalid-email"
+              >
+                404 - User Not found
+              </p>
+            ) : null
+          }
+        </section>
+      </Form>
+
+    </Main>
   );
 }
 
