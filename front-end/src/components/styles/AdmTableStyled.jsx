@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Table = styled.table`
-  /* background-color: aliceblue; */
-  /* margin-left: 20vh; */
   display: table;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
   max-width: 100%;
@@ -103,15 +101,41 @@ export const Tr = styled.tr`
     background-color: #421981;
     padding: 3px 20px;
     border-collapse: collapse;
-    .Adm-btn-delete{
-      font-family: "Roboto";
-      font-style: normal;
-      font-size: 20px;
-      text-align: center;
-      background-color: #2f51e6;
-      color: #e0dada;
+
+      .Adm-btn-delete{
+   margin-top: 15px;
+  border-color:  #036B52;
+  border-radius: 0;
+  color:  #036B52;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+.Adm-btn-delete:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background:  #f1251d;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.Adm-btn-delete:hover {
+  color: #fff;
+}
+.Adm-btn-delete:hover:after {
+  width: 110%;
+}
     }
-  }
+
   
 
 `;

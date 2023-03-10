@@ -5,6 +5,7 @@ margin-top: auto;
 display: flex;
 flex-direction: column;
 /* margin-left: 20vh; */
+justify-content: space-between;
 max-width: 100%;
 padding-inline: 20px;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
@@ -27,36 +28,73 @@ align-items: center;
   .user-data-name{
     display: flex;
     flex-direction: column;
+    text-align: left;
+    .user-data-name-input{
+      border-radius: 10px;
+      max-width: 80%;
+    }
   }
   .user-data-email{
     display: flex;
     flex-direction: column;
+    text-align: left;
+    .user-data-email-input{
+      border-radius: 10px;
+      max-width: 80%;
+    }
   }
   .user-data-password{
     display: flex;
     flex-direction: column;
+    text-align: left;
+    .user-data-password-input{
+      border-radius: 10px;
+      max-width: 80%;
+    }
   }
+
   .user-data-role{
     display: flex;
     flex-direction: column;
-  }
-  .user-data-name-input{
-  border-radius: 10px;
-  }
-  .user-data-email-input{
-  border-radius: 10px;
-  }
-  .user-data-password-input{
-  border-radius: 10px;
-  }
-  .user-data-role-select{
-  border-radius: 10px;
+    text-align: left;
+    .user-data-role-select{
+      border-radius: 10px;
+      max-width: 80%;
+    }
   }
   .adm-btn-cadastrar{
    margin-top: 15px;
-  }
-
+  border-color:  #036B52;;
+  border-radius: 0;
+  color:  #036B52;;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
 }
+.adm-btn-cadastrar:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background:  #036B52;;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.adm-btn-cadastrar:hover {
+  color: #fff;
+}
+.adm-btn-cadastrar:hover:after {
+  width: 110%;
+}
+  }
 
 `;
 
