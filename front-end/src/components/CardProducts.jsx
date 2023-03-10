@@ -108,14 +108,14 @@ function CardProducts({ iten }) {
         </p>
         <div className="quantity-input-area">
           <button
+            className="btn-rm"
+            name="rm"
             id={ iten.id }
-            name="add"
             onClick={ handleEvent }
-            className="btn-add"
-            data-testid={ `customer_products__button-card-add-item-${iten.id}` }
+            data-testid={ `customer_products__button-card-rm-item-${iten.id}` }
             type="button"
           >
-            +
+            -
           </button>
           <input
             value={ buttonClicked.productQuantity }
@@ -127,14 +127,14 @@ function CardProducts({ iten }) {
             type="number"
           />
           <button
-            className="btn-rm"
-            name="rm"
             id={ iten.id }
+            name="add"
             onClick={ handleEvent }
-            data-testid={ `customer_products__button-card-rm-item-${iten.id}` }
+            className="btn-add"
+            data-testid={ `customer_products__button-card-add-item-${iten.id}` }
             type="button"
           >
-            -
+            +
           </button>
         </div>
       </section>

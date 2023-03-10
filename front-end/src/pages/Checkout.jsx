@@ -113,39 +113,30 @@ function Checkout() {
       </table>
 
       <form action="">
-        <h2>Detalhes e Endereço para Entrega</h2>
-        <section>
-          <div>
-            P. Vendedora Responsável:
-            <RoleOption setSellerId={ setSellerId } />
-          </div>
-          <div>
-            Endereço
-            <input
-              type="text"
-              data-testid="customer_checkout__input-address"
-              onChange={ ({ target: { value } }) => {
-                setPayload((prev) => ({ ...prev, deliveryAddress: value }));
-              } }
-            />
-          </div>
-          <div>
-            Número
-            <input
-              type="text"
-              data-testid="customer_checkout__input-address-number"
-              onChange={ ({ target: { value } }) => {
-                setPayload((prev) => ({ ...prev, deliveryNumber: value }));
-              } }
-            />
-          </div>
-        </section>
+        Vendedor(a) responsável:
+        <RoleOption setSellerId={ setSellerId } />
+        Endereço
+        <input
+          type="text"
+          data-testid="customer_checkout__input-address"
+          onChange={ ({ target: { value } }) => {
+            setPayload((prev) => ({ ...prev, deliveryAddress: value }));
+          } }
+        />
+        Número
+        <input
+          type="text"
+          data-testid="customer_checkout__input-address-number"
+          onChange={ ({ target: { value } }) => {
+            setPayload((prev) => ({ ...prev, deliveryNumber: value }));
+          } }
+        />
         <button
           type="submit"
           data-testid="customer_checkout__button-submit-order"
           onClick={ handleCheckout }
         >
-          FINALIZAR PEDIDO
+          Finalizar pedido
         </button>
       </form>
 

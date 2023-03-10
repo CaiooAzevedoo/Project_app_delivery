@@ -13,7 +13,7 @@ function AdmManage() {
         <div
           className="adm-div-title"
         >
-          Cadastrar novo usuário
+          Cadastrar
 
         </div>
         <FormRegisterAdmin setCount={ setCount } />

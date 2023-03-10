@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap') ;
+
+:root {
+
+  --color-orange: rgb(255, 131, 3);
+
+  --color-black: rgb(27, 26, 23);
+
+  --color-brown: rgb(163, 87, 9);
+
+  --color-white: rgb(243, 244, 237);
+
+  --color-grew: rgb(83, 97, 98);
+
+  --color-grew-dark: rgb(66, 70, 66);
+
+  --color-red: rgb(255, 99, 99);
+
+  --color-yellow: rgb(248, 180, 0);
+
+  --color-green: rgb(78, 148, 79);
+
+  --color-gree-soft: rgb(195, 229, 174);
+
+  --border-radius: 14px;
+
+  --font-title: 18px;
+
+  --font-subtitle: 14px;
+
+  --font-text: 11px;
+
+  --font-button: 14px;
+
+  --font-family: 'Roboto' 'sans-serif';
+}
+
 .App {
   align-items: center;
   background: #0fa36b;

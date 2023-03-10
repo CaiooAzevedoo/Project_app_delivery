@@ -11,7 +11,6 @@ function SellerOrdersDetails() {
     Preparando: false,
     [emTransito]: false,
   });
-  // const [updated, setUpdated] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,8 +37,6 @@ function SellerOrdersDetails() {
     await updateSales(name, order.id);
     const { data } = await getOrderBySellerId();
     setOrder(data[parseInt(id, 10) - 1]);
-    // setButtonState((prev) => ({ ...prev, [name]: !prev[name] }));
-    // setUpdated((prev) => !prev);
   };
 
   return (
@@ -71,7 +68,7 @@ function SellerOrdersDetails() {
             disabled={ buttonState.Preparando }
             onClick={ handleClick }
           >
-            preparar pedido
+            Preparar pedido
           </button>
           <button
             type="button"
@@ -80,7 +77,7 @@ function SellerOrdersDetails() {
             disabled={ buttonState['Em Trânsito'] }
             onClick={ handleClick }
           >
-            saiu para entrega
+            Saiu para entrega
           </button>
         </section>
         <table>

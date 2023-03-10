@@ -1,16 +1,27 @@
 import styled from 'styled-components';
 
 const NavBarStyles = styled.main`
-  background-color: #036B52;
+  font-family: var(--font-family);
+  background-color: var(--color-black);
+  /* background-image: linear-gradient(
+    -45deg, var(--color-black),
+    rgba(255, 129, 3, 0),
+    rgba(255, 129, 3, 0.253)); */
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 0.01px;
+  font-size: 15px;
+  max-width: 100%;
+  box-shadow: 0px 1px 7px;
 
   section {
     display: flex;
-    width: 50%;
+    width: 60%;
   }
 
   .secund-section {
+    align-items: center;
     justify-content: end;
   }
 
@@ -20,60 +31,71 @@ const NavBarStyles = styled.main`
 
   .link-Produtos {
     align-items: center;
-    background-color: #2FC18C;
+    font-size: large;
+    background-color: rgba(0, 0, 0, 0);
     box-sizing: border-box;
     padding: 20px;
-    font-family: 'Roboto';
+    max-width: 35%;
     font-style: normal;
-    /* font-weight: 700; */
-    /* font-size: 25px; */
-    line-height: 33px;
     text-align: start;
-    width: 300px;
     a {
       color: #F2FFFC;
       text-decoration: none;
+    }
+    :hover {
+      background-color: var(--color-orange);
+      color: var(--color-black);
     }
   }
 
   .maus-pedidos-nav-bar {
     box-sizing: border-box;
-    padding: 20px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
+    font-size: large;
+    padding: 20px 0px 20px 60px;
     line-height: 33px;
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #036B52;
-    /* width: 35%; */
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 44%;
     a {
       color: #F2FFFC;
       text-decoration: none;
     }
+    :hover {
+      background-color: var(--color-orange);
+      color: var(--color-black);
+    }
   }
 
   .user-name {
-    font-family: 'Roboto';
-    font-style: normal;
+    padding-right: 60px;
     line-height: 33px;
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #421981;
+    background-color: rgba(0, 0, 0, 0);
     color: #F2FFFC;
-    max-width: 50vh;
+    height: 80%;
+    max-width: 50%;
   }
 
   .button-exit {
-    border: none;
-    background-color: #056CF9;
-    width: 20%;
-    font-size: 25px;
+    font-size: var(--font-button);
+    background-color: var(--color-orange);
+    /* background-image: linear-gradient(
+      45deg, var(--color-black), rgba(255, 129, 3, 0.685)); */
+    margin-right: 7px;
+    min-height: 55px;
+    color: white;
+    width: 15%;
+    border-radius: 20px;
+    border: 2px solid var(--color-orange);
+    box-sizing: border-box;   
+    text-align: center;
+    display: block;
     :hover {
-      background-color: #0563e7c5;
+      background-color: var(--color-orange);
     }
   }
 `;

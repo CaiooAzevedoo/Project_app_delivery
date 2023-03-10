@@ -3,23 +3,12 @@ import styled from 'styled-components';
 const Section = styled.section`
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.13);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 20%;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.452);
-  /* animation-fill-mode: forwards; */
-  /* background-image: radial-gradient(black, red, blue); */
-
-  :hover {
-    @keyframes sizecard {
-      to {
-        width: 25%;
-      }
-    }
-  }
-
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.452);
   
   .card-products-price {
     display: flex;
@@ -50,32 +39,37 @@ const Section = styled.section`
   .secund-section {
     background-color: aliceblue;
     text-align: center;
+    border-radius: var(--border-radius);
   }
 
   .quantity-input-area {
-    margin: auto;
-    margin-bottom: 3%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 
   .btn-add {
-    background-color: rgb(10, 187, 10);
+    background-color: rgb(78, 148, 79);
     border: none;
-    border-radius: 8px 0.1px 0.1px 8px;
+    border-radius: 4px;
     height: 30px;
     width: 30px;
   }
 
   .input-quantity {
-    height: 26px;
+    height: 28px;
+    text-align: center;
     padding: 0;
     width: 50px;
+    border: 1px solid #00000047;
+    border-radius: 4px;
+    margin: 0px 5px 0px;
   }
 
   .btn-rm {
-    background-color: rgba(255, 0, 0, 0.418);
+    background-color: rgb(255, 131, 3);
     border: none;
-    border-radius: 0.1px 8px 8px 0.1px;
+    border-radius: 4px;
     height: 30px;
     width: 30px;
   }

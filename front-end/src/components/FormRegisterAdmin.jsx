@@ -32,14 +32,13 @@ function FormRegisterAdmin({ setCount }) {
           email, password, name, role });
         test = date;
         const statusNotFound = 409;
-        console.log(date, 'Linha 36');
         if (status === statusNotFound) {
           setRegister((prev) => ({ ...prev, notFound: true }));
         }
       };
       await request();
       setCount((prev) => !prev);
-      console.log(test, 'LINHA 42');
+      console.log(test);
     } catch (err) {
       console.log(err);
     }
@@ -53,7 +52,7 @@ function FormRegisterAdmin({ setCount }) {
           className="user-data-name"
           htmlFor="name"
         >
-          Nome:
+          Nome
           <input
             className="user-data-name-input"
             data-testid="admin_manage__input-name"
@@ -69,7 +68,7 @@ function FormRegisterAdmin({ setCount }) {
           className="user-data-email"
           htmlFor="email"
         >
-          Email:
+          Email
           <input
             className="user-data-email-input"
             data-testid="admin_manage__input-email"
@@ -85,7 +84,7 @@ function FormRegisterAdmin({ setCount }) {
           className="user-data-password"
           htmlFor="password"
         >
-          Senha:
+          Senha
           <input
             className="user-data-password-input"
             data-testid="admin_manage__input-password"
@@ -131,7 +130,7 @@ function FormRegisterAdmin({ setCount }) {
             <p
               data-testid="admin_manage__element-invalid-register"
             >
-              Usuário já existe
+              Usuário já existe!
             </p>
           ) : null
         }

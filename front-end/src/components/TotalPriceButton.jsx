@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLocalStorage } from '../localstorage';
 import MainContext from '../context/MainContext';
-import './styles/TotalPriceButton.css';
+import Section from './styles/TotalPriceButton';
 
 function TotalPriceButton() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function TotalPriceButton() {
   );
 
   return (
-    <div className="total-price-btn">
+    <Section className="total-price-btn">
       <button
         className="customer_products__button-cart"
         type="button"
@@ -39,7 +39,7 @@ function TotalPriceButton() {
       >
         { productsOfLocal.length > 0 ? String(total.toFixed(2)).replace('.', ',') : 0}
       </p>
-    </div>
+    </Section>
 
   );
 }

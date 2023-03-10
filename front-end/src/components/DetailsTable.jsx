@@ -49,7 +49,7 @@ function DetailsTable({ sale, index }) {
           }
           onClick={ handleClick }
         >
-          MARCAR COMO ENTREGUE
+          Marcar como entregue
         </button>
       </div>
     </Section>

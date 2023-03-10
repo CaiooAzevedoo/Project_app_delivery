@@ -103,7 +103,7 @@ function Login() {
               disabled={ login.submitIsDisable }
               data-testid="common_login__button-login"
             >
-              Login
+              Entrar
             </button>
             <button
               className="login-btn-register"
@@ -111,7 +111,7 @@ function Login() {
               data-testid="common_login__button-register"
               onClick={ () => navigate('/register') }
             >
-              Ainda não tenho conta
+              Cadastrar
             </button>
           </div>
           {
@@ -120,7 +120,7 @@ function Login() {
                 className="user-not-found"
                 data-testid="common_login__element-invalid-email"
               >
-                404 - User Not found
+                Usuário não encontrado!
               </p>
             ) : null
           }
