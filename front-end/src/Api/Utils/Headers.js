@@ -38,4 +38,11 @@ export const HEADERS_GET = {
   },
 };
 
+export const HEADERS_DELETE = {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': CONTENT_TYPE,
+  },
+};
+
 export default HEADERS_POST;

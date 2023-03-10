@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import validateName from './utils/RegisterValidation';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from '../pages/Utils/Login.utils';
 import { createUserAdm } from '../Api/User';
 import './styles/FormRegister.css';
 
-function FormRegisterAdmin() {
+function FormRegisterAdmin({ setCount }) {
   const { register, setRegister } = useContext(MainContext);
   useEffect(
     () => {
@@ -31,13 +32,14 @@ function FormRegisterAdmin() {
           email, password, name, role });
         test = date;
         const statusNotFound = 409;
-        console.log(date);
+        console.log(date, 'Linha 36');
         if (status === statusNotFound) {
           setRegister((prev) => ({ ...prev, notFound: true }));
         }
       };
       await request();
-      console.log(test);
+      setCount((prev) => !prev);
+      console.log(test, 'LINHA 42');
     } catch (err) {
       console.log(err);
     }
@@ -121,5 +123,9 @@ function FormRegisterAdmin() {
     </form>
   );
 }
+
+FormRegisterAdmin.propTypes = {
+  setCount: PropTypes.func.isRequired,
+};
 
 export default FormRegisterAdmin;
