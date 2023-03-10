@@ -7,6 +7,7 @@ const Main = styled.main`
   gap: 15px;
   justify-content: center;
   padding-top: 16px;
+  margin-bottom: 16px;
 `;
 
 export default Main;
