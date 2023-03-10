@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getUserAdm } from '../Api/User';
+import { getUserAdm, deletUser } from '../Api/User';
 
 function AdmTable({ count }) {
   const [users, setUsersAdm] = useState([]);
