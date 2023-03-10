@@ -4,21 +4,25 @@ const Form = styled.form`
 margin-top: auto;
 display: flex;
 flex-direction: column;
+/* margin-left: 20vh; */
+max-width: 100vh;
+padding-inline: 20px;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
+background-color: #f5f2f2;
 align-items: center;
-.adm-title{
-  display: flex;
-  text-align: left;
-  justify-content: left;
-}
 .user-data-container{
-    margin-top: 0px;
+  margin-top: 0px;
     display: flex;
     width: 100vh;
+    height: 60px;
     text-align: center;
+    /* -webkit-box-align: stretch;
+    -webkit-box-pack: justify; */
+    flex-flow: row nowrap;
     flex-direction: row;
-    align-items: center;
     flex-wrap: nowrap;
     justify-content: space-between;
+    align-items: center;
 
   .user-data-name{
     display: flex;
@@ -49,8 +53,7 @@ align-items: center;
   border-radius: 10px;
   }
   .adm-btn-cadastrar{
-   margin-top: auto;
-    text-align: center;
+   margin-top: 15px;
   }
 
 }
