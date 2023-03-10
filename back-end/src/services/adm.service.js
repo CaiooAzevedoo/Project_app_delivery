@@ -34,7 +34,12 @@ const getUsers = async () => user.findAll({
     [Op.or]: ['seller', 'customer'] },
 } });
 
+const deletUser = async (id) => user.destroy({
+  where: { id: id },
+});
+
 module.exports = {
  createUserAdm,
  getUsers,
+ deletUser,
 };

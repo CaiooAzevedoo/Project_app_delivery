@@ -105,7 +105,7 @@ export const deletUser = async (id) => {
     );
     return {
       status: response.status,
-      data: await response.json();
+      data: await response.json(),
     };
   } catch (error) {
     const status = 404;

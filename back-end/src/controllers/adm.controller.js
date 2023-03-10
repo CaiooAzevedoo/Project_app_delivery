@@ -20,7 +20,15 @@ const getUsers = async (_req, res) => {
   return res.status(200).json(result);
 };
 
+const deleteUser = async (req, res) => {
+  const { id } = req.body;
+  await admService.deletUser(id);
+
+  return res.status(200).end("User has been destroyed");
+};
+
 module.exports = { 
   createUserAdm,
   getUsers,
+  deleteUser,
  };
