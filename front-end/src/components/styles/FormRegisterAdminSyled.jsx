@@ -4,11 +4,12 @@ const Form = styled.form`
 margin-top: auto;
 display: flex;
 flex-direction: column;
-margin-left: 20vh;
+/* margin-left: 20vh; */
 max-width: 100vh;
 padding-inline: 20px;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
 background-color: #f5f2f2;
+align-items: center;
 .user-data-container{
   margin-top: 0px;
     display: flex;

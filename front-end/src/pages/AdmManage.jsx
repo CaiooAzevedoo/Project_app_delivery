@@ -9,14 +9,16 @@ function AdmManage() {
   return (
     <Title>
       <NavBar />
-      <div
-        className="adm-title"
-      >
-        Cadastrar novo usuário
+      <div className="adm-div">
+        <div
+          className="adm-div-title"
+        >
+          Cadastrar novo usuário
 
+        </div>
+        <FormRegisterAdmin setCount={ setCount } />
+        <AdmTable count={ count } />
       </div>
-      <FormRegisterAdmin setCount={ setCount } />
-      <AdmTable count={ count } />
     </Title>
   );
 }

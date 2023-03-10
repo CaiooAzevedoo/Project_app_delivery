@@ -5,6 +5,7 @@ const NavBarStyles = styled.main`
   display: flex;
   justify-content: space-between;
   margin: 0.01px;
+  font-size: 25px;
 
   section {
     display: flex;
@@ -26,8 +27,8 @@ const NavBarStyles = styled.main`
     padding: 20px;
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
+    /* font-weight: 700; */
+    /* font-size: 25px; */
     line-height: 33px;
     text-align: start;
     width: 300px;
@@ -43,7 +44,7 @@ const NavBarStyles = styled.main`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 25px;
     line-height: 33px;
     display: flex;
     align-items: center;
@@ -59,20 +60,20 @@ const NavBarStyles = styled.main`
   .user-name {
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 42px;
+    line-height: 33px;
     display: flex;
     align-items: center;
     text-align: center;
     background-color: #421981;
     color: #F2FFFC;
+    max-width: 50vh;
   }
 
   .button-exit {
     border: none;
     background-color: #056CF9;
     width: 20%;
+    font-size: 25px;
     :hover {
       background-color: #0563e7c5;
     }

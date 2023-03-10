@@ -6,12 +6,17 @@ const Title = styled.div`
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
-    .adm-title{
-      /* background-color: #f5f2f2; */
+    .adm-div{
       display: flex;
-      margin-left: 20vh;
-      font-size: 25px;
-      
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      .adm-div-title{
+        /* background-color: #f5f2f2; */
+        display: flex;
+        margin-left: 20vh;
+        font-size: 25px;
+      }
     }
 
 `;
