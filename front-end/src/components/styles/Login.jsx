@@ -1,122 +1,93 @@
-import styled, { keyframes } from 'styled-components';
-
-const rotate = keyframes`
-   0% {
-    transform: rotate(-25deg);
-  }
-
-  25% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(25deg);
-  }
-
-  75% {
-    transform: rotate(0deg);
-  }
-  
-  100% {
-    transform: rotate(-25deg);
-  }
-`;
-export const Title = styled.div`
-    display: flex;
-    padding: 2rem 1rem;
-    font-size: 50px;
-    text-align: center;
-    flex-flow: column nowrap;
-    flex-direction: column;
-    align-items: center;
-    
-`;
-export const Rotate = styled.div`
-  animation: ${rotate} 2s linear infinite;
-  /* background-color: rgba(11, 43, 90, 0.91); */
-  max-width: 100px;
-  max-height: 100px;
-`;
+import styled from 'styled-components';
 
 export const Main = styled.main`
-  background-color: rgba(11, 43, 90, 0.911);
-  min-height: 100vh;
+
+  font-family: 'OpenSans';
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: rgb(255, 131, 3);
+  flex-wrap: wrap;
+
+  img {
+  width: 800px;
+  height: 40%;
+  margin-top: 220px;
+  position: relative;
+}
+
+fieldset {
   display: flex;
   flex-direction: column;
+  background-color: rgb(243, 244, 237);
+  margin-right: 120px;
+  width: 90%;
+  height: 380px;
+  border-style: none;
+  border-radius: 14px;
+  align-items: center;
+  text-align: center;
+  color: rgb(27, 26, 23);
+  font-size: 30px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 200px;
+  padding: 12px;
+}
+
+.login {
+  color: rgb(78, 148, 79);
+  font-size: 32px;
+
+}
+
+.inputslogin {
+  height: 44px;
+  margin-top:2px;
+  width: 90%;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.login-btn-login {
+  height: 44px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  border: none;
+  border-radius: 20px;
+  color: rgb(243, 244, 237);
+  text-align: center;
+  font-size: 20px;
+  background: rgb(78, 148, 79);
+}
+.login-btn-register {
+  height: 44px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: rgb(243, 244, 237);
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  background: rgb(78, 148, 79);
+}
+
+.login-btn-register, .login-btn-login {
+  :hover {
+    background-color: rgb(56, 96, 57); 
+  }
+  
+}
 `;
 
-const Form = styled.form`
-
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    
-
-  .content-login {
-    border: 1px solid rgba(7, 14, 8, 0.13);
-    border-radius: 8px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.452);
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    text-align: left;
-    justify-content: space-between;
-    background: #EAF1EF;
-    /* background-image: linear-gradient(45deg, black, red, blue);  */
-      .user-date-login {
-      border: 1px solid rgba(0, 0, 0, 0.5);
-      text-align: center;
-      font-size: 15px;
-      border-radius: 5px;
-      height: 33px;
-      margin-bottom: 20px;
-      width: 250px;
-    }
-      .login-btns {
-      display: flex;
-      justify-content: space-between;
-      text-align: center;
-      flex-direction: column;
-        .login-btn-entrar {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 20px;
-          line-height: 33px;
-          text-align: center;
-          color: #F2FFFC;
-          background: #036B52;
-          border-radius: 5px;
-          margin-bottom: 20px;
-        }
-        .login-btn-register {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 20px;
-          line-height: 33px;
-          text-align: center;
-          color: #036B52;
-          background: #EAF1EF;
-          /* background-image: radial-gradient( blue, red, green); */
-          /* background-image: radial-gradient() */
-          border: 2px solid #036b537d;
-          border-radius: 5px;
-          margin-bottom: 20px;
-        }
-    } 
-  }
-
-  
-
-  
-
-  .user-not-found {
-    color: red;
-    margin: auto;
-  }
-`;
-
-export default Form;
+export default Main;

@@ -4,7 +4,8 @@ import getUser from '../Api/User';
 import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
-import Form, { Title, Main, Rotate } from '../components/styles/Login';
+import { Main } from '../components/styles/Login';
+import loginImg from '../components/styles/images/login-img.png';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
@@ -64,56 +65,50 @@ function Login() {
 
   return (
     <Main>
-
-      <Title
-        className="Icon"
-      >
-        <Rotate>
-
-          🍻
-        </Rotate>
-      </Title>
-      <Form
-        className="login-form"
-        onSubmit={ handleSubmit }
-      >
-        <section className="content-login">
-          Email
+      <img
+        src={ loginImg }
+        alt="not found"
+      />
+      <section className="content-login">
+        <fieldset
+          className="login-form"
+          onSubmit={ handleSubmit }
+        >
+          <p className="login">Login</p>
           <input
-            className="user-date-login"
+            className="inputslogin"
             type="email"
             name="email"
-            placeholder="user@email.com"
+            label="Email: "
+            placeholder="usuario@email.com"
             data-testid="common_login__input-email"
             onChange={ handleChange }
           />
-          Senha
           <input
-            className="user-date-login"
+            className="inputslogin"
             type="password"
             name="password"
-            placeholder="senha..."
+            label="Password: "
+            placeholder="senha"
             data-testid="common_login__input-password"
             onChange={ handleChange }
           />
-          <div className="login-btns">
-            <button
-              className="login-btn-entrar"
-              type="submit"
-              disabled={ login.submitIsDisable }
-              data-testid="common_login__button-login"
-            >
-              Entrar
-            </button>
-            <button
-              className="login-btn-register"
-              type="button"
-              data-testid="common_login__button-register"
-              onClick={ () => navigate('/register') }
-            >
-              Cadastrar
-            </button>
-          </div>
+          <button
+            className="login-btn-login"
+            type="submit"
+            disabled={ login.submitIsDisable }
+            data-testid="common_login__button-login"
+          >
+            Entrar
+          </button>
+          <button
+            className="login-btn-register"
+            type="button"
+            data-testid="common_login__button-register"
+            onClick={ () => navigate('/register') }
+          >
+            Cadastrar
+          </button>
           {
             login.notFound ? (
               <p
@@ -124,8 +119,9 @@ function Login() {
               </p>
             ) : null
           }
-        </section>
-      </Form>
+
+        </fieldset>
+      </section>
 
     </Main>
   );
