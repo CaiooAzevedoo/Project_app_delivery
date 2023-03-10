@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Table = styled.table`
   /* background-color: aliceblue; */
-  
+  margin-left: 20vh;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
+  max-height: 100vh;
 `;
 
 export const Tr = styled.tr`
