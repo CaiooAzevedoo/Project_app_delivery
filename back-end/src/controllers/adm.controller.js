@@ -1,8 +1,9 @@
 const admService = require('../services/adm.service');
+const userService = require('../services/user.service');
 
 const createUserAdm = async (req, res) => {
   const { name, email, password, role } = req.body;
-  const checkUser = await admService.checkUserAdm({ name, email });
+  const checkUser = await userService.checkUser({ name, email });
   if (checkUser.type === 404) {
     return res.status(409).json({ message: 'Name or email already exist' });
   }

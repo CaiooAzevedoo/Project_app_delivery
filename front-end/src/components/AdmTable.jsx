@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { getUserAdm } from '../Api/User';
 
-function AdmTable() {
+function AdmTable({ count }) {
   const [users, setUsersAdm] = useState([]);
+  // const [admCount, setAdmCount] = useState(count);
   useEffect(() => {
     const request = async () => {
       const { data } = await getUserAdm();
@@ -10,7 +12,7 @@ function AdmTable() {
       setUsersAdm(data);
     };
     request();
-  }, []);
+  }, [count]);
 
   return (
     <section>
@@ -62,5 +64,9 @@ function AdmTable() {
     </section>
   );
 }
+
+AdmTable.propTypes = {
+  count: PropTypes.bool.isRequired,
+};
 
 export default AdmTable;

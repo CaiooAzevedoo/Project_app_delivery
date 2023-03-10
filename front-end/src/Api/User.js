@@ -71,7 +71,7 @@ export const createUserAdm = async ({ name, email, password, role }) => {
       date: await response.json(),
     };
   } catch (error) {
-    const status = 404;
+    const status = 409;
     return status;
   }
 };
