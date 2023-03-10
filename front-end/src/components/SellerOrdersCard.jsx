@@ -14,29 +14,31 @@ function SellerOrderCard({ sale }) {
         } }
       >
         <div>
-          <p data-testid={ `seller_orders__element-order-id-${sale.id}` }>
+          <p id="id" data-testid={ `seller_orders__element-order-id-${sale.id}` }>
 
             { sale.id }
           </p>
         </div>
-        <div
+        <p
           className="status"
-          id={ sale.status }
+          id={ sale.status === 'Em Trânsito' ? ('Em-Transito') : (sale.status)  }
           data-testid={ `seller_orders__element-delivery-status-${sale.id}` }
         >
           { sale.status }
-        </div>
+        </p>
         <section>
-          <div
+          <p
+            id="date"
             data-testid={ `seller_orders__element-order-date-${sale.id}` }
           >
             { sale.saleDate }
-          </div>
-          <div
+          </p>
+          <p
+            id="price"
             data-testid={ `seller_orders__element-card-price-${sale.id}` }
           >
             { sale.totalPrice.replace('.', ',') }
-          </div>
+          </p>
         </section>
         {/* <div
           data-testid={ `seller_orders__element-order-date-${sale.id}` }

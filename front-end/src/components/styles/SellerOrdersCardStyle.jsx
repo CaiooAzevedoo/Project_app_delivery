@@ -15,6 +15,17 @@ const Section = styled.section`
     width: 40vh;
     border-radius: 8px;
 
+    #id {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background-color: white;
+      width: 9vh;
+      height: 9vh;
+      border-radius: 8px;
+    }
+
     .status {
       height: 9vh;
       width: 18vh;
@@ -22,6 +33,7 @@ const Section = styled.section`
       align-items: center;
       justify-content: center;
       border-radius: 8px;
+      font-size: 20px;
     }
 
     #Pendente {
@@ -33,7 +45,11 @@ const Section = styled.section`
     }
 
     #Entregue {
-      background-color: #00CC9B;
+      background-color: #26f0ad;
+    }
+
+    #Em-Transito {
+      background-color: #00ccbb;
     }
 
     section {
@@ -41,7 +57,19 @@ const Section = styled.section`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      row-gap: 20px;
+      row-gap: 5px;
+
+      #date, #price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        height: 20px;
+        margin: 0;
+        border-radius: 8px;
+        min-width: 10vh;
+        min-height: 4vh;
+      }
     }
   }
 `;
