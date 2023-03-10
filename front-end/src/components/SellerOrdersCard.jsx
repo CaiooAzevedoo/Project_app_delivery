@@ -40,11 +40,6 @@ function SellerOrderCard({ sale }) {
             { sale.totalPrice.replace('.', ',') }
           </p>
         </section>
-        {/* <div
-          data-testid={ `seller_orders__element-order-date-${sale.id}` }
-        >
-          { sale.deliveryAddress + sale.deliveryNumber }
-        </div> */}
       </button>
     </Section>
   );

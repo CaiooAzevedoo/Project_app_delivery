@@ -51,7 +51,7 @@ function FormRegister() {
       <div className="user-data-container">
         <div>
           <label htmlFor="name">
-            Nome:
+            Nome
             <input
               className="user-date-register"
               type="text"
@@ -64,7 +64,7 @@ function FormRegister() {
           </label>
 
           <label htmlFor="email">
-            Email:
+            Email
             <input
               className="user-date-register"
               type="email"
@@ -77,7 +77,7 @@ function FormRegister() {
           </label>
 
           <label htmlFor="password">
-            Senha:
+            Senha
             <input
               className="user-date-register"
               type="password"
@@ -95,14 +95,14 @@ function FormRegister() {
             disabled={ register.submitIsDisable }
             onClick={ handleClick }
           >
-            CADASTRAR
+            Cadastrar
           </button>
           {
             register.notFound ? (
               <p
                 data-testid="common_register__element-invalid_register"
               >
-                user already exists
+                Usuário já existe!
               </p>
             ) : null
           }

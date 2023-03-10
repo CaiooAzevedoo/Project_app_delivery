@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router';
 
 function CardSales({ sale }) {
   const navigate = useNavigate();
-  // const handleClick = navigate(`/customer/orders/${sale.id}`);
   return (
     <section>
       <button

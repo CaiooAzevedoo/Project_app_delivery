@@ -10,7 +10,6 @@ function SellerOrders() {
   useEffect(() => {
     const request = async () => {
       const { data } = await getSales();
-      console.log(data, 'PROBLEMA PAGINA');
       setSales((data) || []);
     };
 

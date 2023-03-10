@@ -66,7 +66,6 @@ function Checkout() {
       const { data } = await postProduct(payload);
       navigate(`/customer/orders/${data.id}`);
     } catch (err) {
-      // navigate('/login');
       console.log(err);
     }
   };
@@ -113,7 +112,7 @@ function Checkout() {
       </table>
 
       <form action="">
-        P. Vendedora Responsável:
+        Vendedor(a) responsável:
         <RoleOption setSellerId={ setSellerId } />
         Endereço
         <input
@@ -136,7 +135,7 @@ function Checkout() {
           data-testid="customer_checkout__button-submit-order"
           onClick={ handleCheckout }
         >
-          FINALIZAR PEDIDO
+          Finalizar pedido
         </button>
       </form>
 

@@ -1,3 +1,28 @@
+:root {
+
+  --color-orange: rgb(255, 131, 3);
+
+  --color-black: rgb(27, 26, 23);
+
+  --color-brown: rgb(163, 87, 9);
+
+  --color-white: rgb(243, 244, 237);
+
+  --color-grew: rgb(83, 97, 98);
+
+  --color-grew-dark: rgb(66, 70, 66);
+
+  --border-radius: 4px;
+
+  --font-title: 18px;
+
+  --font-subtitle: 14px;
+
+  --font-text: 11px;
+
+  --font-button: 14px;
+}
+
 .App {
   align-items: center;
   background: #0fa36b;
