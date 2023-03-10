@@ -4,7 +4,6 @@ const NavBarStyles = styled.main`
   background-color: #036B52;
   display: flex;
   justify-content: space-between;
-  margin: 0.01px;
 
   section {
     display: flex;
