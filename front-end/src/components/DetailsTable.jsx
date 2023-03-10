@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { updateSales } from '../Api/Sales';
+import Section from './styles/DetailsTable';
 
 function DetailsTable({ sale, index }) {
   const [saleStatus, setSaleStatus] = useState(sale.status);
@@ -10,9 +11,10 @@ function DetailsTable({ sale, index }) {
   };
 
   return (
-    <section>
+    <Section>
       <div>
         <p
+          id="id"
           data-testid="customer_order_details__element-order-details-label-order-id"
         >
           {sale.id}
@@ -30,6 +32,7 @@ function DetailsTable({ sale, index }) {
 
         </p>
         <p
+          id="status"
           data-testid={
             `customer_order_details__element-order-details-label-delivery-status${index}`
           }
@@ -49,7 +52,7 @@ function DetailsTable({ sale, index }) {
           MARCAR COMO ENTREGUE
         </button>
       </div>
-    </section>
+    </Section>
   );
 }
 

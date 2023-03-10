@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import SellerOrderCard from '../components/SellerOrdersCard';
 import { getSales } from '../Api/Sales';
+import Section from './styles/SellerOrdersStyle';
 
 function SellerOrders() {
   const [sales, setSales] = useState([]);
@@ -19,12 +20,12 @@ function SellerOrders() {
     <main>
       <div>
         <NavBar />
-        <section>
+        <Section>
           {(sales.length > 0) && (
             sales.map(
               (sale) => (<SellerOrderCard key={ sale.id } sale={ sale } />),
             ))}
-        </section>
+        </Section>
       </div>
     </main>
   );

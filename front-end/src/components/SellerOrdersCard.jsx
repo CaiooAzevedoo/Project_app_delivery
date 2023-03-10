@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Section from './styles/SellerOrdersCardStyle';
 
 function SellerOrderCard({ sale }) {
   const navigate = useNavigate();
   return (
-    <section>
-
+    <Section>
       <button
         type="button"
         onClick={ () => {
@@ -20,27 +20,31 @@ function SellerOrderCard({ sale }) {
           </p>
         </div>
         <div
+          className="status"
+          id={ sale.status }
           data-testid={ `seller_orders__element-delivery-status-${sale.id}` }
         >
           { sale.status }
         </div>
-        <div
-          data-testid={ `seller_orders__element-order-date-${sale.id}` }
-        >
-          { sale.saleDate }
-        </div>
-        <div
-          data-testid={ `seller_orders__element-card-price-${sale.id}` }
-        >
-          { sale.totalPrice.replace('.', ',') }
-        </div>
-        <div
+        <section>
+          <div
+            data-testid={ `seller_orders__element-order-date-${sale.id}` }
+          >
+            { sale.saleDate }
+          </div>
+          <div
+            data-testid={ `seller_orders__element-card-price-${sale.id}` }
+          >
+            { sale.totalPrice.replace('.', ',') }
+          </div>
+        </section>
+        {/* <div
           data-testid={ `seller_orders__element-order-date-${sale.id}` }
         >
           { sale.deliveryAddress + sale.deliveryNumber }
-        </div>
+        </div> */}
       </button>
-    </section>
+    </Section>
   );
 }
 

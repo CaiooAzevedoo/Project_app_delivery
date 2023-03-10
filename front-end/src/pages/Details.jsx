@@ -4,6 +4,7 @@ import DetailsTable from '../components/DetailsTable';
 import NavBar from '../components/NavBar';
 import TableProducts from '../components/TableProducts';
 import { getLocalStorage } from '../localstorage';
+import Main from './styles/DetailsStyles';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
 
 function Details() {
@@ -40,8 +41,7 @@ function Details() {
   }, []);
 
   return (
-
-    <div>
+    <Main>
       <NavBar />
       <section>
         {(sales.length > 0) && (sales.map(
@@ -90,8 +90,7 @@ function Details() {
           }
         </p>
       </table>
-    </div>
-
+    </Main>
   );
 }
 

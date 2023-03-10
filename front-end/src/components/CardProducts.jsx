@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './styles/CardProducts.css';
 import MainContext from '../context/MainContext';
 import { setLocalstorage } from '../localstorage';
 import
@@ -8,6 +7,7 @@ isAddOrRemove,
 { updateQuantity,
   calcButtonValue,
 } from './utils/CardProductsUtils';
+import Section from './styles/CardProducts';
 
 function CardProducts({ iten }) {
   const { cardState, setCardState } = useContext(MainContext);
@@ -77,7 +77,7 @@ function CardProducts({ iten }) {
   };
 
   return (
-    <section className="card-products">
+    <Section className="card-products">
       <section>
         <div className="card-products-price">
           <p>
@@ -92,12 +92,15 @@ function CardProducts({ iten }) {
             }
           </p>
         </div>
-        <img
-          className="product-image"
-          data-testid={ `customer_products__img-card-bg-image-${iten.id}` }
-          src={ iten.urlImage }
-          alt="imagem da bebida"
-        />
+        <div className="product-image">
+          <img
+            data-testid={ `customer_products__img-card-bg-image-${iten.id}` }
+            src={ iten.urlImage }
+            alt="imagem da bebida"
+          />
+        </div>
+      </section>
+      <section className="secund-section">
         <p
           data-testid={ `customer_products__element-card-title-${iten.id}` }
         >
@@ -135,7 +138,7 @@ function CardProducts({ iten }) {
           </button>
         </div>
       </section>
-    </section>
+    </Section>
   );
 }
 
