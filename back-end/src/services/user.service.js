@@ -1,15 +1,18 @@
 const md5 = require('md5');
+const { Op } = require('sequelize');
 const { user } = require('../database/models');
 
 const checkUser = async ({ name, email }) => {
-  const checkName = await user.findOne({
-    where: { name },
-  });
-  const checkEmail = await user.findOne({
-    where: { email },
+  const check = await user.findOne({
+    where: {
+      [Op.and]: [
+        { name },
+        { email },
+      ],
+    },
   });
 
-  if (checkName || checkEmail) {
+  if (check) {
     return { type: 404 };
   }
 

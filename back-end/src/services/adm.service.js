@@ -35,7 +35,7 @@ const getUsers = async () => user.findAll({
 } });
 
 const deletUser = async (id) => user.destroy({
-  where: { id: id },
+  where: { id },
 });
 
 module.exports = {

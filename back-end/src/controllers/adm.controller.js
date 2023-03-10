@@ -24,7 +24,7 @@ const deleteUser = async (req, res) => {
   const { id } = req.body;
   await admService.deletUser(id);
 
-  return res.status(200).end("User has been destroyed");
+  return res.status(200).end('User has been destroyed');
 };
 
 module.exports = { 
