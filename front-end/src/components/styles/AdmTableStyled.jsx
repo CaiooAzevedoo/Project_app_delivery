@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const Section = styled.table`
     border-collapse: collapse;
-    width: 75%;
+    width: 100%;
     align-self: center;
-    margin-left: 185px;
-    margin-top: 100px;
     font-family: 'OpenSans';
     font-size: 18px;
+    margin-top: 10px ;
   
   table {
     border-collapse: collapse;
@@ -67,13 +66,14 @@ export const Section = styled.table`
     font-weight: bold;
     font-size: 16px;
     text-align: center;
+    padding-inline-start: 10px;
   }
 
   .User-email{
     font-style: normal;
     font-size: 16px;
     text-align: center;
-    padding-inline: 20px;
+    padding-inline: 25px;
   }
   .User-role{
     font-style: normal;
