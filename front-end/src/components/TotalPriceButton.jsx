@@ -23,22 +23,26 @@ function TotalPriceButton() {
 
   return (
     <Section className="total-price-btn">
-      <button
-        className="customer_products__button-cart"
-        type="button"
-        data-testid="customer_products__button-cart"
-        disabled={ productsOfLocal.length < 1 }
-        onClick={ () => navigate('/customer/checkout') }
-      >
-        Ver Carrinho: R$
-      </button>
-      <p
-        data-testid="customer_products__checkout-bottom-value"
-        id="total"
-        name="total"
-      >
-        { productsOfLocal.length > 0 ? String(total.toFixed(2)).replace('.', ',') : 0}
-      </p>
+      <div className={ productsOfLocal.length < 1 ? 'disabled' : 'enable' }>
+        <button
+          id="customer_products__button-cart"
+          type="button"
+          className={ productsOfLocal.length < 1 ? 'disabled' : 'enable' }
+          data-testid="customer_products__button-cart"
+          disabled={ productsOfLocal.length < 1 }
+          onClick={ () => navigate('/customer/checkout') }
+        >
+          Ver Carrinho: R$
+        </button>
+        <p
+          className={ productsOfLocal.length < 1 ? 'disabled' : 'enable' }
+          data-testid="customer_products__checkout-bottom-value"
+          id={ productsOfLocal.length >= 1 && 'total' }
+          name="total"
+        >
+          { productsOfLocal.length > 0 ? String(total.toFixed(2)).replace('.', ',') : 0}
+        </p>
+      </div>
     </Section>
 
   );
