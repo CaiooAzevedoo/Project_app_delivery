@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getUserAdm, deletUser } from '../Api/User';
-import { Table, Tr } from './styles/AdmTableStyled';
+import { Section } from './styles/AdmTableStyled';
 
 function AdmTable({ count }) {
   const [users, setUsersAdm] = useState([]);
-  // const [admCount, setAdmCount] = useState(count);
+
   useEffect(() => {
     const request = async () => {
       const { data } = await getUserAdm();
@@ -20,20 +20,20 @@ function AdmTable({ count }) {
   };
 
   return (
-    <section>
-      <Table>
+    <Section>
+      <table>
         <thead>
-          <Tr>
+          <tr>
             <th className="Field-item">Item</th>
             <th className="Field-name">Nome</th>
             <th className="Field-email">Email</th>
             <th className="Field-type">Tipo</th>
             <th className="Field-delete">Excluir</th>
-          </Tr>
+          </tr>
         </thead>
         <tbody>
           {users.map((user, index) => (
-            <Tr key={ user.id }>
+            <tr key={ user.id }>
               <td
                 className="User-id"
                 data-testid={ `admin_manage__element-user-table-item-number-${index}` }
@@ -71,11 +71,11 @@ function AdmTable({ count }) {
                   Excluir
                 </button>
               </td>
-            </Tr>
+            </tr>
           ))}
         </tbody>
-      </Table>
-    </section>
+      </table>
+    </Section>
   );
 }
 
