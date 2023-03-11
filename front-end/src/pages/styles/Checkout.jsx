@@ -1,45 +1,56 @@
 import styled from 'styled-components';
 
 const Main = styled.main`
+    color: rgb(27, 26, 23);
+    font-family: 'OpenSans';
+    font-size: 18px;
+
+
+  h2 {
+    margin-top: 6%;
+    text-align: center;
+    margin-bottom: 6%;
+  }
+
   table {
     border-collapse: collapse;
-    margin: 16px auto;
-    max-width: 800px;
-    width: 100%;
+    width: 75%;
+    align-self: center;
+    margin-left: 185px;
   }
 
   th, td {
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+    border-bottom: 1px solid rgb(243, 244, 237);
+    text-align: center;
+    margin-bottom: 2%;
   }
 
   th {
-    background-color: #f2f2f2;
+    background-color: rgb(243, 244, 237);
     padding: 8px;
   }
 
   tr:nth-child( even ) {
-    background-color: #f2f2f2;
   }
 
   tr:hover {
-    background-color: #ddd;
+    background-color: rgb(243, 244, 237);
   }
 
   .rm-item-checkout-btn {
-    background-color: #f44336;
+    background-color: rgb(255, 99, 99);
     border: none;
-    border-radius: 4px;
-    color: white;
+    border-radius: 8px;
+    color: rgb(243, 244, 237);
+    font-weight: bold;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     padding: 18px 16px;
-    width: 100%;
+    width: 70%;
   }
 
   td {
     align-items: center;
-    font-family: Arial , Helvetica , sans-serif;
     font-size: 16px;
     font-style: normal;
     line-height: 42px;
@@ -51,56 +62,94 @@ const Main = styled.main`
   }
 
   .index-table-checkout {
-    background-color: #2fc18c;
+    background-color: rgb(149, 158, 158);
+    width: 12%;
     border-radius: 4px;
-    color: white;
+    color: rgb(243, 244, 237);
   }
 
   .quantity-table-checkout {
-    background-color: #036b52;
+    width: 12%;
     border-radius: 4px;
-    color: white;
+    color: rgb(27, 26, 23);
   }
 
   .unit-value-table-checkout {
-    background-color: #421981;
-    border-radius: 4px;
-    color: white;
+    width: 12%;
+    border-radius: 14px;
+    color: rgb(27, 26, 23);
   }
 
   .sub-total-table-checkout {
-    background-color: #056cf9;
-    border-radius: 4px;
-    color: white;
+    width: 12%;
+    border-radius: 8px;
+    color: rgb(27, 26, 23);
   }
 
   .total-value-checkout {
-    background-color: #036b52;
-    border-radius: 4px;
-    color: white;
-    padding: 10px 0.01px;
+    background-color: rgb(78, 148, 79);
+    width: 140%;
+    color: rgb(243, 244, 237);
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 18px;
+    padding: 18px 16px;
+    align-self: center;
+    top: 1%;
+    left: 640%;
+    position: relative;
   }
 
   form {
-    section {
-      background-color: #ddd;
+    display: flex;
+    margin-top: 6%;
+    text-align: center;
+    margin-bottom: 20%;
+    flex-wrap: wrap;
+    width: 75%;
+    column-gap: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(27, 26, 23);
+    font-size: 18px;
+    border: 1px solid red;
+
+    select {
+      height: 26px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      margin-bottom: 4px;
+    }
+
+    div {
       display: flex;
-      column-gap: 5px;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      width: 20%;
+      column-gap: 505px;
 
-      div {
-        display: flex;
-        flex-direction: column;
-        width: 20%;
-
-        select, input {
-          width: 80%;
-          height: 30px;
-          border: none;
-          border-radius: 8px;
-        }
+      .adress-input {
+      height: 26px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      margin-bottom: 4px;
       }
+
+    .number-input {
+      height: 26px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      margin-bottom: 4px;
+
+    }
+    }
+
+    p {
+      margin-bottom: 8px;
+      text-align: center;
+
     }
   }
 `;

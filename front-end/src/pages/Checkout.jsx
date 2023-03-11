@@ -73,7 +73,7 @@ function Checkout() {
   return (
     <Main>
       <NavBar />
-      <h2>Finalizando Pedido</h2>
+      <h2>Finalizar Pedido</h2>
       <table>
         <thead>
           <tr>
@@ -82,7 +82,7 @@ function Checkout() {
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
-            <th>Remover Item</th>
+            <th>Remover</th>
           </tr>
         </thead>
         <tbody>
@@ -112,32 +112,43 @@ function Checkout() {
         </p>
       </table>
 
-      <form action="">
-        Vendedor(a) responsável:
-        <RoleOption setSellerId={ setSellerId } />
-        Endereço
-        <input
-          type="text"
-          data-testid="customer_checkout__input-address"
-          onChange={ ({ target: { value } }) => {
-            setPayload((prev) => ({ ...prev, deliveryAddress: value }));
-          } }
-        />
-        Número
-        <input
-          type="text"
-          data-testid="customer_checkout__input-address-number"
-          onChange={ ({ target: { value } }) => {
-            setPayload((prev) => ({ ...prev, deliveryNumber: value }));
-          } }
-        />
-        <button
-          type="submit"
-          data-testid="customer_checkout__button-submit-order"
-          onClick={ handleCheckout }
-        >
-          Finalizar pedido
-        </button>
+      <form>
+        <div>
+          <p>Vendedor(a) responsável</p>
+          <RoleOption setSellerId={ setSellerId } />
+        </div>
+        <div>
+          <p> Endereço </p>
+          <input
+            type="text"
+            className="adress-input"
+            data-testid="customer_checkout__input-address"
+            onChange={ ({ target: { value } }) => {
+              setPayload((prev) => ({ ...prev, deliveryAddress: value }));
+            } }
+          />
+        </div>
+        <div>
+          <p>Número</p>
+          <input
+            type="text"
+            className="number-input"
+            data-testid="customer_checkout__input-address-number"
+            onChange={ ({ target: { value } }) => {
+              setPayload((prev) => ({ ...prev, deliveryNumber: value }));
+            } }
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            data-testid="customer_checkout__button-submit-order"
+            onClick={ handleCheckout }
+          >
+            Finalizar pedido
+          </button>
+        </div>
+
       </form>
 
     </Main>

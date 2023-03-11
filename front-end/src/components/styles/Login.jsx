@@ -5,16 +5,18 @@ export const Main = styled.main`
   font-family: 'OpenSans';
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
   height: 100vh;
   background-color: rgb(255, 131, 3);
   flex-wrap: wrap;
+  column-gap: 8%;
 
   img {
-  width: 800px;
+  width: 50%;
   height: 40%;
-  margin-top: 220px;
+  margin-top: 18%;
+  margin-left: 8%;
   position: relative;
 }
 
@@ -22,9 +24,8 @@ fieldset {
   display: flex;
   flex-direction: column;
   background-color: rgb(243, 244, 237);
-  margin-right: 120px;
-  width: 90%;
-  height: 380px;
+  width: 170%;
+  height: 700%;
   border-style: none;
   border-radius: 14px;
   align-items: center;
@@ -34,20 +35,22 @@ fieldset {
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin-left: 20px;
-  margin-top: 200px;
+  margin-top: 120%;
   padding: 12px;
 }
 
 .login {
   color: rgb(78, 148, 79);
   font-size: 32px;
+  font-weight: bold;
+  margin-bottom:6%;
 
 }
 
 .inputslogin {
   height: 44px;
-  margin-top:2px;
+  margin-top:2%;
+  margin-bottom:2%;
   width: 90%;
   border: none;
   border-radius: 20px;
@@ -60,8 +63,8 @@ fieldset {
 .login-btn-login {
   height: 44px;
   width: 90%;
-  margin-top: 10px;
-  margin-bottom: 4px;
+  margin-top:2%;
+  margin-bottom:2%;
   border: none;
   border-radius: 20px;
   color: rgb(243, 244, 237);
@@ -72,8 +75,8 @@ fieldset {
 .login-btn-register {
   height: 44px;
   width: 90%;
-  margin-top: 10px;
-  margin-bottom: 4px;
+  margin-top:2%;
+  margin-bottom:8%;
   color: rgb(243, 244, 237);
   border: none;
   border-radius: 20px;
