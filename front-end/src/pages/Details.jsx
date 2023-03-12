@@ -6,6 +6,7 @@ import TableProducts from '../components/TableProducts';
 import { getLocalStorage } from '../localstorage';
 import Main from './styles/DetailsStyles';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
+import MainCheckout from './styles/Checkout';
 
 function Details() {
   const [list, setListOrders] = useState([]);
@@ -37,7 +38,6 @@ function Details() {
       if (data.length > 0) {
         setSales(data);
         const newSales = [];
-        // setListOrders(data.products);
         data.forEach((sale) => {
           sale.products.forEach((product) => {
             newSales.push({
@@ -66,42 +66,44 @@ function Details() {
           ),
         ))}
       </section>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Descrição</th>
-            <th>Quantidade</th>
-            <th>Valor Unitário</th>
-            <th>Sub-total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            list.map((item, index) => (
-              <TableProducts
-                key={ index }
-                item={ item }
-                index={ index }
-              />
-            ))
-          }
-        </tbody>
-        <p
-          type="button"
-          className="total-value-checkout"
-          data-testid="customer_order_details__element-order-total-price"
-          id="total"
-          name="total"
-        >
-          Valor Total: R$
-          {' '}
-          {
-            list.length > 0
-              ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
-          }
-        </p>
-      </table>
+      <MainCheckout>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Descrição</th>
+              <th>Quantidade</th>
+              <th>Valor Unitário</th>
+              <th>Sub-total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              list.map((item, index) => (
+                <TableProducts
+                  key={ index }
+                  item={ item }
+                  index={ index }
+                />
+              ))
+            }
+          </tbody>
+          <p
+            type="button"
+            className="total-value-checkout"
+            data-testid="customer_order_details__element-order-total-price"
+            id="total"
+            name="total"
+          >
+            Valor Total: R$
+            {' '}
+            {
+              list.length > 0
+                ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
+            }
+          </p>
+        </table>
+      </MainCheckout>
     </Main>
   );
 }
