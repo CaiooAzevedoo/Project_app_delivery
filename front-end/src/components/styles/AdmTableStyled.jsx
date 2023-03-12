@@ -1,112 +1,97 @@
 import styled from 'styled-components';
 
-export const Table = styled.table`
-  display: table;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452);
-  max-width: 100%;
-`;
-
-export const Tr = styled.tr`
-  .Field-item{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 15px;
-    text-align: center;
-    justify-content: center;
-    background-color: #f5f2f2;
-    height: 10px;
-    padding: 10px 50px;
+export const Section = styled.table`
     border-collapse: collapse;
+    width: 100%;
+    align-self: center;
+    font-family: 'OpenSans';
+    font-size: 18px;
+    margin-top: 10px ;
+  
+  table {
+    border-collapse: collapse;
+    align-self: center;
+  }
+
+  th, td {
+    border-bottom: 1px solid rgb(243, 244, 237);
+    text-align: center;
+    margin-bottom: 2%;
+  }
+
+  th {
+    background-color: rgb(243, 244, 237);
+    padding: 8px;
+  }
+
+  tr:nth-child( even ) {
+  }
+
+  tr:hover {
+    background-color: rgb(243, 244, 237);
+  }
+
+  td {
+    align-items: center;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 42px;
+    text-align: center;
+  }
+
+  .Field-item{
+    width: 12%;
+    border-radius: 8px;
+    color: rgb(27, 26, 23);
+    
   }
   .Field-name{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 15px;
-    text-align: center;
-    background-color: #f5f2f2;
-    height: 10px;
-    padding: 3px 20px;
-    border-collapse: collapse;
+    width: 12%;
+    border-radius: 8px;
+    color: rgb(27, 26, 23);
   }
   .Field-email{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 15px;
-    text-align: center;
-    background-color: #f5f2f2;
-    padding: 3px 20px;
-    border-collapse: collapse;
-  }
-  .Field-type{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 15px;
-    text-align: center;
-    background-color: #f5f2f2;
-    padding: 3px 20px;
-    border-collapse: collapse;
-  }
-  .Field-delete{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 15px;
-    text-align: center;
-    background-color: #f5f2f2;
-    padding: 3px 20px;
-    border-collapse: collapse;
+    width: 12%;
+    border-radius: 8px;
+    color: rgb(27, 26, 23);
   }
   .User-id{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 15px;
-    background-color: #2FC18C;
-    border-radius: 7px 0% 0 7px;
-    padding: 3px 20px;
-    border-collapse: collapse;
-    text-align: center;
+    background-color: rgb(149, 158, 158);
+    width: 12%;
+    border-radius: 4px;
+    color: rgb(243, 244, 237);
   }
+
   .User-name{
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 16px;
     text-align: center;
-    background-color: #e0dada;
-    padding: 3px 20px;
-    border-collapse: collapse;
+    padding-inline-start: 10px;
   }
 
   .User-email{
-    font-family: "Roboto";
     font-style: normal;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    background-color: #036B52;
-    color: #e0dada;
-    padding: 3px 20px;
-    border-collapse: collapse;
+    padding-inline: 25px;
   }
   .User-role{
-    font-family: "Roboto";
     font-style: normal;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    background-color: #421981;
-    color: #e0dada;
-    padding: 3px 20px;
-    border-collapse: collapse;
-    
   }
   .Adm-btn{
     border-radius: 0px 7px 9px 0px;
-    background-color: #421981;
-    padding: 3px 20px;
-    border-collapse: collapse;
 
-      .Adm-btn-delete{
-   margin-top: 15px;
-  border-color:  #036B52;
-  border-radius: 0;
-  color:  #036B52;
+  .Adm-btn-delete{
+  border: none;
+  background-color: rgb(255, 99, 99);
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 18px 16px;
+  width: 70%;
+  color: rgb(143, 255, 99);
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -123,19 +108,21 @@ export const Tr = styled.tr`
           transform: translateX(-50%);
   width: 0;
   height: 100%;
-  background:  #f1251d;
+  background:  rgb(143, 255, 99);
   z-index: -1;
   -webkit-transition: width 150ms ease-in-out;
   transition: width 150ms ease-in-out;
 }
 .Adm-btn-delete:hover {
-  color: #fff;
+  color: rgb(255, 99, 99);
 }
 .Adm-btn-delete:hover:after {
   width: 110%;
 }
     }
 
-  
+`;
 
+export const Tr = styled.tr`
+  
 `;
