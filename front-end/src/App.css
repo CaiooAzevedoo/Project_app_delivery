@@ -42,6 +42,9 @@
 
   --background-color: rgb(235, 235, 235);
 }
+body{
+  background-color: var(--background-color);
+}
 
 .App {
   align-items: center;
