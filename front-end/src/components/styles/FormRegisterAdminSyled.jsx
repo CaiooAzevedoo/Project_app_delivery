@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 const Form = styled.form`
     display: flex;
-    box-shadow: rgb(0 0 0 / 45%) 2px 2px 4px;
-    background-color: rgb(243, 244, 237);
+    /* box-shadow: rgb(0 0 0 / 45%) 2px 2px 4px; */
+    /* background-color: rgb(243, 244, 237);
+    background-color: var(--color-orange); */
+    /* background-color: #000000c5; */
+    color: #F2FFFC;
     width: 100%;
     font-family: "OpenSans";
     font-size: 18px;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   .form-container-title{
     max-width: 100%;
     font-size: 30px;
     font-weight: bold;
+    margin-top: 10px;
   }
 .user-data-container{
   margin-top: .5%;

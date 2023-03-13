@@ -1,21 +1,24 @@
 import styled from 'styled-components';
 
 export const Section = styled.table`
+    /* background-color: #ffa60089; */
     border-collapse: collapse;
     width: 100%;
     align-self: center;
     font-family: 'OpenSans';
     font-size: 18px;
-    margin-top: 10px ;
+    /* margin-top: 10px; */
   
   table {
     border-collapse: collapse;
     align-self: center;
+    background-color: rgb(243, 244, 237);
   }
 
   th, td {
     border-bottom: 1px solid rgb(243, 244, 237);
     text-align: center;
+    /* background-color: var(--color-orange); */
     margin-bottom: 2%;
   }
 

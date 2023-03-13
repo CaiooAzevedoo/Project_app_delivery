@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import FormRegisterAdmin from '../components/FormRegisterAdmin';
 import AdmTable from '../components/AdmTable';
+import Background from './styles/AdmManageStyles';
 
 function AdmManage() {
   const [count, setCount] = useState(false);
   return (
-    <div>
+    <Background>
       <NavBar />
 
       <FormRegisterAdmin setCount={ setCount } />
       <AdmTable count={ count } />
 
-    </div>
+    </Background>
   );
 }
 
