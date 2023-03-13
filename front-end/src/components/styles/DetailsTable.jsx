@@ -10,12 +10,12 @@ const Li = styled.li`
 
   div {
     background-color: #b1c2be39;
-    width: 114vh;
+    width: 90%;
     height: 40px;
     column-gap: 20px;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #0000003d;
+    border: 1px solid #00000029;
     border-radius: 8px;
   }
 
@@ -58,6 +58,14 @@ const Li = styled.li`
     :hover {
       background-color: #1b9478;
     }
+  }
+
+  #disabled {
+    background-color: var(--color-grew);
+  }
+
+  #enable {
+    background-color: var(--color-green-dark)
   }
 `;
 
