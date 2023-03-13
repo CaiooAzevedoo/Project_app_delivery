@@ -69,20 +69,21 @@ const NavBarStyles = styled.main`
 
   .button-exit {
     font-size: var(--font-title);
-    background-color: var(--color-orange);
+    background-color: var(--color-red);
     /* background-image: linear-gradient(
       45deg, var(--color-black), rgba(255, 129, 3, 0.685)); */
     margin-right: 7px;
     min-height: 55px;
     color: white;
-    width: 15%;
+    font-weight: bold;
+    width: 8%;
     border-radius: 20px;
-    border: 2px solid var(--color-orange);
+    border: none;
     box-sizing: border-box;   
     text-align: center;
     display: block;
     :hover {
-      background-color: var(--color-orange);
+      background-color: var(--color-red-hover);
     }
   }
 `;

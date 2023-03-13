@@ -10,11 +10,13 @@
 
   --color-white: rgb(253, 254, 251);
 
-  --color-grew: rgb(149, 158, 158);
+  --color-grey: rgb(149, 158, 158);
 
-  --color-grew-dark: rgb(66, 70, 66);
+  --color-grey-dark: rgb(66, 70, 66);
 
   --color-red: rgb(255, 99, 99);
+
+  --color-red-hover: rgb(232, 38, 38);
 
   --color-yellow: rgb(248, 180, 0);
 
@@ -34,14 +36,11 @@
 
   --font-family: 'Roboto' 'sans-serif';
 
-  --text-color-white: rgb(255, 255, 255);
+  --text-color-white: white;
 
-  --text-color-black: rgb(0, 0, 0);
+  --text-color-black: rgb(27, 26, 23);
 
   --background-color: rgb(235, 235, 235);
-}
-body{
-  background-color: var(--color-orange);
 }
 
 .App {
