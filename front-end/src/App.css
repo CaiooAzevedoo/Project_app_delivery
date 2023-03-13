@@ -9,7 +9,9 @@
   --color-brown: rgb(163, 87, 9);
 
   --color-white: rgb(253, 254, 251);
-
+  
+  --color-grey-light: rgb(208, 211, 211);
+  
   --color-grey: rgb(149, 158, 158);
 
   --color-grey-dark: rgb(66, 70, 66);
@@ -23,6 +25,10 @@
   --color-green: rgb(78, 148, 79);
 
   --color-green-dark: rgb(64, 151, 67);
+
+  --color-green-register: rgb(3, 107, 82);
+
+  --color-green-register-hover: rgb(143, 255, 99);
 
   --border-radius: 4px;
 
