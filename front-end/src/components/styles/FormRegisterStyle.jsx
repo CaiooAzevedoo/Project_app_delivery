@@ -57,7 +57,7 @@ const Form = styled.form`
     margin-bottom: 50%;
   }
   .login-btn-register {
-    height: 44px;
+    min-height: 44px;
     width: 90%;
     margin-bottom:4%;
     color: rgb(243, 244, 237);
