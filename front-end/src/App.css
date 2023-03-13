@@ -41,6 +41,8 @@
   --text-color-black: rgb(27, 26, 23);
 
   --background-color: rgb(235, 235, 235);
+
+  --border-radius: 8px;
 }
 
 /* body {

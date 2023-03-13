@@ -113,44 +113,45 @@ function Checkout() {
       </table>
 
       <form>
-        <div>
-          <p>Vendedor(a) responsável</p>
-          <RoleOption setSellerId={ setSellerId } />
-        </div>
-        <div>
-          <p> Endereço </p>
-          <input
-            type="text"
-            className="adress-input"
-            data-testid="customer_checkout__input-address"
-            onChange={ ({ target: { value } }) => {
-              setPayload((prev) => ({ ...prev, deliveryAddress: value }));
-            } }
-          />
-        </div>
-        <div>
-          <p>Número</p>
-          <input
-            type="text"
-            className="number-input"
-            data-testid="customer_checkout__input-address-number"
-            onChange={ ({ target: { value } }) => {
-              setPayload((prev) => ({ ...prev, deliveryNumber: value }));
-            } }
-          />
+        <div className="main">
+          <div className="inputs">
+            <p>Vendedor(a) responsável</p>
+            <RoleOption setSellerId={ setSellerId } />
+          </div>
+          <div className="inputs">
+            <p> Endereço </p>
+            <input
+              type="text"
+              className="adress-input"
+              data-testid="customer_checkout__input-address"
+              onChange={ ({ target: { value } }) => {
+                setPayload((prev) => ({ ...prev, deliveryAddress: value }));
+              } }
+            />
+          </div>
+          <div className="inputs">
+            <p>Número</p>
+            <input
+              type="text"
+              className="number-input"
+              data-testid="customer_checkout__input-address-number"
+              onChange={ ({ target: { value } }) => {
+                setPayload((prev) => ({ ...prev, deliveryNumber: value }));
+              } }
+            />
+          </div>
         </div>
         <div>
           <button
             type="submit"
+            id="finalize-order"
             data-testid="customer_checkout__button-submit-order"
             onClick={ handleCheckout }
           >
             Finalizar pedido
           </button>
         </div>
-
       </form>
-
     </Main>
   );
 }
