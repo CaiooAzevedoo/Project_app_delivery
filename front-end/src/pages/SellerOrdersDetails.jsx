@@ -4,6 +4,9 @@ import getOrderBySellerId from '../Api/Orders';
 import { updateSales } from '../Api/Sales';
 import NavBar from '../components/NavBar';
 import HeadersTableSellerDetails, { emTransito } from './Utils/variables';
+import Section from '../components/styles/DetailsTable';
+import Main from './styles/Checkout';
+import TotalPrice from '../components/TotalPriceStyle';
 
 function SellerOrdersDetails() {
   const [order, setOrder] = useState({});
@@ -40,11 +43,12 @@ function SellerOrdersDetails() {
   };
 
   return (
-    <main>
+    <Main>
       <NavBar />
-      <section>
-        <section>
+      <Section>
+        <div>
           <p
+            id="id"
             data-testid="seller_order_details__element-order-details-label-order-id"
           >
             { order.id }
@@ -79,7 +83,7 @@ function SellerOrdersDetails() {
           >
             Saiu para entrega
           </button>
-        </section>
+        </div>
         <table>
           <thead>
             <tr>
@@ -145,15 +149,16 @@ function SellerOrdersDetails() {
             )}
           </tbody>
         </table>
-      </section>
+      </Section>
       {(order.totalPrice) && (
-        <div
+        <TotalPrice
+          id="total-price"
           data-testid="seller_order_details__element-order-total-price"
         >
           { (order.totalPrice).replace('.', ',') }
-        </div>
+        </TotalPrice>
       )}
-    </main>
+    </Main>
   );
 }
 

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -32,8 +33,16 @@ const Section = styled.section`
     border-radius: 10px;
   }
 
-  #status {
+  #Entregue {
     background: rgba(0, 204, 155, 0.75);
+  }
+
+  #Pendente {
+    background-color: var(--color-orange);
+  }
+
+  #em-transito {
+    background-color: rgb(248, 180, 0);
   }
 
   button {

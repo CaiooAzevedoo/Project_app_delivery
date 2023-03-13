@@ -32,7 +32,7 @@ function DetailsTable({ sale, index }) {
 
         </p>
         <p
-          id="status"
+          id={ saleStatus === 'Em Trânsito' ? 'em-transito' : saleStatus }
           data-testid={
             `customer_order_details__element-order-details-label-delivery-status${index}`
           }

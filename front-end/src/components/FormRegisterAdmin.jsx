@@ -46,7 +46,10 @@ function FormRegisterAdmin({ setCount }) {
 
   return (
     <Form className="form-container">
+      <div className="form-container-title">
 
+        Cadastrar novo usuário
+      </div>
       <div className="user-data-container">
         <label
           className="user-data-name"

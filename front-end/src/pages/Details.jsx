@@ -34,8 +34,20 @@ function Details() {
   useEffect(() => {
     const request = async () => {
       const { data } = await getSalesByUserId();
-      console.log(data, 'retorno da api');
-      setSales((data) || []);
+      if (data.length > 0) {
+        setSales(data);
+        const newSales = [];
+        // setListOrders(data.products);
+        data.forEach((sale) => {
+          sale.products.forEach((product) => {
+            newSales.push({
+              ...product,
+              quantity: product.salesProduct.quantity,
+            });
+          });
+        });
+        setListOrders(newSales);
+      }
     };
     request();
   }, []);

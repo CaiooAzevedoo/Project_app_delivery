@@ -14,11 +14,11 @@ const Section = styled.section`
     display: flex;
     position: relative;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 4px;
     left: 5%;
     top: 10px;
     z-index: 1;
-    background-color: #1abd1a1c;
+    background-color: rgba(255, 129, 3, 0.384);
     width: 70px;
     height: 40px;
     p {
@@ -28,7 +28,6 @@ const Section = styled.section`
 
   
   .product-image {
-    animation-name: sizecard 2s;
     height: 180px;
     text-align: center;
     img {
@@ -37,7 +36,7 @@ const Section = styled.section`
   }
   
   .secund-section {
-    background-color: aliceblue;
+    background-color: rgba(26, 189, 26, 0.11);
     text-align: center;
     border-radius: var(--border-radius);
   }
