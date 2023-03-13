@@ -41,6 +41,7 @@ function App() {
       <Route path="/customer/orders" element={ <Orders /> } />
       <Route
         path="/admin/manage"
+        className="background-page"
         element={
           <RegisterProvider><AdmManage /></RegisterProvider>
         }

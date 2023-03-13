@@ -5,7 +5,8 @@ import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
 import { Main } from '../components/styles/Login';
-import loginImg from '../components/styles/images/login-img.png';
+import loginImg from '../components/styles/images/login.png';
+import logo from '../components/styles/images/img-logo.png';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
@@ -65,11 +66,12 @@ function Login() {
 
   return (
     <Main>
-      <img
-        src={ loginImg }
-        alt="not found"
-      />
       <section className="content-login">
+        <img
+          className="logo-img"
+          src={ logo }
+          alt="not found"
+        />
         <fieldset
           className="login-form"
           onSubmit={ handleSubmit }
@@ -120,8 +122,14 @@ function Login() {
               </p>
             ) : null
           }
-
         </fieldset>
+      </section>
+      <section className="section-img">
+        <img
+          className="login-img"
+          src={ loginImg }
+          alt="not found"
+        />
       </section>
 
     </Main>
