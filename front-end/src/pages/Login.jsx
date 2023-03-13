@@ -5,7 +5,7 @@ import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
 import { Main } from '../components/styles/Login';
-import logo from '../components/styles/images/logo.png';
+import logo from '../components/styles/images/logo-red.png';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
