@@ -2,20 +2,7 @@ import styled from 'styled-components';
 
 const Form = styled.form`
     display: flex;
-    /* box-shadow: rgb(0 0 0 / 45%) 2px 2px 4px; */
-    /* background-color: rgb(243, 244, 237);
-    background-color: var(--color-orange); */
-    /* background-color: #000000c5; */
-    /* color: #F2FFFC;
-    width: 80%;
-    font-family: "OpenSans";
-    font-size: 18px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center; */
-    /* margin-top: 10px; */
-    color: rgb(242, 255, 252);
-    /* width: 60%; */
+    color: var(--color-white);
     font-family: OpenSans;
     font-size: 18px;
     flex-flow: row wrap;
@@ -25,9 +12,14 @@ const Form = styled.form`
     align-items: baseline;
     justify-content: center;
     flex-direction: column;
+    margin-top: 2%;
+    margin-bottom: 1%;
     
     h1{
-      text-align: center;
+      text-align: left;
+      color: var(--color-black);
+      margin-bottom: 1%;
+      margin-left: 2%;
     }
   .form-container-title{
     max-width: 100%;
@@ -43,6 +35,7 @@ const Form = styled.form`
   text-align: left;
   flex-direction: row;
   justify-content: space-around;
+  color: var(--color-black);
   
   .user-data-name{
     display: flex;
@@ -50,8 +43,11 @@ const Form = styled.form`
     text-align: left;
     width: 15%;
     .user-data-name-input{
-      border-radius: 5px;
-      max-width: 100%;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      border-radius: 8px;
+      width: 100%;
+      height: 26px;
+      margin-bottom: 4px;
     }
   }
   .user-data-email{
@@ -60,8 +56,11 @@ const Form = styled.form`
     text-align: left;
     width: 15%;
     .user-data-email-input{
-      border-radius: 5px;
-      max-width: 100%;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      border-radius: 8px;
+      width: 100%;
+      height: 26px;
+      margin-bottom: 4px;
     }
   }
   .user-data-password{
@@ -70,8 +69,11 @@ const Form = styled.form`
     text-align: left;
     width: 15%;
     .user-data-password-input{
-      border-radius: 5px;
-      max-width: 100%;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      border-radius: 8px;
+      width: 100%;
+      height: 26px;
+      margin-bottom: 4px;
     }
   }
 
@@ -81,18 +83,21 @@ const Form = styled.form`
     text-align: left;
     width: 15%;
     .user-data-role-select{
-      border-radius: 5px;
-      max-width: 100%;
+      border: 1px solid rgba(30, 29, 26, 0.357);
+      border-radius: 8px;
+      width: 100%;
+      height: 26px;
+      margin-bottom: 4px;
     }
   }
   .adm-btn-cadastrar{
   border: none;
-  background-color: #036B52;
+  background-color: var(--color-green-register);
   border-radius: 8px;
   font-size: 18px;
   font-weight: bold;
   padding: 18px 16px;
-  color:  rgb(143, 255, 99);
+  color:  var(--color-green-register-hover);
   width: 120px;
 
   position: relative;
@@ -111,13 +116,13 @@ const Form = styled.form`
           transform: translateX(-50%);
   width: 0;
   height: 100%;
-  background:  rgb(143, 255, 99);
+  background:  var(--color-green-register-hover);
   z-index: -1;
   -webkit-transition: width 150ms ease-in-out;
   transition: width 150ms ease-in-out;
 }
 .adm-btn-cadastrar:hover {
-  color: #036B52;
+  color: var(--color-green-register);
 }
 .adm-btn-cadastrar:hover:after {
   width: 110%;

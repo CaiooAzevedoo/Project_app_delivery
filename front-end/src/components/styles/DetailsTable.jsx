@@ -11,12 +11,14 @@ const Li = styled.li`
   div {
     background-color: #b1c2be39;
     width: 90%;
-    height: 40px;
+    height: 44px;
     column-gap: 20px;
     display: flex;
-    justify-content: space-between;
+    align-content: center;
+    justify-content: center;
     border: 1px solid #00000029;
     border-radius: 8px;
+    padding-right: 3px;
   }
 
   #id {
@@ -35,25 +37,30 @@ const Li = styled.li`
 
   #Entregue {
     background: var(--color-green);
+    margin-top: 2px;
   }
 
   #Pendente {
     background-color: var(--color-red);
+    margin-top: 2px;
   }
 
   #em-transito {
     background-color: var(--color-yellow);
+    margin-top: 2px;
   }
 
   button {
+    /* display: flex;
     align-items: center;
-    justify-content: center;
-    display: flex;
+    justify-content: center; */
     height: 40px;
-    width: 40%;
+    width: 25%;
+    font-size: 16px;
     color: var(--color-black);
     background-color: var(--color-green-dark);
     border-radius: 8px;
+    margin-top: 2px;
     border: none;
     :hover {
       background-color: #1b9478;
@@ -61,7 +68,7 @@ const Li = styled.li`
   }
 
   #disabled {
-    background-color: var(--color-grew);
+    background-color: var(--color-grey);
   }
 
   #enable {

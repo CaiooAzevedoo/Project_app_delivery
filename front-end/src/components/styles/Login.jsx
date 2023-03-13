@@ -4,23 +4,26 @@ export const Main = styled.main`
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
-  align-content: flex-star;
+  align-content: center;
+  justify-content: center;
   font-family: 'OpenSans';
   height: 100vh;
+  background-color: rgb(255, 99, 99);
+
   
   .content-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: var(--color-orange);
+    height: 80vh;
+    width: 40%;
+    border-radius: 14px;
   }
 
   .logo-img {
     height: 27%;
-    width: 20%;
+    width: 35%;
     margin-bottom: 10%;
     margin-top: -6%;
   }
@@ -29,8 +32,8 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 25%;
-    height: 45%;
+    width: 55%;
+    height: 55%;
     border-style: none;
     border-radius: 14px;
     align-items: center;
@@ -45,7 +48,7 @@ export const Main = styled.main`
   }
 
   .login {
-    color: var(--color-orange);
+    color: var(--color-red);
     font-size: 36px;
     font-weight: bold;
     margin-top: 2%;
@@ -76,7 +79,7 @@ export const Main = styled.main`
     color: white;
     text-align: center;
     font-size: 20px;
-    background: var(--color-orange);
+    background: var(--color-red);
     font-weight: bold;
   }
   .login-btn-register {
@@ -88,13 +91,13 @@ export const Main = styled.main`
     border-radius: 20px;
     text-align: center;
     font-size: 20px;
-    background: var(--color-orange);
+    background: var(--color-red);
     font-weight: bold;
   }
 
   .login-btn-register, .login-btn-login {
     :hover {
-      background-color: rgba(225, 133, 40, 0.835); 
+      background-color: var(--color-red-hover); 
     }
   }
 
@@ -103,7 +106,7 @@ export const Main = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 165, 0);
+    background-color: var(--color-orange);
     height: 100vh;
     width: 50%;
   }

@@ -1,24 +1,23 @@
 import styled from 'styled-components';
 
 export const Section = styled.table`
-    /* background-color: #ffa60089; */
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    margin: auto;
+    height: 20px;
     align-self: center;
     font-family: 'OpenSans';
-    font-size: 18px;
-    /* margin-top: 10px; */
-  
+
   table {
     border-collapse: collapse;
     align-self: center;
-    background-color: rgb(243, 244, 237);
+    background-color: var(--color-white);
+    
   }
 
   th, td {
     border-bottom: 1px solid rgb(243, 244, 237);
     text-align: center;
-    /* background-color: var(--color-orange); */
     margin-bottom: 2%;
   }
 
@@ -44,43 +43,40 @@ export const Section = styled.table`
 
   .Field-item{
     width: 12%;
-    border-radius: 8px;
-    color: rgb(27, 26, 23);
+    color: var(--color-black);
     
   }
   .Field-name{
     width: 12%;
-    border-radius: 8px;
-    color: rgb(27, 26, 23);
+    color: var(--color-black);
   }
   .Field-email{
     width: 12%;
-    border-radius: 8px;
-    color: rgb(27, 26, 23);
+    color: var(--color-black);
   }
   .User-id{
     background-color: rgb(149, 158, 158);
     width: 12%;
     border-radius: 4px;
-    color: rgb(243, 244, 237);
+    color: var(--text-color-white);
   }
 
   .User-name{
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     padding-inline-start: 10px;
   }
 
   .User-email{
     font-style: normal;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     padding-inline: 25px;
   }
   .User-role{
     font-style: normal;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
   }
   .Adm-btn{
@@ -88,20 +84,20 @@ export const Section = styled.table`
 
   .Adm-btn-delete{
   border: none;
-  background-color: rgb(255, 99, 99);
+  background-color: var(--color-red);
   border-radius: 8px;
   font-size: 18px;
   font-weight: bold;
   padding: 18px 16px;
-  width: 70%;
-  color: rgb(143, 255, 99);
+  width: 50%;
+  color: var(--color-white);
   position: relative;
   overflow: hidden;
   z-index: 1;
   -webkit-transition: color 150ms ease-in-out;
   transition: color 150ms ease-in-out;
 }
-.Adm-btn-delete:after {
+/* .Adm-btn-delete:after {
   content: '';
   position: absolute;
   display: block;
@@ -111,16 +107,20 @@ export const Section = styled.table`
           transform: translateX(-50%);
   width: 0;
   height: 100%;
-  background:  rgb(143, 255, 99);
+  background: var(--color-red);
   z-index: -1;
   -webkit-transition: width 150ms ease-in-out;
   transition: width 150ms ease-in-out;
 }
 .Adm-btn-delete:hover {
-  color: rgb(255, 99, 99);
+  color: var(--color-red-hover);
 }
 .Adm-btn-delete:hover:after {
   width: 110%;
+} */
+
+.Adm-btn-delete:hover {
+  background-color: var(--color-red-hover);
 }
     }
 
