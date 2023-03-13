@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Main = styled.main`
   ul {
-    height: 210px;
+    height: 41vh;
     overflow-y: auto;
 
     ::-webkit-scrollbar {

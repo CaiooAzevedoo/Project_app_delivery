@@ -102,54 +102,68 @@ const Main = styled.main`
 
   form {
     display: flex;
-    margin-top: 6%;
-    text-align: center;
-    margin-bottom: 20%;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 75%;
-    column-gap: 5px;
     justify-content: space-evenly;
     align-items: center;
-    color: rgb(27, 26, 23);
     font-size: 18px;
-    border: 1px solid red;
+    margin: 3% auto 1% auto;
 
     select {
       height: 26px;
       width: 100%;
       border-radius: 8px;
       border: 1px solid rgba(30, 29, 26, 0.357);
-      margin-bottom: 4px;
+      margin-bottom: 4%;
     }
 
-    div {
+    .inputs {
       display: flex;
       flex-direction: column;
-      width: 20%;
+      width: 19.5%;
       column-gap: 505px;
 
       .adress-input {
-      height: 26px;
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid rgba(30, 29, 26, 0.357);
-      margin-bottom: 4px;
+        height: 26px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid rgba(30, 29, 26, 0.357);
+        margin-bottom: 4%;
       }
 
-    .number-input {
-      height: 26px;
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid rgba(30, 29, 26, 0.357);
-      margin-bottom: 4px;
-
+      .number-input {
+        height: 26px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid rgba(30, 29, 26, 0.357);
+        margin-bottom: 4%;
+      }
     }
+
+    #finalize-order {
+      height: 40px;
+      width: 270px;
+      border: none;
+      background-color: var(--color-green-dark);
+      border-radius: var(--border-radius);
+      :hover {
+        background-color: var(--color-green);
+      }
     }
 
     p {
       margin-bottom: 8px;
       text-align: center;
-
+    }
+    
+    .main {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      column-gap: 20px;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 16px;
     }
   }
 `;

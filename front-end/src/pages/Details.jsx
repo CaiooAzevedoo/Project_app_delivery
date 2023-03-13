@@ -21,6 +21,10 @@ function Details() {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
+    console.log(list);
+  }, [list]);
+
+  useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
     const { id } = getLocalStorage('user');
 
