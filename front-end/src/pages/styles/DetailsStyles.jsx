@@ -1,8 +1,25 @@
 import styled from 'styled-components';
 
 const Main = styled.main`
-  background-color: rgba(24, 34, 49, 0.034);
-  min-height: 100vh;
+  ul {
+    height: 210px;
+    overflow-y: auto;
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(241, 241, 241, 0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(114, 90, 90, 0);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(85, 85, 85, 0);
+    }
+  }
 `;
 
 export default Main;

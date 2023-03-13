@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Section = styled.section`
+const Li = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@ const Section = styled.section`
     column-gap: 20px;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #c246301a;
+    border: 1px solid #0000003d;
     border-radius: 8px;
   }
 
@@ -34,15 +34,15 @@ const Section = styled.section`
   }
 
   #Entregue {
-    background: rgba(0, 204, 155, 0.75);
+    background: var(--color-green);
   }
 
   #Pendente {
-    background-color: var(--color-orange);
+    background-color: var(--color-yellow);
   }
 
   #em-transito {
-    background-color: rgb(248, 180, 0);
+    background-color: var(--color-red);
   }
 
   button {
@@ -52,7 +52,7 @@ const Section = styled.section`
     height: 40px;
     width: 40%;
     color: #F2FFFC;
-    background-color: #036B52;
+    background-color: var(--color-green-dark);
     border-radius: 8px;
     border: none;
     :hover {
@@ -61,4 +61,4 @@ const Section = styled.section`
   }
 `;
 
-export default Section;
+export default Li;

@@ -6,7 +6,7 @@ import TableProducts from '../components/TableProducts';
 import { getLocalStorage } from '../localstorage';
 import Main from './styles/DetailsStyles';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
-import MainCheckout from './styles/Checkout';
+import Section from './styles/TableProductsStyle';
 
 function Details() {
   const [list, setListOrders] = useState([]);
@@ -55,7 +55,7 @@ function Details() {
   return (
     <Main>
       <NavBar />
-      <section>
+      <ul>
         {(sales.length > 0) && (sales.map(
           (sale, index) => (
             <DetailsTable
@@ -65,8 +65,8 @@ function Details() {
             />
           ),
         ))}
-      </section>
-      <MainCheckout>
+      </ul>
+      <Section>
         <table>
           <thead>
             <tr>
@@ -90,7 +90,7 @@ function Details() {
           </tbody>
           <p
             type="button"
-            className="total-value-checkout"
+            className="total-value-details"
             data-testid="customer_order_details__element-order-total-price"
             id="total"
             name="total"
@@ -103,7 +103,7 @@ function Details() {
             }
           </p>
         </table>
-      </MainCheckout>
+      </Section>
     </Main>
   );
 }
