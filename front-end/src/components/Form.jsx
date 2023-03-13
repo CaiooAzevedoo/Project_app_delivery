@@ -1,55 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import validateName from './utils/RegisterValidation';
-import MainContext from '../context/MainContext';
-import { submitIsAllowed } from '../pages/Utils/Login.utils';
-import { createUserAdm } from '../Api/User';
-import Form from './styles/FormRegisterAdminSyled';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-function FormRegisterAdmin({ setCount }) {
-  const { register, setRegister } = useContext(MainContext);
-  useEffect(
-    () => {
-      const { email, password, name } = register;
-      if (submitIsAllowed(email, password) && validateName(name)) {
-        setRegister((prev) => ({ ...prev, submitIsDisable: false }));
-      } else setRegister((prev) => ({ ...prev, submitIsDisable: true }));
-    },
-    [register.email, register.password, register.name],
-  );
-
-  const handleChange = ({ target: { value, name } }) => {
-    setRegister((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleClick = async (e) => {
-    e.preventDefault();
-    try {
-      let test = {};
-      const request = async () => {
-        const { email, password, name, role } = register;
-        const { status, date } = await createUserAdm({
-          email, password, name, role });
-        test = date;
-        const statusNotFound = 409;
-        if (status === statusNotFound) {
-          setRegister((prev) => ({ ...prev, notFound: true }));
-        }
-      };
-      await request();
-      setCount((prev) => !prev);
-      console.log(test);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+function Form({ handleChange, handleClick, register }) {
   return (
-    <Form className="form-container">
-      <h1 className="form-container-title">
-
+    <form className="form-container">
+      <div className="form-container-title">
         Cadastrar novo usuário
-      </h1>
+      </div>
       <div className="user-data-container">
         <label
           className="user-data-name"
@@ -138,12 +95,8 @@ function FormRegisterAdmin({ setCount }) {
           ) : null
         }
       </div>
-    </Form>
+    </form>
   );
 }
 
-FormRegisterAdmin.propTypes = {
-  setCount: PropTypes.func.isRequired,
-};
-
-export default FormRegisterAdmin;
+export default Form;

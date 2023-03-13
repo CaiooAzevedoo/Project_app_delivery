@@ -6,14 +6,29 @@ const Form = styled.form`
     /* background-color: rgb(243, 244, 237);
     background-color: var(--color-orange); */
     /* background-color: #000000c5; */
-    color: #F2FFFC;
-    width: 100%;
+    /* color: #F2FFFC;
+    width: 80%;
     font-family: "OpenSans";
     font-size: 18px;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     /* margin-top: 10px; */
+    color: rgb(242, 255, 252);
+    /* width: 60%; */
+    font-family: OpenSans;
+    font-size: 18px;
+    flex-flow: row wrap;
+    place-content: center flex-end;
+    -webkit-box-pack: end;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    
+    h1{
+      text-align: center;
+    }
   .form-container-title{
     max-width: 100%;
     font-size: 30px;
@@ -33,27 +48,30 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 15%;
     .user-data-name-input{
       border-radius: 5px;
-      max-width: 80%;
+      max-width: 100%;
     }
   }
   .user-data-email{
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 15%;
     .user-data-email-input{
       border-radius: 5px;
-      max-width: 80%;
+      max-width: 100%;
     }
   }
   .user-data-password{
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 15%;
     .user-data-password-input{
       border-radius: 5px;
-      max-width: 80%;
+      max-width: 100%;
     }
   }
 
@@ -61,9 +79,10 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 15%;
     .user-data-role-select{
       border-radius: 5px;
-      max-width: 80%;
+      max-width: 100%;
     }
   }
   .adm-btn-cadastrar{
@@ -74,6 +93,8 @@ const Form = styled.form`
   font-weight: bold;
   padding: 18px 16px;
   color:  rgb(143, 255, 99);
+  width: 120px;
+
   position: relative;
   overflow: hidden;
   z-index: 1;

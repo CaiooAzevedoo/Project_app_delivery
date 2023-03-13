@@ -20,9 +20,7 @@
 
   --color-green: rgb(78, 148, 79);
 
-  --color-green-dark: rgb(56, 96, 57);
-
-  --color-green-dark: rgb(154, 37, 160);
+  --color-green-dark: rgb(64, 151, 67);
 
   --border-radius: 4px;
 
@@ -35,6 +33,12 @@
   --font-button: 14px;
 
   --font-family: 'Roboto' 'sans-serif';
+
+  --text-color-white: rgb(255, 255, 255);
+
+  --text-color-black: rgb(0, 0, 0);
+
+  --background-color: rgb(235, 235, 235);
 }
 body{
   background-color: var(--color-orange);
