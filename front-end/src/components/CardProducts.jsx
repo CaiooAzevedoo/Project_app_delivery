@@ -100,7 +100,7 @@ function CardProducts({ iten }) {
           />
         </div>
       </section>
-      <section className="secund-section">
+      <section className="second-section">
         <p
           data-testid={ `customer_products__element-card-title-${iten.id}` }
         >

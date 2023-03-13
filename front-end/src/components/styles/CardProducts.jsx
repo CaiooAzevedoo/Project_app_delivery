@@ -18,7 +18,7 @@ const Section = styled.section`
     left: 5%;
     top: 10px;
     z-index: 1;
-    background-color: rgba(255, 129, 3, 0.384);
+    /* background-color: rgba(255, 129, 3, 0.384); */
     width: 70px;
     height: 40px;
     p {
@@ -34,7 +34,7 @@ const Section = styled.section`
     }
   }
   
-  .secund-section {
+  .second-section {
     background-color:rgb(234, 241, 241);
     text-align: center;
     border-radius: var(--border-radius);
@@ -65,7 +65,7 @@ const Section = styled.section`
   }
 
   .btn-rm {
-    background-color: rgb(255, 131, 3);
+    background-color: var(--color-red);
     border: none;
     border-radius: 4px;
     height: 30px;

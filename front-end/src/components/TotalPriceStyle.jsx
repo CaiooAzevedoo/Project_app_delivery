@@ -6,7 +6,7 @@ const TotalPrice = styled.div`
   justify-content: center;
   align-items: center;
   height: 30px;
-  width: 100px;
+  width: 300px;
   border-radius: 8px;
   background-color: var(--color-green);
 `;

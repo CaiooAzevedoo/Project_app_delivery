@@ -32,7 +32,7 @@ function TotalPriceButton() {
           disabled={ productsOfLocal.length < 1 }
           onClick={ () => navigate('/customer/checkout') }
         >
-          Ver Carrinho: R$
+          Ver carrinho: R$
         </button>
         <p
           className={ productsOfLocal.length < 1 ? 'disabled' : 'enable' }

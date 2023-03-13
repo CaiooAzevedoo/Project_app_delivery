@@ -6,31 +6,44 @@ const Section = styled.section`
   bottom: 10%;
   display: flex;
   justify-content: center;
-  left: 85%;
+  left: 80%;
   position: fixed;
+  color: white;
+  font-weight: bold;
 
   div {
     display: flex;
     border-radius: 8px;
+<<<<<<< HEAD
     padding-right: 30px;
+=======
+    padding-left: 10px;
+    padding-right: 10px;
+>>>>>>> 409002157cecc3e954cfad5ddaae7b2c9fdfda03
   }
 
   p {
     opacity: .3;
+    font-size: var(--font-title);
+    color: white;
+    font-weight: bold;
   }
 
   button {
     background-color: rgb(8, 34, 0.8);
+    color: white;
+    font-weight: bold;
     border-radius: 8px;
     border: none;
+    font-size: var(--font-title);
   }
 
   .enable {
-    background-color: rgb(63, 211, 66);
+    background-color: var(--color-green);
   }
 
   .disabled {
-    background-color: var(--color-grew);
+    background-color: var(--color-grey);
   }
 
   #total {
