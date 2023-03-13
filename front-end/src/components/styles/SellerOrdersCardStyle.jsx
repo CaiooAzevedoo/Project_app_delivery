@@ -37,19 +37,19 @@ const Section = styled.section`
     }
 
     #Pendente {
-      background-color: #CCB800BF;
+      background-color: var(--color-red);
     }
 
     #Preparando {
-      background-color: #66CC00;
+      background-color: var(--color-yellow)
     }
 
     #Entregue {
-      background-color: #26f0ad;
+      background: var(--color-green);
     }
 
     #Em-Transito {
-      background-color: #00ccbb;
+      background-color: var(--color-yellow);
     }
 
     section {

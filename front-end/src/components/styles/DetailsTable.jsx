@@ -38,11 +38,11 @@ const Li = styled.li`
   }
 
   #Pendente {
-    background-color: var(--color-yellow);
+    background-color: var(--color-red);
   }
 
   #em-transito {
-    background-color: var(--color-red);
+    background-color: var(--color-yellow);
   }
 
   button {
