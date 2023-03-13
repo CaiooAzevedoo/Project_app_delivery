@@ -4,9 +4,10 @@ import getOrderBySellerId from '../Api/Orders';
 import { updateSales } from '../Api/Sales';
 import NavBar from '../components/NavBar';
 import HeadersTableSellerDetails, { emTransito } from './Utils/variables';
-import Section from '../components/styles/DetailsTable';
-import Main from './styles/Checkout';
+// import Section from '../components/styles/DetailsTable';
+// import Main from './styles/Checkout';
 import TotalPrice from '../components/TotalPriceStyle';
+import Main from './styles/SellerOrderDetailsStyle';
 
 function SellerOrdersDetails() {
   const [order, setOrder] = useState({});
@@ -45,7 +46,7 @@ function SellerOrdersDetails() {
   return (
     <Main>
       <NavBar />
-      <Section>
+      <section>
         <div>
           <p
             id="id"
@@ -68,6 +69,7 @@ function SellerOrdersDetails() {
           <button
             type="button"
             name="Preparando"
+            className={ buttonState.Preparando && 'disabled' }
             data-testid="seller_order_details__button-preparing-check"
             disabled={ buttonState.Preparando }
             onClick={ handleClick }
@@ -77,8 +79,9 @@ function SellerOrdersDetails() {
           <button
             type="button"
             name="Em Trânsito"
+            className={ buttonState[emTransito] && 'disabled' }
             data-testid="seller_order_details__button-dispatch-check"
-            disabled={ buttonState['Em Trânsito'] }
+            disabled={ buttonState[emTransito] }
             onClick={ handleClick }
           >
             Saiu para entrega
@@ -99,7 +102,7 @@ function SellerOrdersDetails() {
               order.products.map((item, index) => (
                 <tr key={ index }>
                   <td
-                    className="index-table-checkout"
+                    className="index-table"
                     data-testid={
                       `customer_checkout__element-order-table-item-number-${index}`
                     }
@@ -115,7 +118,7 @@ function SellerOrdersDetails() {
                     {item.name}
                   </td>
                   <td
-                    className="quantity-table-checkout"
+                    className="quantity-table"
                     data-testid={
                       `customer_checkout__element-order-table-quantity-${index}`
                     }
@@ -124,7 +127,7 @@ function SellerOrdersDetails() {
 
                   </td>
                   <td
-                    className="unit-value-table-checkout"
+                    className="unit-value-table"
                     data-testid={
                       `customer_checkout__element-order-table-unit-price-${index}`
                     }
@@ -133,7 +136,7 @@ function SellerOrdersDetails() {
 
                   </td>
                   <td
-                    className="sub-total-table-checkout"
+                    className="sub-total-table"
                     data-testid={
                       `customer_checkout__element-order-table-sub-total-${index}`
                     }
@@ -149,7 +152,7 @@ function SellerOrdersDetails() {
             )}
           </tbody>
         </table>
-      </Section>
+      </section>
       {(order.totalPrice) && (
         <TotalPrice
           id="total-price"
