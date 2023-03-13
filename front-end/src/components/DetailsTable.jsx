@@ -41,6 +41,7 @@ function DetailsTable({ sale, index }) {
         </p>
         <button
           type="button"
+          className="delivery"
           id={ saleStatus === 'Em Trânsito' ? 'enable' : 'disabled' }
           data-testid="customer_order_details__button-delivery-check"
           disabled={
