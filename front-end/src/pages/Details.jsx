@@ -6,7 +6,7 @@ import TableProducts from '../components/TableProducts';
 import { getLocalStorage } from '../localstorage';
 import Main from './styles/DetailsStyles';
 import { calcTotalPrice } from './Utils/CheckoutUtils';
-import Section from './styles/TableProductsStyle';
+import Table from './styles/TableProductsStyle';
 
 function Details() {
   const [list, setListOrders] = useState([]);
@@ -66,44 +66,42 @@ function Details() {
           ),
         ))}
       </ul>
-      <Section>
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Descrição</th>
-              <th>Quantidade</th>
-              <th>Valor Unitário</th>
-              <th>Sub-total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              list.map((item, index) => (
-                <TableProducts
-                  key={ index }
-                  item={ item }
-                  index={ index }
-                />
-              ))
-            }
-          </tbody>
-          <p
-            type="button"
-            className="total-value-details"
-            data-testid="customer_order_details__element-order-total-price"
-            id="total"
-            name="total"
-          >
-            Valor Total: R$
-            {' '}
-            {
-              list.length > 0
-                ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
-            }
-          </p>
-        </table>
-      </Section>
+      <Table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário</th>
+            <th>Sub-total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            list.map((item, index) => (
+              <TableProducts
+                key={ index }
+                item={ item }
+                index={ index }
+              />
+            ))
+          }
+        </tbody>
+        <p
+          type="button"
+          className="total-value-details"
+          data-testid="customer_order_details__element-order-total-price"
+          id="total"
+          name="total"
+        >
+          Valor Total: R$
+          {' '}
+          {
+            list.length > 0
+              ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
+          }
+        </p>
+      </Table>
     </Main>
   );
 }

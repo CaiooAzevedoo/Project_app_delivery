@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-const Section = styled.section`
-  color: rgb(27, 26, 23);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'OpenSans';
-  font-size: 18px;
+const Table = styled.table`
+  width: 80%;
+  margin: auto;
 
   table {
     border-collapse: collapse;
@@ -133,4 +129,4 @@ const Section = styled.section`
   }
 `;
 
-export default Section;
+export default Table;
