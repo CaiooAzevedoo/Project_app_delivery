@@ -14,8 +14,12 @@ const Section = styled.section`
   div {
     display: flex;
     border-radius: 8px;
+<<<<<<< HEAD
+    padding-right: 30px;
+=======
     padding-left: 10px;
     padding-right: 10px;
+>>>>>>> 409002157cecc3e954cfad5ddaae7b2c9fdfda03
   }
 
   p {
