@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { updateSales } from '../Api/Sales';
-import Section from './styles/DetailsTable';
+import Li from './styles/DetailsTable';
 
 function DetailsTable({ sale, index }) {
   const [saleStatus, setSaleStatus] = useState(sale.status);
@@ -11,7 +11,7 @@ function DetailsTable({ sale, index }) {
   };
 
   return (
-    <Section>
+    <Li>
       <div>
         <p
           id="id"
@@ -52,7 +52,7 @@ function DetailsTable({ sale, index }) {
           Marcar como entregue
         </button>
       </div>
-    </Section>
+    </Li>
   );
 }
 
