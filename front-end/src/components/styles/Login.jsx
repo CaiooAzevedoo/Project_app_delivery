@@ -21,13 +21,14 @@ export const Main = styled.main`
   .logo-img {
     height: 27%;
     width: 30%;
+    margin-bottom: 6%;
   }
 
   fieldset {
     display: flex;
     flex-direction: column;
-    background-color: rgb(243, 244, 237);
-    width: 60%;
+    background-color: rgba(243, 244, 237, 0.462);
+    width: 55%;
     height: 50%;
     border-style: none;
     border-radius: 14px;
@@ -38,13 +39,12 @@ export const Main = styled.main`
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin-top: 5%;
-    padding: 14px;
+    padding: 10px;
   }
 
   .login {
-    color:rgb(255, 130, 5);
-    font-size: 32px;
+    color:rgb(255, 130, 5, 0.786);
+    font-size: 36px;
     font-weight: bold;
     margin-top: 2%;
     margin-bottom: 4%;
@@ -73,7 +73,7 @@ export const Main = styled.main`
     color: rgb(243, 244, 237);
     text-align: center;
     font-size: 20px;
-    background: rgb(255, 130, 5);
+    background: rgb(255, 130, 5, 0.786);
   }
   .login-btn-register {
     height: 44px;
@@ -85,7 +85,7 @@ export const Main = styled.main`
     border-radius: 20px;
     text-align: center;
     font-size: 20px;
-    background: rgb(255, 130, 5);
+    background: rgb(255, 130, 5, 0.786);
   }
 
   .login-btn-register, .login-btn-login {
@@ -99,7 +99,7 @@ export const Main = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 130, 5);
+    background-color: rgba(255, 130, 5, 0.786);
     height: 100vh;
     width: 50%;
   }
