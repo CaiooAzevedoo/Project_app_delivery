@@ -5,8 +5,7 @@ import MainContext from '../context/MainContext';
 import { submitIsAllowed } from './Utils/Login.utils';
 import { setLocalstorage, getLocalStorage } from '../localstorage';
 import { Main } from '../components/styles/Login';
-import loginImg from '../components/styles/images/login.png';
-import logo from '../components/styles/images/img-logo.png';
+import logo from '../components/styles/images/logo.png';
 
 function Login() {
   const { login, setLogin } = useContext(MainContext);
@@ -76,7 +75,7 @@ function Login() {
           className="login-form"
           onSubmit={ handleSubmit }
         >
-          <p className="login">Login</p>
+          <p className="login">Bem vindo!</p>
           <input
             className="inputslogin"
             type="email"
@@ -124,14 +123,6 @@ function Login() {
           }
         </fieldset>
       </section>
-      <section className="section-img">
-        <img
-          className="login-img"
-          src={ loginImg }
-          alt="not found"
-        />
-      </section>
-
     </Main>
   );
 }

@@ -25,7 +25,6 @@ const Section = styled.section`
       margin-left: 5px;
     }
   }
-
   
   .product-image {
     height: 180px;
@@ -36,7 +35,7 @@ const Section = styled.section`
   }
   
   .secund-section {
-    background-color: rgba(26, 189, 26, 0.11);
+    background-color:rgb(234, 241, 241);
     text-align: center;
     border-radius: var(--border-radius);
   }

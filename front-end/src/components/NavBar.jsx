@@ -36,56 +36,50 @@ function NavBar() {
 
   return (
     <NavBarStyles>
-      <section
-        className="first-section"
+      <div
+        data-testid="customer_products__element-navbar-link-products"
+        className="link-Produtos"
+        id={
+          (path === '/customer/products') && ('selected')
+        }
       >
-        <div
-          data-testid="customer_products__element-navbar-link-products"
-          className="link-Produtos"
-          id={
-            (path === '/customer/products') && ('selected')
-          }
-        >
-          { path === '/admin/manage'
-            ? ('Gerenciar usuários')
-            : (<Link to="/customer/products">Produtos</Link>) }
-        </div>
-        {
-          (currectRoute()) && (
-            <div
-              id={
-                (path === '/seller/orders'
+        { path === '/admin/manage'
+          ? ('Gerenciar usuários')
+          : (<Link to="/customer/products">Produtos</Link>) }
+      </div>
+      {
+        (currectRoute()) && (
+          <div
+            id={
+              (path === '/seller/orders'
                 || path === '/customer/orders')
                 && ('selected')
-              }
-              className="maus-pedidos-nav-bar"
-              data-testid="customer_products__element-navbar-link-orders"
-            >
-              { rotaSelerDetails.test(path) ? (
-                <Link to="/seller/orders">Meus Pedidos</Link>
-              ) : (
-                <Link to="/customer/orders">Meus Pedidos</Link>
-              )}
-            </div>
-          )
-        }
-      </section>
-      <section className="secund-section">
-        <div
-          className="user-name"
-          data-testid="customer_products__element-navbar-user-full-name"
-        >
-          { navBarState.userDate.name }
-        </div>
-        <button
-          className="button-exit"
-          type="button"
-          data-testid="customer_products__element-navbar-link-logout"
-          onClick={ handleLogout }
-        >
-          Sair
-        </button>
-      </section>
+            }
+            className="maus-pedidos-nav-bar"
+            data-testid="customer_products__element-navbar-link-orders"
+          >
+            { rotaSelerDetails.test(path) ? (
+              <Link to="/seller/orders">Meus Pedidos</Link>
+            ) : (
+              <Link to="/customer/orders">Meus Pedidos</Link>
+            )}
+          </div>
+        )
+      }
+      <div
+        className="user-name"
+        data-testid="customer_products__element-navbar-user-full-name"
+      >
+        { navBarState.userDate.name }
+      </div>
+      <button
+        className="button-exit"
+        type="button"
+        data-testid="customer_products__element-navbar-link-logout"
+        onClick={ handleLogout }
+      >
+        Sair
+      </button>
     </NavBarStyles>
   );
 }

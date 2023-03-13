@@ -14,36 +14,38 @@ export const Main = styled.main`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 50%;
-    display: flex;
+    width: 100%;
+    background-color: var(--color-orange);
   }
 
   .logo-img {
     height: 27%;
-    width: 30%;
-    margin-bottom: 6%;
+    width: 20%;
+    margin-bottom: 10%;
+    margin-top: -6%;
   }
 
   fieldset {
     display: flex;
     flex-direction: column;
-    background-color: rgba(243, 244, 237, 0.462);
-    width: 55%;
-    height: 50%;
+    background-color: white;
+    width: 25%;
+    height: 45%;
     border-style: none;
     border-radius: 14px;
     align-items: center;
     text-align: center;
-    color: rgb(27, 26, 23);
+    color: var(--color-black);
     font-size: 30px;
     justify-content: center;
     align-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 8px;
+    margin-top: -6%;
   }
 
   .login {
-    color:rgb(255, 130, 5, 0.786);
+    color: var(--color-orange);
     font-size: 36px;
     font-weight: bold;
     margin-top: 2%;
@@ -52,8 +54,8 @@ export const Main = styled.main`
 
   .inputslogin {
     height: 44px;
-    margin-top:2%;
-    margin-bottom:2%;
+    margin-top:6%;
+    margin-bottom:4%;
     width: 90%;
     border: none;
     border-radius: 20px;
@@ -61,31 +63,33 @@ export const Main = styled.main`
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 4px;
+    background-color: rgb(231, 243, 243);
   }
 
   .login-btn-login {
     height: 44px;
     width: 90%;
-    margin-top:2%;
+    margin-top:4%;
     margin-bottom:2%;
     border: none;
     border-radius: 20px;
-    color: rgb(243, 244, 237);
+    color: white;
     text-align: center;
     font-size: 20px;
-    background: rgb(255, 130, 5, 0.786);
+    background: var(--color-orange);
+    font-weight: bold;
   }
   .login-btn-register {
     height: 44px;
     width: 90%;
-    margin-top:2%;
-    margin-bottom:8%;
+    margin-bottom:4%;
     color: rgb(243, 244, 237);
     border: none;
     border-radius: 20px;
     text-align: center;
     font-size: 20px;
-    background: rgb(255, 130, 5, 0.786);
+    background: var(--color-orange);
+    font-weight: bold;
   }
 
   .login-btn-register, .login-btn-login {
@@ -99,7 +103,7 @@ export const Main = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 130, 5, 0.786);
+    background-color: rgb(255, 165, 0);
     height: 100vh;
     width: 50%;
   }

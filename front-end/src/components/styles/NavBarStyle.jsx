@@ -9,25 +9,12 @@ const NavBarStyles = styled.main`
     rgba(255, 129, 3, 0.253)); */
   display: flex;
   justify-content: space-between;
+  align-content: center;
   align-items: center;
-  margin: 0.01px;
-  font-size: 15px;
+  font-size: var(--font-title);
+  font-weight: bold;
   max-width: 100%;
   box-shadow: 0px 1px 7px;
-
-  section {
-    display: flex;
-    width: 60%;
-  }
-
-  .secund-section {
-    align-items: center;
-    justify-content: end;
-  }
-
-  .selected {
-    background-color: #2FC18C;
-  }
 
   .link-Produtos {
     align-items: center;
@@ -81,7 +68,7 @@ const NavBarStyles = styled.main`
   }
 
   .button-exit {
-    font-size: var(--font-button);
+    font-size: var(--font-title);
     background-color: var(--color-orange);
     /* background-image: linear-gradient(
       45deg, var(--color-black), rgba(255, 129, 3, 0.685)); */
