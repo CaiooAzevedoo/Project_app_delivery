@@ -44,7 +44,7 @@ function NavBar() {
         }
       >
         { path === '/admin/manage'
-          ? ('Gerenciar usuários')
+          ? (<p>Gerenciar usuários</p>)
           : (<Link to="/customer/products">Produtos</Link>) }
       </div>
       {

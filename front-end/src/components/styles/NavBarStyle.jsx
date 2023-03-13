@@ -25,6 +25,7 @@ const NavBarStyles = styled.main`
     max-width: 35%;
     font-style: normal;
     text-align: start;
+    color: #F2FFFC;
     a {
       color: #F2FFFC;
       text-decoration: none;
