@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getSalesByUserId } from '../Api/Sales';
 import DetailsTable from '../components/DetailsTable';
 import NavBar from '../components/NavBar';
@@ -21,8 +22,8 @@ function Details() {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
-    console.log(list);
-  }, [list, sales]);
+    console.log(sales);
+  }, [sales]);
 
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
@@ -36,18 +37,18 @@ function Details() {
     setListOrders(listLocal);
   }, []);
 
+  const { id } = useParams();
+
   useEffect(() => {
     const request = async () => {
       const { data } = await getSalesByUserId();
       if (data.length > 0) {
-        setSales(data);
+        setSales(data[parseInt(id, 10) - 1]);
         const newSales = [];
-        data.forEach((sale) => {
-          sale.products.forEach((product) => {
-            newSales.push({
-              ...product,
-              quantity: product.salesProduct.quantity,
-            });
+        sales.products.forEach((product) => {
+          newSales.push({
+            ...product,
+            quantity: product.salesProduct.quantity,
           });
         });
         setListOrders(newSales);
@@ -60,15 +61,14 @@ function Details() {
     <Main>
       <NavBar />
       <ul>
-        {(sales.length > 0) && (sales.map(
-          (sale, index) => (
+        {
+          (sales.id) && (
             <DetailsTable
-              key={ sale.id }
-              sale={ sale }
-              index={ index }
+              key={ sales.id }
+              sale={ sales }
             />
-          ),
-        ))}
+          )
+        }
       </ul>
       <Table>
         <thead>

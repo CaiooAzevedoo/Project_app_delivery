@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { updateSales } from '../Api/Sales';
 import Li from './styles/DetailsTable';
 
-function DetailsTable({ sale, index }) {
+function DetailsTable({ sale }) {
   const [saleStatus, setSaleStatus] = useState(sale.status);
   const handleClick = async () => {
     await updateSales('Entregue', sale.id);
@@ -34,7 +34,7 @@ function DetailsTable({ sale, index }) {
         <p
           id={ saleStatus === 'Em Trânsito' ? 'em-transito' : saleStatus }
           data-testid={
-            `customer_order_details__element-order-details-label-delivery-status${index}`
+            'customer_order_details__element-order-details-label-delivery-status'
           }
         >
           {saleStatus}
