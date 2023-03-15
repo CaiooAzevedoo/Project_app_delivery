@@ -6,6 +6,8 @@ import { submitIsAllowed } from '../pages/Utils/Login.utils';
 import { createUser } from '../Api/User';
 import './styles/FormRegister.css';
 import { setLocalstorage } from '../localstorage';
+import Form from './styles/FormRegisterStyle';
+import logo from './styles/images/logo-red.png';
 
 function FormRegister() {
   const { register, setRegister } = useContext(MainContext);
@@ -46,12 +48,19 @@ function FormRegister() {
   };
 
   return (
-    <form className="form-container">
-      <h1>Cadastro</h1>
+    <Form className="form-container">
+
       <div className="user-data-container">
-        <div>
+        <img
+          className="logo-img"
+          src={ logo }
+          alt="not found"
+        />
+
+        <fieldset>
+          <p className="title">Cadastro</p>
           <label htmlFor="name">
-            Nome
+            {/* Nome */}
             <input
               className="user-date-register"
               type="text"
@@ -64,7 +73,7 @@ function FormRegister() {
           </label>
 
           <label htmlFor="email">
-            Email
+            {/* Email */}
             <input
               className="user-date-register"
               type="email"
@@ -77,7 +86,7 @@ function FormRegister() {
           </label>
 
           <label htmlFor="password">
-            Senha
+            {/* Senha */}
             <input
               className="user-date-register"
               type="password"
@@ -90,6 +99,7 @@ function FormRegister() {
           </label>
 
           <button
+            className="login-btn-register"
             type="submit"
             data-testid="common_register__button-register"
             disabled={ register.submitIsDisable }
@@ -106,9 +116,9 @@ function FormRegister() {
               </p>
             ) : null
           }
-        </div>
+        </fieldset>
       </div>
-    </form>
+    </Form>
   );
 }
 

@@ -1,6 +1,7 @@
 const md5 = require('md5');
 const { Op } = require('sequelize');
 const { user } = require('../database/models');
+const jwtUtil = require('../utils/jwt.util');
 
 const checkUser = async ({ name, email }) => {
   const check = await user.findOne({
@@ -21,12 +22,20 @@ const checkUser = async ({ name, email }) => {
 
 const createUser = async ({ name, email, password }) => {
   const safePassword = md5(password);
-  const result = await user.create({
+  const create = await user.create({
     name,
     email,
     password: safePassword,
   });
 
+ 
+  const token = jwtUtil.createToken(safePassword);
+  const result = { 
+    id: create.id,
+    name: create.name,
+    email: create.email,
+    password: token,
+  }
   return { type: 201, result };
 };
 
