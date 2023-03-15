@@ -22,7 +22,7 @@ function Details() {
 
   useEffect(() => {
     console.log(list);
-  }, [list]);
+  }, [list, sales]);
 
   useEffect(() => {
     const listLocal = getLocalStorage('carrinho');
@@ -102,7 +102,7 @@ function Details() {
           {' '}
           {
             list.length > 0
-              ? String(payload.totalPrice.toFixed(2)).replace('.', ',') : 0
+            && String(payload.totalPrice.toFixed(2)).replace('.', ',')
           }
         </p>
       </Table>
