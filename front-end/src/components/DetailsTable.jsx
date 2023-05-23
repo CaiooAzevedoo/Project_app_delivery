@@ -33,9 +33,8 @@ function DetailsTable({ sale }) {
         </p>
         <p
           id={ saleStatus === 'Em Trânsito' ? 'em-transito' : saleStatus }
-          data-testid={
-            'customer_order_details__element-order-details-label-delivery-status'
-          }
+          data-testid="
+          customer_order_details__element-order-details-label-delivery-status"
         >
           {saleStatus}
         </p>
@@ -60,7 +59,7 @@ function DetailsTable({ sale }) {
 
 DetailsTable.propTypes = {
   sale: PropTypes.objectOf.isRequired,
-  index: PropTypes.number.isRequired,
+  // index: PropTypes.number.isRequired,
 };
 
 export default DetailsTable;

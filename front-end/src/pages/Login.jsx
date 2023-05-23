@@ -17,7 +17,7 @@ function Login() {
     if (data && data.role) {
       navigate('/customer/products');
     }
-  }, []);
+  }, [navigate]);
 
   useEffect(
     () => {
@@ -26,7 +26,7 @@ function Login() {
         setLogin((prev) => ({ ...prev, submitIsDisable: false }));
       } else setLogin((prev) => ({ ...prev, submitIsDisable: true }));
     },
-    [login.email, login.password],
+    [login, login.email, login.password, setLogin],
   );
 
   const handleChange = ({ target: { value, name } }) => {

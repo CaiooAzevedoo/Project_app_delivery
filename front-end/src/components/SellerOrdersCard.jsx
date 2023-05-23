@@ -21,7 +21,7 @@ function SellerOrderCard({ sale }) {
         </div>
         <p
           className="status"
-          id={ sale.status === 'Em Trânsito' ? ('Em-Transito') : (sale.status)  }
+          id={ sale.status === 'Em Trânsito' ? ('Em-Transito') : (sale.status) }
           data-testid={ `seller_orders__element-delivery-status-${sale.id}` }
         >
           { sale.status }
