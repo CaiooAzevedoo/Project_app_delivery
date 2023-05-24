@@ -46,7 +46,8 @@ const Main = styled.main`
     cursor: pointer;
     font-size: 18px;
     padding: 18px 16px;
-    width: 70%;
+    width: 100%;
+  
   }
 
   td {
@@ -88,16 +89,17 @@ const Main = styled.main`
 
   .total-value-checkout {
     background-color: rgb(78, 148, 79);
-    width: 140%;
+    border: none;
+    width: 100%;
     color: rgb(243, 244, 237);
     font-weight: bold;
     border-radius: 8px;
     font-size: 18px;
     padding: 18px 16px;
-    align-self: center;
     top: 1%;
-    left: 640%;
-    position: relative;
+    left: 100%;
+    position: sticky;
+    
   }
 
   form {
@@ -152,7 +154,7 @@ const Main = styled.main`
     }
 
     p {
-      margin-bottom: 8px;
+      width: 100%;
       text-align: center;
     }
     

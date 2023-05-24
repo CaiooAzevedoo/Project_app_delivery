@@ -73,8 +73,8 @@ const Table = styled.table`
     padding: 18px 16px;
     align-self: center;
     top: 1%;
-    left: 640%;
-    position: relative;
+    left: 100%;
+    position: sticky;
   }
 
   form {

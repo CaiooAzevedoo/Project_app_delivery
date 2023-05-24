@@ -3,10 +3,10 @@ import styled from 'styled-components';
 const Section = styled.section`
   align-items: center;
   border-radius: 8px;
-  bottom: 10%;
+  bottom: 5%;
   display: flex;
   justify-content: center;
-  left: 80%;
+  left: 85%;
   position: fixed;
   color: white;
   font-weight: bold;
@@ -14,12 +14,8 @@ const Section = styled.section`
   div {
     display: flex;
     border-radius: 8px;
-<<<<<<< HEAD
-    padding-right: 30px;
-=======
     padding-left: 10px;
     padding-right: 10px;
->>>>>>> 409002157cecc3e954cfad5ddaae7b2c9fdfda03
   }
 
   p {
